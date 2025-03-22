@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://k4g6cbkf6g1u"]
+[gd_scene load_steps=65 format=3 uid="uid://k4g6cbkf6g1u"]
 
 [ext_resource type="Texture2D" uid="uid://dhmskaoycv8ik" path="res://Circle_-_black_simple.svg.webp" id="1_4qot5"]
 [ext_resource type="Texture2D" uid="uid://cqi8qb2357hbf" path="res://mouse.png" id="1_n5ntd"]
@@ -9,8 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://d0baek72nt33f" path="res://ye.jpg" id="6_5qlgy"]
 [ext_resource type="Texture2D" uid="uid://cir1mlod3t5xm" path="res://BigStick.png" id="7_5ialq"]
 [ext_resource type="Texture2D" uid="uid://ddvvqaomc6enw" path="res://mousey/ratwalkleft.png" id="7_d1j6j"]
+[ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="7_kpi6v"]
 [ext_resource type="Texture2D" uid="uid://cibf5spr0kcwg" path="res://mousey/ratwalkright.png" id="8_4euf8"]
+[ext_resource type="Texture2D" uid="uid://coe7pl5yi1ydr" path="res://mousey/ratfalldownright.png" id="8_t85ra"]
 [ext_resource type="Texture2D" uid="uid://cc2ow6fit8dyw" path="res://mousey/ratjumpleft.png" id="9_lhsuy"]
+[ext_resource type="Texture2D" uid="uid://bennqcc8g3pln" path="res://mousey/ratfallupleft.png" id="9_uspsl"]
+[ext_resource type="Texture2D" uid="uid://cpvpqewbi3g7d" path="res://mousey/ratfallupright.png" id="10_1fl20"]
 [ext_resource type="Texture2D" uid="uid://cpgyvvk5imgtv" path="res://mousey/ratjumpright.png" id="10_5sdrv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r43ak"]
@@ -234,12 +238,52 @@ _data = {
 &"idle": SubResource("Animation_00ltt")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_grcxj"]
+atlas = ExtResource("7_kpi6v")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4avbe"]
+atlas = ExtResource("7_kpi6v")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwu07"]
+atlas = ExtResource("8_t85ra")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ka7vo"]
+atlas = ExtResource("8_t85ra")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ayw7c"]
+atlas = ExtResource("9_uspsl")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slr2l"]
+atlas = ExtResource("9_uspsl")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iff5"]
+atlas = ExtResource("10_1fl20")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixcgo"]
+atlas = ExtResource("10_1fl20")
+region = Rect2(0, 256, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_uspsl"]
 atlas = ExtResource("7_d1j6j")
 region = Rect2(256, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1fl20"]
 atlas = ExtResource("8_4euf8")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcqkm"]
+atlas = ExtResource("9_lhsuy")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6wnx"]
+atlas = ExtResource("10_5sdrv")
 region = Rect2(256, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxbbh"]
@@ -342,6 +386,50 @@ region = Rect2(256, 512, 256, 256)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_grcxj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4avbe")
+}],
+"loop": true,
+"name": &"falldownleft",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwu07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ka7vo")
+}],
+"loop": true,
+"name": &"falldownright",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ayw7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slr2l")
+}],
+"loop": true,
+"name": &"fallupleft",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iff5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ixcgo")
+}],
+"loop": true,
+"name": &"fallupright",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_uspsl")
 }],
 "loop": true,
@@ -358,6 +446,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_hcqkm")
+}],
+"loop": true,
+"name": &"jumpholdleft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6wnx")
+}],
+"loop": true,
+"name": &"jumpholdright",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wxbbh")
 }, {
 "duration": 1.0,
@@ -370,7 +474,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_dm5u1")
 }],
 "loop": false,
-"name": &"jumpleft",
+"name": &"jumpreadyleft",
 "speed": 12.0
 }, {
 "frames": [{
@@ -387,7 +491,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_3j4e0")
 }],
 "loop": false,
-"name": &"jumpright",
+"name": &"jumpreadyright",
 "speed": 12.0
 }, {
 "frames": [{
@@ -524,7 +628,7 @@ z_index = 10
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_00ltt")
-animation = &"jumpleft"
+animation = &"falldownleft"
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerBody/PlayerAnchor"]
 visible = false
