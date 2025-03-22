@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtl24o8voaudq"]
+
+[ext_resource type="Script" uid="uid://hotwresjtww7" path="res://UI/dialogue_player.gd" id="1_rleks"]
+[ext_resource type="Texture2D" uid="uid://cnriylp7rwyax" path="res://UI/DialogueBack.png" id="2_j8iv0"]
+
+[sub_resource type="FontFile" id="FontFile_ulen4"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_q64cc"]
+font = SubResource("FontFile_ulen4")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(0, 0)
+
+[node name="DialoguePlayer" type="CanvasLayer"]
+script = ExtResource("1_rleks")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -168.0
+offset_right = 256.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_j8iv0")
+
+[node name="Text" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -245.0
+offset_top = -157.0
+offset_right = 245.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_q64cc")
+autowrap_mode = 2

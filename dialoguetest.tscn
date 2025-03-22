@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://gslcvwpaxm8f"]
+
+[ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="1_kkeuq"]
+[ext_resource type="Texture2D" uid="uid://dhmskaoycv8ik" path="res://Circle_-_black_simple.svg.webp" id="2_tbpo3"]
+[ext_resource type="PackedScene" uid="uid://bih3ibwr3qie5" path="res://prefabs/dialogue_area.tscn" id="3_qye3k"]
+[ext_resource type="Texture2D" uid="uid://c75p5haimuao3" path="res://apple.png" id="4_t6066"]
+[ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="5_t6066"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qye3k"]
+size = Vector2(535, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qqld"]
+size = Vector2(96, 76)
+
+[node name="Dialoguetest" type="Node2D"]
+
+[node name="PlayerBody" parent="." instance=ExtResource("1_kkeuq")]
+position = Vector2(521, 106)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(507, 305)
+scale = Vector2(3.56, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_qye3k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(0.793273, 0.032486)
+texture = ExtResource("2_tbpo3")
+
+[node name="DialogueArea" parent="." instance=ExtResource("3_qye3k")]
+position = Vector2(115, 257)
+dialogueKey = "ghost of Christmas past"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="DialogueArea" index="0"]
+shape = SubResource("RectangleShape2D_5qqld")
+
+[node name="Apple" type="Sprite2D" parent="DialogueArea"]
+texture = ExtResource("4_t6066")
+
+[node name="DialoguePlayer" parent="." instance=ExtResource("5_t6066")]
+sceneTextFile = "res://DialogueSystem/Dialogues/tester.json"
+
+[editable path="DialogueArea"]

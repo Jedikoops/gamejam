@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://boe08j1nsmg2b"]
+[gd_scene load_steps=56 format=3 uid="uid://boe08j1nsmg2b"]
 
 [ext_resource type="Script" uid="uid://b0fk0b1brtehp" path="res://scripts/player_body.gd" id="1_f57or"]
 [ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="2_4eoj2"]
@@ -491,6 +491,9 @@ height = 82.6437
 [sub_resource type="CircleShape2D" id="CircleShape2D_n5ntd"]
 radius = 34.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kf6ff"]
+radius = 48.0937
+
 [node name="PlayerBody" type="CharacterBody2D"]
 collision_layer = 17
 collision_mask = 17
@@ -543,6 +546,13 @@ disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n5ntd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_kf6ff")
 
 [connection signal="player_dead" from="." to="." method="_on_player_dead"]
 [connection signal="area_entered" from="PlayerAnchor/Shoulder/WeaponAnchor/Area2D" to="." method="_on_area_2d_area_entered"]
