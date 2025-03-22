@@ -1,6 +1,6 @@
 [gd_scene load_steps=55 format=3 uid="uid://boe08j1nsmg2b"]
 
-[ext_resource type="Script" uid="uid://b0fk0b1brtehp" path="res://player_body.gd" id="1_f57or"]
+[ext_resource type="Script" uid="uid://b0fk0b1brtehp" path="res://scripts/player_body.gd" id="1_f57or"]
 [ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="2_4eoj2"]
 [ext_resource type="Texture2D" uid="uid://coe7pl5yi1ydr" path="res://mousey/ratfalldownright.png" id="3_lti6e"]
 [ext_resource type="Texture2D" uid="uid://bennqcc8g3pln" path="res://mousey/ratfallupleft.png" id="4_mh846"]
@@ -11,6 +11,55 @@
 [ext_resource type="Texture2D" uid="uid://cpgyvvk5imgtv" path="res://mousey/ratjumpright.png" id="9_eoe08"]
 [ext_resource type="Texture2D" uid="uid://cqi8qb2357hbf" path="res://mouse.png" id="10_7f3fc"]
 [ext_resource type="Texture2D" uid="uid://cir1mlod3t5xm" path="res://BigStick.png" id="11_kibih"]
+
+[sub_resource type="Animation" id="Animation_40m2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.383972]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor/Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_hpcau"]
 resource_name = "attack"
@@ -74,55 +123,6 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [true, false, true]
-}
-
-[sub_resource type="Animation" id="Animation_40m2s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.383972]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerAnchor/Shoulder/WeaponAnchor/Area2D/CollisionShape2D:disabled")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_00ltt"]
@@ -492,6 +492,8 @@ height = 82.6437
 radius = 34.0
 
 [node name="PlayerBody" type="CharacterBody2D"]
+collision_layer = 17
+collision_mask = 17
 script = ExtResource("1_f57or")
 
 [node name="WeaponAnim" type="AnimationPlayer" parent="."]
@@ -519,7 +521,6 @@ texture = ExtResource("10_7f3fc")
 [node name="Shoulder" type="Node2D" parent="PlayerAnchor"]
 
 [node name="WeaponAnchor" type="Node2D" parent="PlayerAnchor/Shoulder"]
-position = Vector2(0, -1.98932)
 rotation = -0.383972
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnchor/Shoulder/WeaponAnchor"]
@@ -532,7 +533,6 @@ texture = ExtResource("11_kibih")
 [node name="Area2D" type="Area2D" parent="PlayerAnchor/Shoulder/WeaponAnchor"]
 position = Vector2(26.3602, -12.4554)
 rotation = 0.592337
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 2
 
@@ -544,4 +544,5 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n5ntd")
 
+[connection signal="player_dead" from="." to="." method="_on_player_dead"]
 [connection signal="area_entered" from="PlayerAnchor/Shoulder/WeaponAnchor/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,18 +1,19 @@
 extends CharacterBody2D
+class_name PlayerBody
 
+#WEAPON AND PLAYER, PLAYER, PLAYER
 @onready var weapon_anim: AnimationPlayer = $WeaponAnim
 @onready var player_anchor: Node2D = $PlayerAnchor
-
 @onready var area_2d: Area2D = $PlayerAnchor/Shoulder/WeaponAnchor/Area2D
-
 @onready var anim_mouse: AnimatedSprite2D = $PlayerAnchor/AnimMouse
 @onready var shoulder: Node2D = $PlayerAnchor/Shoulder
 @onready var weapon_sprite: Sprite2D = $PlayerAnchor/Shoulder/WeaponAnchor/Sprite2D
 
+#MOVEMENT VARIABLES
 var right
 var jump
 const FAST = 300.0
-const SLOW = 100.0
+const SLOW = 0.0
 var speed
 const JUMP_VELOCITY = -400.0
 var jump_velocity
@@ -20,7 +21,12 @@ const MIN_JUMP = -300.0
 const MAX_JUMP = -500.0
 const JUMP_CHARGERATE = 300.0
 
-
+signal player_dead
+signal player_ouchie
+#HEALTH
+@export var MAX_HEALTH = 3
+var health
+var damage = 1
 
 func _ready() -> void:
 	right = true
@@ -28,6 +34,7 @@ func _ready() -> void:
 	jump = false
 	speed = FAST
 	jump_velocity = MIN_JUMP
+	set_health(MAX_HEALTH)
 
 func _physics_process(delta: float) -> void:
 	
@@ -99,6 +106,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity += get_gravity() * delta
 	
+	#HEALTH STUFF
 				
 	if direction: #velocity and animations
 		velocity.x = direction * speed
@@ -129,6 +137,21 @@ func _play_idle():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	
-	if(area.get_parent().get_class() == "Node2D"):
-		area.get_parent()._hurt()
+	if(area.name == "HitBox"):
+		area.get_parent()._hurt(damage)
 		print("hit")
+
+
+
+func set_health(value: int):
+	print("knock it off!")
+	health = value
+	player_ouchie.emit()
+	if(health <= 0):
+		player_dead.emit()
+
+func take_damage(value: int):
+	set_health(health - value)
+
+func _on_player_dead() -> void:
+	print("i am dead")
