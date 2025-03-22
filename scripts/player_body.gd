@@ -13,7 +13,7 @@ class_name PlayerBody
 var right
 var jump
 const FAST = 300.0
-const SLOW = 0.0
+const SLOW = 100.0
 var speed
 const JUMP_VELOCITY = -400.0
 var jump_velocity
