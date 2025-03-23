@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://k4g6cbkf6g1u"]
+[gd_scene load_steps=47 format=3 uid="uid://k4g6cbkf6g1u"]
 
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_5nnlr"]
 [ext_resource type="Texture2D" uid="uid://d0baek72nt33f" path="res://ye.jpg" id="1_cgtp0"]
@@ -9,11 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://ptj4k3es8qp4" path="res://bonksf.mp3" id="5_ic1wf"]
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="6_r405y"]
 [ext_resource type="Script" uid="uid://cxovqajwuebwv" path="res://scripts/reactive_text.gd" id="7_tl8b1"]
-[ext_resource type="Script" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
-[ext_resource type="Script" path="res://garbage can/trashbag.gd" id="10_ic1wf"]
+[ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
+[ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://scripts/trashbag.gd" id="10_ic1wf"]
 [ext_resource type="Texture2D" uid="uid://da330djd8oj53" path="res://garbage can/GarbageWalk.png" id="12_r405y"]
 [ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="13_tl8b1"]
+[ext_resource type="Script" uid="uid://v2gb522teghv" path="res://prefabs/cheese_2.gd" id="14_h6013"]
 [ext_resource type="Texture2D" uid="uid://c5nwdt6ffoeca" path="res://cheese.png" id="14_nrrmd"]
+[ext_resource type="PackedScene" path="res://prefabs/spawn_point_holder.tscn" id="15_5kmqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r43ak"]
 size = Vector2(535, 20)
@@ -227,7 +229,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cheese:position:x")
+tracks/0/path = NodePath(".:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -238,7 +240,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cheese:position:y")
+tracks/1/path = NodePath(".:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -252,7 +254,7 @@ resource_name = "hover"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cheese:position:x")
+tracks/0/path = NodePath(".:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -263,7 +265,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cheese:position:y")
+tracks/1/path = NodePath(".:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -345,8 +347,9 @@ stream = ExtResource("5_ic1wf")
 script = ExtResource("8_r405y")
 anim = NodePath("../AnimGiraffe")
 
-[node name="PlayerBody" parent="." instance=ExtResource("6_r405y")]
+[node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("6_r405y")]
 position = Vector2(284, 274)
+spawnPointHolder = NodePath("../SpawnPointHolder")
 
 [node name="Reactive Text" type="Area2D" parent="."]
 position = Vector2(-220, 271)
@@ -383,28 +386,26 @@ shape = SubResource("CircleShape2D_4np2h")
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_4np2h")
 
-[node name="GarbageEnemy" type="Node" parent="."]
-
-[node name="GarbageBag" type="CharacterBody2D" parent="GarbageEnemy"]
+[node name="GarbageBag" type="CharacterBody2D" parent="."]
 position = Vector2(999, 149)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("10_ic1wf")
 
-[node name="HurtPlayer" type="Area2D" parent="GarbageEnemy/GarbageBag"]
+[node name="HurtPlayer" type="Area2D" parent="GarbageBag"]
 script = ExtResource("4_4np2h")
 damage = 1
 metadata/_custom_type_script = "uid://6muyfejx2agd"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageEnemy/GarbageBag/HurtPlayer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageBag/HurtPlayer"]
 shape = SubResource("CircleShape2D_tl8b1")
 
-[node name="Line2D" type="Line2D" parent="GarbageEnemy/GarbageBag"]
+[node name="Line2D" type="Line2D" parent="GarbageBag"]
 top_level = true
 points = PackedVector2Array(1146, 219, 793, 265)
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="GarbageEnemy/GarbageBag"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="GarbageBag"]
 position = Vector2(0, -5)
 scale = Vector2(0.39, 0.39)
 sprite_frames = SubResource("SpriteFrames_pk8uv")
@@ -412,41 +413,44 @@ animation = &"jumpready"
 autoplay = "default"
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageEnemy/GarbageBag"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageBag"]
 shape = SubResource("CircleShape2D_06i16")
 
-[node name="enemy_hurt" type="AudioStreamPlayer" parent="GarbageEnemy/GarbageBag"]
+[node name="enemy_hurt" type="AudioStreamPlayer" parent="GarbageBag"]
 stream = ExtResource("5_ic1wf")
 script = ExtResource("8_r405y")
 
-[node name="detect_player" type="Area2D" parent="GarbageEnemy/GarbageBag"]
+[node name="detect_player" type="Area2D" parent="GarbageBag"]
 position = Vector2(1, -23)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageEnemy/GarbageBag/detect_player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageBag/detect_player"]
 position = Vector2(67, 24)
 shape = SubResource("RectangleShape2D_r405y")
 debug_color = Color(0.943319, 0.73952, 0.900685, 0.42)
 
 [node name="Cheese" type="Node2D" parent="."]
-position = Vector2(1296, 266)
+position = Vector2(192, 292)
+metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Cheese"]
+[node name="Cheese2" type="Area2D" parent="Cheese"]
+script = ExtResource("14_h6013")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cheese/Cheese2"]
 libraries = {
 &"": SubResource("AnimationLibrary_5kmqt")
 }
 autoplay = "hover"
 
-[node name="Cheese" type="Area2D" parent="Cheese"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Cheese/Cheese"]
+[node name="Sprite2D" type="Sprite2D" parent="Cheese/Cheese2"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("14_nrrmd")
-metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cheese/Cheese"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cheese/Cheese2"]
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_5kmqt")
-metadata/_edit_lock_ = true
+
+[node name="SpawnPointHolder" parent="." instance=ExtResource("15_5kmqt")]
+position = Vector2(649, 276)
 
 [connection signal="body_entered" from="Giraffe/HurtPlayer" to="Giraffe/HurtPlayer" method="_on_body_entered"]
 [connection signal="ded" from="Giraffe/enemy_hurt" to="Giraffe" method="_on_enemy_hurt_ded"]
@@ -454,5 +458,6 @@ metadata/_edit_lock_ = true
 [connection signal="body_entered" from="Reactive Text" to="Reactive Text" method="_on_body_entered"]
 [connection signal="body_exited" from="Reactive Text" to="Reactive Text" method="_on_body_exited"]
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]
-[connection signal="body_entered" from="GarbageEnemy/GarbageBag/HurtPlayer" to="GarbageEnemy/GarbageBag/HurtPlayer" method="_on_body_entered"]
-[connection signal="body_entered" from="GarbageEnemy/GarbageBag/detect_player" to="GarbageEnemy/GarbageBag" method="_on_detect_player_body_entered"]
+[connection signal="body_entered" from="GarbageBag/HurtPlayer" to="GarbageBag/HurtPlayer" method="_on_body_entered"]
+[connection signal="body_entered" from="GarbageBag/detect_player" to="GarbageBag" method="_on_detect_player_body_entered"]
+[connection signal="body_entered" from="Cheese/Cheese2" to="Cheese/Cheese2" method="_on_body_entered"]

@@ -29,8 +29,10 @@ signal player_ouchie
 @export var MAX_HEALTH = 3
 var health
 var damage = 1
+var hascheese
 
 func _ready() -> void:
+	hascheese = false
 	weapon_sprite.play("nocheese")
 	right = true
 	_play_idle()
@@ -110,13 +112,22 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	#HEALTH STUFF
+	if Input.is_action_just_pressed("Interact") && hascheese && health < MAX_HEALTH:
+		set_health(health + 1)
+		hascheese = false
 				
 	if direction: #velocity and animations
 		velocity.x = direction * speed
 	else:
 		if(is_on_floor()):
 			velocity.x = move_toward(velocity.x, 0, FAST)
-
+	
+	#WeaponSprite
+	if(hascheese):
+		weapon_sprite.play("cheese")
+	else:
+		weapon_sprite.play("nocheese")
+	
 	#WeaponAttack
 	if Input.is_action_just_pressed("attack"):
 		weapon_anim.play("attack")
@@ -126,7 +137,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		shoulder.scale.x = -1
 		weapon_sprite.z_index = 9
-		
+	
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -139,12 +150,10 @@ func _play_idle():
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	
+	print(area.name)
 	if(area.name == "HitBox"):
 		area.get_parent()._hurt(damage)
 		print("hit")
-	if(area.name == "Cheese"):
-		weapon_sprite.play("cheese")
 
 
 
@@ -166,3 +175,9 @@ func _on_player_dead() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body._hurt(damage)
+	
+func _find_cheese():
+	hascheese = true
+	
+func _eat_cheese():
+	hascheese = true

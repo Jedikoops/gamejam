@@ -7,16 +7,20 @@ extends CharacterBody2D
 var time: float
 var prev_pos: Vector2
 var sprite_xscale
-const SPEED = 200
-const JUMP_HEIGHT = -600
-const JUMP_DISTANCE = -200
+@export var SPEED = 200
+@export var JUMP_HEIGHT = 600
+@export var JUMP_DISTANCE = 200
 var target: PlayerBody
 var patrol
 var hop
 var fly
+@export var idle_patrol: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	line_2d.hide()
+	JUMP_DISTANCE *= -1
+	JUMP_HEIGHT *= -1
 	patrol = true
 	fly = false
 	hop = false
@@ -39,13 +43,14 @@ func _process(delta: float) -> void:
 		patrol = false
 	
 	if(patrol):
-		time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
-		prev_pos = position
-		position.x = _cubic(line_2d.points[0].x, line_2d.points[1].x, abs(fmod(time, 2)-1))
-		sprite.scale.x = move_toward(sprite.scale.x, sign(fmod(time, 2)-1)*abs(sprite_xscale), 10*delta)
+		if(!idle_patrol):
+			time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
+			prev_pos = position
+			position.x = _cubic(line_2d.points[0].x, line_2d.points[1].x, abs(fmod(time, 2)-1))
+			sprite.scale.x = move_toward(sprite.scale.x, sign(fmod(time, 2)-1)*abs(sprite_xscale), 10*delta)
 		detect_player.scale.x = sign(sprite.scale.x)
 	else:
-		sprite.scale.x = -sprite_xscale
+		sprite.scale.x = sprite_xscale * sign(sprite.scale.x)
 		if(fly):
 			look_at(position + (prev_pos - position))
 			rotation_degrees -= 90
@@ -60,7 +65,8 @@ func _process(delta: float) -> void:
 	if(hop):
 		sprite.play("jumpready")
 		velocity.y = JUMP_HEIGHT
-		velocity.x = JUMP_DISTANCE * sign(sprite_xscale)
+		velocity.x = JUMP_DISTANCE * sign(position.x-target.position.x)
+		look_at(target.position)
 
 	
 	velocity.y += get_gravity().y * delta
