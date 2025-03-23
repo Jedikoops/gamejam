@@ -4,6 +4,10 @@ extends Area2D
 @export var textFinishTriggerKey: String = ""
 var triggerReady = false
 
+func _ready() -> void:
+	if $AnimatedSprite2D.sprite_frames != null:
+		$AnimatedSprite2D.play("idle")
+
 func _input(event: InputEvent) -> void:
 	if triggerReady and event.is_action_pressed("Interact"):
 		SignalBus.emit_signal("triggerDialogue", dialogueKey, textFinishTriggerKey)

@@ -1,46 +1,54 @@
-[gd_scene load_steps=18 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=24 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
+[ext_resource type="Texture2D" uid="uid://k7phc48rf3ij" path="res://Non-pixelated images/Plains.jpg" id="2_0giap"]
+[ext_resource type="Texture2D" uid="uid://bb8yd5vfn31mj" path="res://pixelated images/StoneHallSegmentBiggerer.png" id="2_1i7vl"]
 [ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="2_aykru"]
+[ext_resource type="Texture2D" uid="uid://bhj4j3f3cdgiu" path="res://Non-pixelated images/dirt.jpg" id="2_bkxtt"]
 [ext_resource type="PackedScene" uid="uid://bih3ibwr3qie5" path="res://prefabs/dialogue_area.tscn" id="3_ag1ip"]
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="3_aykru"]
 [ext_resource type="Texture2D" uid="uid://6oc6osqrifoc" path="res://npcs/SusBoi.png" id="4_bosin"]
+[ext_resource type="Texture2D" uid="uid://cpvw00gh0m8i7" path="res://pixelated images/Hole.png" id="5_kayiq"]
 [ext_resource type="PackedScene" uid="uid://dbpcmd8qrxgsn" path="res://prefabs/spawn_point_holder.tscn" id="6_dcify"]
 [ext_resource type="PackedScene" uid="uid://y61m7264um26" path="res://prefabs/doorBase.tscn" id="6_e25tj"]
 [ext_resource type="PackedScene" uid="uid://7285cgjxxqbk" path="res://prefabs/spawn_point.tscn" id="7_1i7vl"]
 [ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="8_1d2dd"]
+[ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
 size = Vector2(136, 136)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1d2dd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkxtt"]
 atlas = ExtResource("4_bosin")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4bwmo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ydt"]
 atlas = ExtResource("4_bosin")
 region = Rect2(0, 256, 256, 256)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_dcify"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0giap"]
 animations = [{
 "frames": [{
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_1d2dd")
+"texture": SubResource("AtlasTexture_bkxtt")
 }, {
 "duration": 2.0,
-"texture": SubResource("AtlasTexture_4bwmo")
+"texture": SubResource("AtlasTexture_65ydt")
 }],
 "loop": true,
-"name": &"Idle",
-"speed": 6.0
+"name": &"idle",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlqo"]
-size = Vector2(1958, 20)
+size = Vector2(5678, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag1ip"]
 size = Vector2(20, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1wed"]
+size = Vector2(5630, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
 size = Vector2(8407, 2348)
@@ -56,6 +64,37 @@ offset_right = 884.0
 offset_bottom = 577.0
 rotation = -0.0545242
 texture = ExtResource("1_bosin")
+
+[node name="TextureRect" type="TextureRect" parent="Backgrounds"]
+offset_left = 3043.0
+offset_top = -1458.0
+offset_right = 6918.0
+offset_bottom = 588.0
+rotation = -0.011124
+texture = ExtResource("2_0giap")
+
+[node name="DirtUnderFloor" type="TextureRect" parent="Backgrounds"]
+offset_left = 817.0
+offset_top = 164.0
+offset_right = 6932.0
+offset_bottom = 607.0
+texture = ExtResource("2_bkxtt")
+stretch_mode = 1
+
+[node name="Hallway" type="TextureRect" parent="Backgrounds"]
+offset_left = 811.0
+offset_top = -848.0
+offset_right = 3092.0
+offset_bottom = 176.0
+texture = ExtResource("2_1i7vl")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Backgrounds"]
+offset_left = 4484.0
+offset_top = -50.0
+offset_right = 4785.0
+offset_bottom = 251.0
+texture = ExtResource("5_kayiq")
 
 [node name="UI" parent="." instance=ExtResource("1_sqn0o")]
 
@@ -73,29 +112,33 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" parent="DialogueAreas/DialogueArea" index="0"]
 shape = SubResource("RectangleShape2D_e25tj")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueAreas/DialogueArea"]
-position = Vector2(3, -15)
-scale = Vector2(-0.634089, 0.634089)
-sprite_frames = SubResource("SpriteFrames_dcify")
-animation = &"Idle"
+[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea" index="1"]
+sprite_frames = SubResource("SpriteFrames_0giap")
+animation = &"idle"
 
 [node name="Map Terrain" type="StaticBody2D" parent="."]
 texture_repeat = 2
 position = Vector2(0, 28)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(-216, 0)
+position = Vector2(1644, 0)
 shape = SubResource("RectangleShape2D_nqlqo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(-1208, -278)
 shape = SubResource("RectangleShape2D_ag1ip")
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(7593, 1)
+shape = SubResource("RectangleShape2D_t1wed")
+
 [node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
 position = Vector2(-785, -47)
 
 [node name="SpawnPoint" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
-position = Vector2(694, 0)
+position = Vector2(3314, 5)
 
 [node name="DoorHolder" type="Node2D" parent="."]
 
@@ -104,12 +147,12 @@ position = Vector2(790, -237)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(-678, -278)
+position = Vector2(151, -224)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 
 [node name="OutofBoundsKillBox" type="Area2D" parent="."]
-position = Vector2(0, 1000)
+position = Vector2(1457, 986)
 script = ExtResource("8_1d2dd")
 damage = 9999
 metadata/_custom_type_script = "uid://6muyfejx2agd"
@@ -119,6 +162,34 @@ metadata/_edit_group_ = true
 position = Vector2(-108.5, 804)
 shape = SubResource("RectangleShape2D_4bwmo")
 
+[node name="GarbageBag2" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(2089, -195)
+idle_patrol = true
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag2" index="1"]
+points = PackedVector2Array(1996, 43, 2347, 39)
+
+[node name="Sprite2D" parent="GarbageBag2" index="2"]
+animation = &"standing"
+
+[node name="GarbageBag3" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(1549, -74)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag3" index="1"]
+points = PackedVector2Array(1449, 73, 1846, 65)
+
+[node name="GarbageBag" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(1365, -153)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag" index="1"]
+points = PackedVector2Array(1192, 74, 1581, 75)
+
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 
 [editable path="DialogueAreas/DialogueArea"]
+[editable path="GarbageBag2"]
+[editable path="GarbageBag3"]
+[editable path="GarbageBag"]
