@@ -1,0 +1,124 @@
+[gd_scene load_steps=18 format=3 uid="uid://btpbbon16o8hx"]
+
+[ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
+[ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
+[ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="2_aykru"]
+[ext_resource type="PackedScene" uid="uid://bih3ibwr3qie5" path="res://prefabs/dialogue_area.tscn" id="3_ag1ip"]
+[ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="3_aykru"]
+[ext_resource type="Texture2D" uid="uid://6oc6osqrifoc" path="res://npcs/SusBoi.png" id="4_bosin"]
+[ext_resource type="PackedScene" uid="uid://dbpcmd8qrxgsn" path="res://prefabs/spawn_point_holder.tscn" id="6_dcify"]
+[ext_resource type="PackedScene" uid="uid://y61m7264um26" path="res://prefabs/doorBase.tscn" id="6_e25tj"]
+[ext_resource type="PackedScene" uid="uid://7285cgjxxqbk" path="res://prefabs/spawn_point.tscn" id="7_1i7vl"]
+[ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="8_1d2dd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
+size = Vector2(136, 136)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d2dd"]
+atlas = ExtResource("4_bosin")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bwmo"]
+atlas = ExtResource("4_bosin")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dcify"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_1d2dd")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_4bwmo")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlqo"]
+size = Vector2(1958, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ag1ip"]
+size = Vector2(20, 576)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
+size = Vector2(8407, 2348)
+
+[node name="TowerOfGarbo" type="Node2D"]
+
+[node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="FloorOutside" type="TextureRect" parent="Backgrounds"]
+offset_left = -3212.0
+offset_top = -2495.0
+offset_right = 884.0
+offset_bottom = 577.0
+rotation = -0.0545242
+texture = ExtResource("1_bosin")
+
+[node name="UI" parent="." instance=ExtResource("1_sqn0o")]
+
+[node name="DialoguePlayer" parent="." instance=ExtResource("2_aykru")]
+sceneTextFile = "res://DialogueSystem/Dialogues/towerDialogue.json"
+
+[node name="DialogueAreas" type="Node2D" parent="."]
+
+[node name="DialogueArea" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
+position = Vector2(212, -49)
+dialogueKey = "susBoi Entrance"
+textFinishTriggerKey = "MainEntrance"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea" index="0"]
+shape = SubResource("RectangleShape2D_e25tj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialogueAreas/DialogueArea"]
+position = Vector2(3, -15)
+scale = Vector2(-0.634089, 0.634089)
+sprite_frames = SubResource("SpriteFrames_dcify")
+animation = &"Idle"
+
+[node name="Map Terrain" type="StaticBody2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(-216, 0)
+shape = SubResource("RectangleShape2D_nqlqo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(-1208, -278)
+shape = SubResource("RectangleShape2D_ag1ip")
+
+[node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
+position = Vector2(-785, -47)
+
+[node name="SpawnPoint" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
+position = Vector2(694, 0)
+
+[node name="DoorHolder" type="Node2D" parent="."]
+
+[node name="MainEntrance" parent="DoorHolder" instance=ExtResource("6_e25tj")]
+position = Vector2(790, -237)
+openKey = "MainEntrance"
+
+[node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
+position = Vector2(-678, -278)
+spawnPointHolder = NodePath("../SpawnPointHolder")
+MAX_HEALTH = 10
+
+[node name="OutofBoundsKillBox" type="Area2D" parent="."]
+position = Vector2(0, 1000)
+script = ExtResource("8_1d2dd")
+damage = 9999
+metadata/_custom_type_script = "uid://6muyfejx2agd"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutofBoundsKillBox"]
+position = Vector2(-108.5, 804)
+shape = SubResource("RectangleShape2D_4bwmo")
+
+[connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
+
+[editable path="DialogueAreas/DialogueArea"]

@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://ptj4k3es8qp4" path="res://bonksf.mp3" id="5_ic1wf"]
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="6_r405y"]
 [ext_resource type="Script" uid="uid://cxovqajwuebwv" path="res://scripts/reactive_text.gd" id="7_tl8b1"]
-[ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
-[ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://scripts/trashbag.gd" id="10_ic1wf"]
+[ext_resource type="Script" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
+[ext_resource type="Script" path="res://garbage can/trashbag.gd" id="10_ic1wf"]
 [ext_resource type="Texture2D" uid="uid://da330djd8oj53" path="res://garbage can/GarbageWalk.png" id="12_r405y"]
 [ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="13_tl8b1"]
 [ext_resource type="Texture2D" uid="uid://c5nwdt6ffoeca" path="res://cheese.png" id="14_nrrmd"]
@@ -222,31 +222,6 @@ radius = 37.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r405y"]
 size = Vector2(240, 72)
 
-[sub_resource type="Animation" id="Animation_nrrmd"]
-resource_name = "hover"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cheese:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cheese:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0, -11, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-
 [sub_resource type="Animation" id="Animation_5kmqt"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -270,6 +245,31 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_nrrmd"]
+resource_name = "hover"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cheese:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cheese:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0, -11, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5kmqt"]
@@ -344,7 +344,6 @@ shape = SubResource("RectangleShape2D_40m2s")
 stream = ExtResource("5_ic1wf")
 script = ExtResource("8_r405y")
 anim = NodePath("../AnimGiraffe")
-metadata/_custom_type_script = "uid://betl1i82l8ml7"
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_r405y")]
 position = Vector2(284, 274)
@@ -419,7 +418,6 @@ shape = SubResource("CircleShape2D_06i16")
 [node name="enemy_hurt" type="AudioStreamPlayer" parent="GarbageEnemy/GarbageBag"]
 stream = ExtResource("5_ic1wf")
 script = ExtResource("8_r405y")
-metadata/_custom_type_script = "uid://betl1i82l8ml7"
 
 [node name="detect_player" type="Area2D" parent="GarbageEnemy/GarbageBag"]
 position = Vector2(1, -23)

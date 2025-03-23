@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://7285cgjxxqbk"]
+
+[ext_resource type="Script" uid="uid://x8thw5osxxsu" path="res://spawn_point.gd" id="1_hqf7f"]
+[ext_resource type="Texture2D" uid="uid://bb3qr0i2yap0s" path="res://pixelated images/CursorRespawn.png" id="2_llolk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bt32y"]
+size = Vector2(164, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bdv0"]
+atlas = ExtResource("2_llolk")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpv1h"]
+atlas = ExtResource("2_llolk")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_accxa"]
+atlas = ExtResource("2_llolk")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkb5e"]
+atlas = ExtResource("2_llolk")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkfon"]
+atlas = ExtResource("2_llolk")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt387"]
+atlas = ExtResource("2_llolk")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf26w"]
+atlas = ExtResource("2_llolk")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5y5d7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bdv0")
+}],
+"loop": true,
+"name": &"Activated",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpv1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_accxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkb5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pkfon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mt387")
+}],
+"loop": false,
+"name": &"Activating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf26w")
+}],
+"loop": true,
+"name": &"Deactivated",
+"speed": 5.0
+}]
+
+[node name="SpawnPoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 128
+script = ExtResource("1_hqf7f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bt32y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5y5d7")
+animation = &"Activated"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

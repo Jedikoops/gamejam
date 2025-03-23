@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbpcmd8qrxgsn"]
+
+[ext_resource type="Script" uid="uid://bt7dw7jfx7d5t" path="res://spawn_point_holder.gd" id="1_a8ust"]
+[ext_resource type="PackedScene" uid="uid://7285cgjxxqbk" path="res://prefabs/spawn_point.tscn" id="2_j7l4u"]
+
+[node name="SpawnPointHolder" type="Node2D"]
+script = ExtResource("1_a8ust")
+
+[node name="StartPoint" parent="." instance=ExtResource("2_j7l4u")]

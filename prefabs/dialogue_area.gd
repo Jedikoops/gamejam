@@ -1,12 +1,12 @@
 extends Area2D
 
 @export var dialogueKey = ""
+@export var textFinishTriggerKey: String = ""
 var triggerReady = false
-
 
 func _input(event: InputEvent) -> void:
 	if triggerReady and event.is_action_pressed("Interact"):
-		SignalBus.emit_signal("triggerDialogue", dialogueKey)
+		SignalBus.emit_signal("triggerDialogue", dialogueKey, textFinishTriggerKey)
 
 
 func _on_area_entered(area: Area2D) -> void:

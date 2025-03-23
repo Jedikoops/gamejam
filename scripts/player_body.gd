@@ -9,6 +9,8 @@ class_name PlayerBody
 @onready var shoulder: Node2D = $PlayerAnchor/Shoulder
 @onready var weapon_sprite: AnimatedSprite2D = $PlayerAnchor/Shoulder/WeaponAnchor/WeaponSprite
 
+@export var spawnPointHolder: Node2D
+
 #MOVEMENT VARIABLES
 var right
 var jump
@@ -157,6 +159,8 @@ func take_damage(value: int):
 	set_health(health - value)
 
 func _on_player_dead() -> void:
+	global_position = spawnPointHolder.getSpawnPos()
+	set_health(MAX_HEALTH)
 	print("i am dead")
 
 

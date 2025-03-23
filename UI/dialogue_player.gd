@@ -4,6 +4,7 @@ extends CanvasLayer
 
 var sceneText: Dictionary = {}
 var currentText: Array = []
+var interactable: String = ""
 var inProgress: bool = false
 
 func _ready() -> void:
@@ -26,6 +27,9 @@ func next_line():
 	if currentText.size() > 0:
 		show_text()
 	else:
+		print(interactable)
+		if(interactable != ""):
+			SignalBus.emit_signal("openDoor", interactable)
 		finish()
 
 func interuption():
@@ -37,7 +41,9 @@ func finish():
 	$Background.visible = false
 	inProgress = false
 	
-func on_display_dialog(text_key):
+func on_display_dialog(text_key, interactableKey):
+	if(interactableKey != ""):
+		interactable = interactableKey
 	if inProgress:
 		next_line()
 	else:
