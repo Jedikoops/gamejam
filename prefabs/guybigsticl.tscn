@@ -192,6 +192,19 @@ texture = ExtResource("2_4np2h")
 [node name="GarbageBag" parent="." instance=ExtResource("11_tl8b1")]
 position = Vector2(999, 149)
 
+[node name="GarbageBag2" parent="." instance=ExtResource("11_tl8b1")]
+position = Vector2(1332, 145)
+idle_patrol = true
+
+[node name="Line2D" parent="GarbageBag2" index="1"]
+points = PackedVector2Array(1530, 317, 1039, 302)
+
+[node name="GarbageBag3" parent="." instance=ExtResource("11_tl8b1")]
+position = Vector2(1599, 147)
+
+[node name="Line2D" parent="GarbageBag3" index="1"]
+points = PackedVector2Array(1849, 302, 1366, 312)
+
 [node name="Cheese" parent="." instance=ExtResource("12_nrrmd")]
 position = Vector2(192, 292)
 
@@ -204,3 +217,6 @@ position = Vector2(649, 276)
 [connection signal="body_entered" from="Reactive Text" to="Reactive Text" method="_on_body_entered"]
 [connection signal="body_exited" from="Reactive Text" to="Reactive Text" method="_on_body_exited"]
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]
+
+[editable path="GarbageBag2"]
+[editable path="GarbageBag3"]

@@ -34,6 +34,7 @@ func _process(delta: float) -> void:
 	
 	if(is_on_floor()):
 		fly = false
+		rotation_degrees = 0
 	else:
 		fly = true
 	if(target != null):
