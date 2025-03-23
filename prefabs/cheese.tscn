@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=3 uid="uid://rrvorn304a4s"]
+
+[ext_resource type="Script" uid="uid://v2gb522teghv" path="res://prefabs/cheese_2.gd" id="1_pedng"]
+[ext_resource type="Texture2D" uid="uid://c5nwdt6ffoeca" path="res://cheese.png" id="2_xtf3y"]
+
+[sub_resource type="Animation" id="Animation_5kmqt"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_nrrmd"]
+resource_name = "hover"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0, -11, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kmqt"]
+_data = {
+&"RESET": SubResource("Animation_5kmqt"),
+&"hover": SubResource("Animation_nrrmd")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kmqt"]
+size = Vector2(56, 49)
+
+[node name="Cheese" type="Node2D"]
+metadata/_edit_group_ = true
+
+[node name="Cheese2" type="Area2D" parent="."]
+script = ExtResource("1_pedng")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cheese2"]
+libraries = {
+&"": SubResource("AnimationLibrary_5kmqt")
+}
+autoplay = "hover"
+
+[node name="Sprite2D" type="Sprite2D" parent="Cheese2"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xtf3y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cheese2"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_5kmqt")
+
+[connection signal="body_entered" from="Cheese2" to="Cheese2" method="_on_body_entered"]

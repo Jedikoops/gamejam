@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://k4g6cbkf6g1u"]
+[gd_scene load_steps=22 format=3 uid="uid://k4g6cbkf6g1u"]
 
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_5nnlr"]
 [ext_resource type="Texture2D" uid="uid://d0baek72nt33f" path="res://ye.jpg" id="1_cgtp0"]
@@ -10,11 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="6_r405y"]
 [ext_resource type="Script" uid="uid://cxovqajwuebwv" path="res://scripts/reactive_text.gd" id="7_tl8b1"]
 [ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
-[ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://scripts/trashbag.gd" id="10_ic1wf"]
-[ext_resource type="Texture2D" uid="uid://da330djd8oj53" path="res://garbage can/GarbageWalk.png" id="12_r405y"]
-[ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="13_tl8b1"]
-[ext_resource type="Script" uid="uid://v2gb522teghv" path="res://prefabs/cheese_2.gd" id="14_h6013"]
-[ext_resource type="Texture2D" uid="uid://c5nwdt6ffoeca" path="res://cheese.png" id="14_nrrmd"]
+[ext_resource type="PackedScene" uid="uid://cmtr838e5arrd" path="res://prefabs/garbage_bag.tscn" id="11_tl8b1"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="12_nrrmd"]
 [ext_resource type="PackedScene" path="res://prefabs/spawn_point_holder.tscn" id="15_5kmqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r43ak"]
@@ -88,200 +85,6 @@ radius = 354.001
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4np2h"]
 radius = 22.2036
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_tl8b1"]
-radius = 42.0476
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r405y"]
-atlas = ExtResource("12_r405y")
-region = Rect2(0, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tl8b1"]
-atlas = ExtResource("12_r405y")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nrrmd"]
-atlas = ExtResource("12_r405y")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5kmqt"]
-atlas = ExtResource("12_r405y")
-region = Rect2(256, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6013"]
-atlas = ExtResource("12_r405y")
-region = Rect2(0, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eir1n"]
-atlas = ExtResource("12_r405y")
-region = Rect2(256, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ribj1"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(0, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wy5sd"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(256, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dvjfl"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(512, 512, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pk8uv"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(0, 768, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eccf2"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(256, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uxdgh"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(512, 256, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_unbjk"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(256, 0, 256, 256)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g35av"]
-atlas = ExtResource("13_tl8b1")
-region = Rect2(512, 0, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_pk8uv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r405y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tl8b1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nrrmd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5kmqt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h6013")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eir1n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ribj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wy5sd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dvjfl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pk8uv")
-}],
-"loop": false,
-"name": &"jumpcrash",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eccf2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uxdgh")
-}],
-"loop": false,
-"name": &"jumpfly",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_unbjk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g35av")
-}],
-"loop": true,
-"name": &"jumpready",
-"speed": 12.0
-}, {
-"frames": [],
-"loop": true,
-"name": &"jumpup",
-"speed": 5.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_06i16"]
-radius = 37.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r405y"]
-size = Vector2(240, 72)
-
-[sub_resource type="Animation" id="Animation_5kmqt"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-
-[sub_resource type="Animation" id="Animation_nrrmd"]
-resource_name = "hover"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(-11, -0.25, 0, 0.25, 0, 12, -0.25, 0, 0.25, 0, -11, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5kmqt"]
-_data = {
-&"RESET": SubResource("Animation_5kmqt"),
-&"hover": SubResource("Animation_nrrmd")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kmqt"]
-size = Vector2(56, 49)
 
 [node name="Node2D" type="Node2D"]
 
@@ -386,68 +189,11 @@ shape = SubResource("CircleShape2D_4np2h")
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_4np2h")
 
-[node name="GarbageBag" type="CharacterBody2D" parent="."]
+[node name="GarbageBag" parent="." instance=ExtResource("11_tl8b1")]
 position = Vector2(999, 149)
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("10_ic1wf")
 
-[node name="HurtPlayer" type="Area2D" parent="GarbageBag"]
-script = ExtResource("4_4np2h")
-damage = 1
-metadata/_custom_type_script = "uid://6muyfejx2agd"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageBag/HurtPlayer"]
-shape = SubResource("CircleShape2D_tl8b1")
-
-[node name="Line2D" type="Line2D" parent="GarbageBag"]
-top_level = true
-points = PackedVector2Array(1146, 219, 793, 265)
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="GarbageBag"]
-position = Vector2(0, -5)
-scale = Vector2(0.39, 0.39)
-sprite_frames = SubResource("SpriteFrames_pk8uv")
-animation = &"jumpready"
-autoplay = "default"
-flip_h = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageBag"]
-shape = SubResource("CircleShape2D_06i16")
-
-[node name="enemy_hurt" type="AudioStreamPlayer" parent="GarbageBag"]
-stream = ExtResource("5_ic1wf")
-script = ExtResource("8_r405y")
-
-[node name="detect_player" type="Area2D" parent="GarbageBag"]
-position = Vector2(1, -23)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageBag/detect_player"]
-position = Vector2(67, 24)
-shape = SubResource("RectangleShape2D_r405y")
-debug_color = Color(0.943319, 0.73952, 0.900685, 0.42)
-
-[node name="Cheese" type="Node2D" parent="."]
+[node name="Cheese" parent="." instance=ExtResource("12_nrrmd")]
 position = Vector2(192, 292)
-metadata/_edit_group_ = true
-
-[node name="Cheese2" type="Area2D" parent="Cheese"]
-script = ExtResource("14_h6013")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Cheese/Cheese2"]
-libraries = {
-&"": SubResource("AnimationLibrary_5kmqt")
-}
-autoplay = "hover"
-
-[node name="Sprite2D" type="Sprite2D" parent="Cheese/Cheese2"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("14_nrrmd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cheese/Cheese2"]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_5kmqt")
 
 [node name="SpawnPointHolder" parent="." instance=ExtResource("15_5kmqt")]
 position = Vector2(649, 276)
@@ -458,6 +204,3 @@ position = Vector2(649, 276)
 [connection signal="body_entered" from="Reactive Text" to="Reactive Text" method="_on_body_entered"]
 [connection signal="body_exited" from="Reactive Text" to="Reactive Text" method="_on_body_exited"]
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]
-[connection signal="body_entered" from="GarbageBag/HurtPlayer" to="GarbageBag/HurtPlayer" method="_on_body_entered"]
-[connection signal="body_entered" from="GarbageBag/detect_player" to="GarbageBag" method="_on_detect_player_body_entered"]
-[connection signal="body_entered" from="Cheese/Cheese2" to="Cheese/Cheese2" method="_on_body_entered"]
