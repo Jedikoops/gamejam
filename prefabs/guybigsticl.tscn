@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://k4g6cbkf6g1u"]
+[gd_scene load_steps=30 format=3 uid="uid://k4g6cbkf6g1u"]
 
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_5nnlr"]
 [ext_resource type="Texture2D" uid="uid://d0baek72nt33f" path="res://ye.jpg" id="1_cgtp0"]
@@ -9,8 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://ptj4k3es8qp4" path="res://bonksf.mp3" id="5_ic1wf"]
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="6_r405y"]
 [ext_resource type="Script" uid="uid://cxovqajwuebwv" path="res://scripts/reactive_text.gd" id="7_tl8b1"]
-[ext_resource type="Texture2D" uid="uid://c75p5haimuao3" path="res://apple.png" id="10_06i16"]
-[ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://garbage can/trashbag.gd" id="10_ic1wf"]
+[ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
+[ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://scripts/trashbag.gd" id="10_ic1wf"]
+[ext_resource type="Texture2D" uid="uid://da330djd8oj53" path="res://garbage can/GarbageWalk.png" id="12_r405y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r43ak"]
 size = Vector2(535, 20)
@@ -84,8 +85,61 @@ radius = 354.001
 [sub_resource type="CircleShape2D" id="CircleShape2D_4np2h"]
 radius = 22.2036
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r405y"]
+atlas = ExtResource("12_r405y")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl8b1"]
+atlas = ExtResource("12_r405y")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrrmd"]
+atlas = ExtResource("12_r405y")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kmqt"]
+atlas = ExtResource("12_r405y")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6013"]
+atlas = ExtResource("12_r405y")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eir1n"]
+atlas = ExtResource("12_r405y")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pk8uv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r405y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tl8b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrrmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5kmqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6013")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eir1n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_06i16"]
 radius = 37.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r405y"]
+size = Vector2(240, 72)
 
 [node name="Node2D" type="Node2D"]
 
@@ -103,6 +157,8 @@ polygon = PackedVector2Array(268, 44, 229, 14, 214, 24, 186, 3, 158, 34, 134, 35
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(905, 355)
 scale = Vector2(3.56, 1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(-3, 0)
@@ -144,8 +200,11 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Giraffe/HitBox"]
 shape = SubResource("RectangleShape2D_40m2s")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Giraffe"]
+[node name="enemy_hurt" type="AudioStreamPlayer" parent="Giraffe" node_paths=PackedStringArray("anim")]
 stream = ExtResource("5_ic1wf")
+script = ExtResource("8_r405y")
+anim = NodePath("../AnimGiraffe")
+metadata/_custom_type_script = "uid://betl1i82l8ml7"
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_r405y")]
 position = Vector2(284, 274)
@@ -185,18 +244,47 @@ shape = SubResource("CircleShape2D_4np2h")
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_4np2h")
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(770, 275)
+[node name="GarbageEnemy" type="Node" parent="."]
+
+[node name="GarbageBag" type="CharacterBody2D" parent="GarbageEnemy"]
+position = Vector2(999, 149)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("10_ic1wf")
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-texture = ExtResource("10_06i16")
+[node name="Line2D" type="Line2D" parent="GarbageEnemy/GarbageBag"]
+top_level = true
+points = PackedVector2Array(1146, 219, 793, 265)
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="GarbageEnemy/GarbageBag"]
+position = Vector2(0, -5)
+scale = Vector2(0.39, 0.39)
+sprite_frames = SubResource("SpriteFrames_pk8uv")
+autoplay = "default"
+frame_progress = 0.639586
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageEnemy/GarbageBag"]
 shape = SubResource("CircleShape2D_06i16")
 
+[node name="enemy_hurt" type="AudioStreamPlayer" parent="GarbageEnemy/GarbageBag"]
+stream = ExtResource("5_ic1wf")
+script = ExtResource("8_r405y")
+metadata/_custom_type_script = "uid://betl1i82l8ml7"
+
+[node name="detect_player" type="Area2D" parent="GarbageEnemy/GarbageBag"]
+position = Vector2(1, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GarbageEnemy/GarbageBag/detect_player"]
+position = Vector2(67, 24)
+shape = SubResource("RectangleShape2D_r405y")
+debug_color = Color(0.943319, 0.73952, 0.900685, 0.42)
+
 [connection signal="body_entered" from="Giraffe/HurtPlayer" to="Giraffe/HurtPlayer" method="_on_body_entered"]
+[connection signal="ded" from="Giraffe/enemy_hurt" to="Giraffe" method="_on_enemy_hurt_ded"]
 [connection signal="player_ouchie" from="PlayerBody" to="UI" method="_on_player_body_player_ouchie"]
 [connection signal="body_entered" from="Reactive Text" to="Reactive Text" method="_on_body_entered"]
 [connection signal="body_exited" from="Reactive Text" to="Reactive Text" method="_on_body_exited"]
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]
+[connection signal="body_entered" from="GarbageEnemy/GarbageBag/detect_player" to="GarbageEnemy/GarbageBag" method="_on_detect_player_body_entered"]

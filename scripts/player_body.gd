@@ -155,3 +155,7 @@ func take_damage(value: int):
 
 func _on_player_dead() -> void:
 	print("i am dead")
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body._hurt(damage)
