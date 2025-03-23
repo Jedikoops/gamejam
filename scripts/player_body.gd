@@ -7,7 +7,7 @@ class_name PlayerBody
 @onready var area_2d: Area2D = $PlayerAnchor/Shoulder/WeaponAnchor/Area2D
 @onready var anim_mouse: AnimatedSprite2D = $PlayerAnchor/AnimMouse
 @onready var shoulder: Node2D = $PlayerAnchor/Shoulder
-@onready var weapon_sprite: Sprite2D = $PlayerAnchor/Shoulder/WeaponAnchor/Sprite2D
+@onready var weapon_sprite: AnimatedSprite2D = $PlayerAnchor/Shoulder/WeaponAnchor/WeaponSprite
 
 #MOVEMENT VARIABLES
 var right
@@ -29,6 +29,7 @@ var health
 var damage = 1
 
 func _ready() -> void:
+	weapon_sprite.play("nocheese")
 	right = true
 	_play_idle()
 	jump = false
@@ -140,6 +141,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(area.name == "HitBox"):
 		area.get_parent()._hurt(damage)
 		print("hit")
+	if(area.name == "Cheese"):
+		weapon_sprite.play("cheese")
 
 
 

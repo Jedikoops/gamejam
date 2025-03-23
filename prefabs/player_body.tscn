@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://boe08j1nsmg2b"]
+[gd_scene load_steps=59 format=3 uid="uid://boe08j1nsmg2b"]
 
 [ext_resource type="Script" uid="uid://b0fk0b1brtehp" path="res://scripts/player_body.gd" id="1_f57or"]
 [ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="2_4eoj2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cpgyvvk5imgtv" path="res://mousey/ratjumpright.png" id="9_eoe08"]
 [ext_resource type="Texture2D" uid="uid://cqi8qb2357hbf" path="res://mouse.png" id="10_7f3fc"]
 [ext_resource type="Texture2D" uid="uid://cir1mlod3t5xm" path="res://BigStick.png" id="11_kibih"]
+[ext_resource type="Texture2D" uid="uid://cxi2oj0us6xqq" path="res://BigStickNoCheese.png" id="12_mxvbm"]
 
 [sub_resource type="Animation" id="Animation_40m2s"]
 length = 0.001
@@ -485,6 +486,29 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nol80"]
+atlas = ExtResource("11_kibih")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_alrbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nol80")
+}],
+"loop": true,
+"name": &"cheese",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_mxvbm")
+}],
+"loop": true,
+"name": &"nocheese",
+"speed": 5.0
+}]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hpcau"]
 height = 82.6437
 
@@ -526,12 +550,13 @@ texture = ExtResource("10_7f3fc")
 [node name="WeaponAnchor" type="Node2D" parent="PlayerAnchor/Shoulder"]
 rotation = -0.383972
 
-[node name="Sprite2D" type="Sprite2D" parent="PlayerAnchor/Shoulder/WeaponAnchor"]
+[node name="WeaponSprite" type="AnimatedSprite2D" parent="PlayerAnchor/Shoulder/WeaponAnchor"]
 z_index = 10
 position = Vector2(8.10451, 7.43752)
 rotation = -0.218166
 scale = Vector2(0.57, 0.57)
-texture = ExtResource("11_kibih")
+sprite_frames = SubResource("SpriteFrames_alrbs")
+animation = &"cheese"
 
 [node name="Area2D" type="Area2D" parent="PlayerAnchor/Shoulder/WeaponAnchor"]
 position = Vector2(26.3602, -12.4554)
