@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cmtr838e5arrd"]
+[gd_scene load_steps=35 format=3 uid="uid://cmtr838e5arrd"]
 
 [ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://scripts/trashbag.gd" id="1_h616w"]
 [ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="2_qlpwu"]
 [ext_resource type="Texture2D" uid="uid://da330djd8oj53" path="res://garbage can/GarbageWalk.png" id="3_lf3nw"]
 [ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="4_hadwx"]
 [ext_resource type="AudioStream" uid="uid://ptj4k3es8qp4" path="res://bonksf.mp3" id="5_3r5l4"]
+[ext_resource type="Texture2D" uid="uid://ccwsfu5rw8hl8" path="res://garbage can/GarbageIdle.png" id="5_qlpwu"]
 [ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="6_vd217"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl8b1"]
@@ -58,6 +59,18 @@ region = Rect2(256, 256, 256, 256)
 atlas = ExtResource("4_hadwx")
 region = Rect2(512, 256, 256, 256)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlpwu"]
+atlas = ExtResource("4_hadwx")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdee1"]
+atlas = ExtResource("4_hadwx")
+region = Rect2(256, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tkcuq"]
+atlas = ExtResource("4_hadwx")
+region = Rect2(512, 768, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_unbjk"]
 atlas = ExtResource("4_hadwx")
 region = Rect2(256, 0, 256, 256)
@@ -65,6 +78,30 @@ region = Rect2(256, 0, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_g35av"]
 atlas = ExtResource("4_hadwx")
 region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf3nw"]
+atlas = ExtResource("5_qlpwu")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hadwx"]
+atlas = ExtResource("5_qlpwu")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r5l4"]
+atlas = ExtResource("5_qlpwu")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vd217"]
+atlas = ExtResource("5_qlpwu")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3sv8"]
+atlas = ExtResource("5_qlpwu")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge80l"]
+atlas = ExtResource("5_qlpwu")
+region = Rect2(256, 512, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pk8uv"]
 animations = [{
@@ -121,6 +158,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_qlpwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdee1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tkcuq")
+}],
+"loop": true,
+"name": &"jumpgetup",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_unbjk")
 }, {
 "duration": 1.0,
@@ -134,6 +185,29 @@ animations = [{
 "loop": true,
 "name": &"jumpup",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf3nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hadwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r5l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vd217")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3sv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge80l")
+}],
+"loop": true,
+"name": &"standing",
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_06i16"]
@@ -164,7 +238,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -5)
 scale = Vector2(0.39, 0.39)
 sprite_frames = SubResource("SpriteFrames_pk8uv")
-animation = &"jumpready"
+animation = &"jumpgetup"
 autoplay = "default"
 flip_h = true
 
@@ -174,6 +248,7 @@ shape = SubResource("CircleShape2D_06i16")
 [node name="enemy_hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3r5l4")
 script = ExtResource("6_vd217")
+health = 1
 
 [node name="detect_player" type="Area2D" parent="."]
 position = Vector2(1, -23)
@@ -184,4 +259,5 @@ shape = SubResource("RectangleShape2D_r405y")
 debug_color = Color(0.943319, 0.73952, 0.900685, 0.42)
 
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]
+[connection signal="ded" from="enemy_hurt" to="." method="_on_enemy_hurt_ded"]
 [connection signal="body_entered" from="detect_player" to="." method="_on_detect_player_body_entered"]

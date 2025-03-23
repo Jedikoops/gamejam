@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 class_name enemy_hurt
 @export var anim: AnimationPlayer
 
-var health = 3
+@export var health = 3
 signal ded
 
 func _hurt(value: int):

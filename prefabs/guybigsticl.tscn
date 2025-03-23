@@ -151,7 +151,7 @@ script = ExtResource("8_r405y")
 anim = NodePath("../AnimGiraffe")
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("6_r405y")]
-position = Vector2(284, 274)
+position = Vector2(776, 164)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 
 [node name="Reactive Text" type="Area2D" parent="."]

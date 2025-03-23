@@ -31,6 +31,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	if(is_on_floor()):
 		fly = false
 	else:
@@ -41,26 +42,37 @@ func _process(delta: float) -> void:
 		else:
 			hop = false
 		patrol = false
+		
 	
 	if(patrol):
+		time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
+		prev_pos = global_position
 		if(!idle_patrol):
-			time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
-			prev_pos = position
 			position.x = _cubic(line_2d.points[0].x, line_2d.points[1].x, abs(fmod(time, 2)-1))
 			sprite.scale.x = move_toward(sprite.scale.x, sign(fmod(time, 2)-1)*abs(sprite_xscale), 10*delta)
+		else:
+			sprite.scale.x = move_toward(sprite.scale.x, sprite_xscale * sign(fmod(time, 2)-1), 10*delta) 
+			sprite.play("standing")
 		detect_player.scale.x = sign(sprite.scale.x)
 	else:
-		sprite.scale.x = sprite_xscale * sign(sprite.scale.x)
+		sprite.scale.x = abs(sprite_xscale) * sign(sprite.scale.x)
 		if(fly):
-			look_at(position + (prev_pos - position))
+			look_at(global_position + (prev_pos - global_position))
 			rotation_degrees -= 90
 			sprite.play("jumpfly")
 		else:
-			sprite.play("jumpcrash")
-			velocity.x = move_toward(velocity.x, 0, delta*300)
-			rotation_degrees = 0
-			if(sprite.frame == 3):
-				sprite.pause()
+			if(velocity.x != 0):
+				sprite.play("jumpcrash")
+				velocity.x = move_toward(velocity.x, 0, delta*300)
+				rotation_degrees = 0
+				if(sprite.frame == 3):
+					sprite.pause()
+			else:
+				sprite.play("jumpgetup")
+				if(sprite.frame == 2):
+					patrol = true
+					idle_patrol = true	
+					target = null
 	
 	if(hop):
 		sprite.play("jumpready")
@@ -87,3 +99,8 @@ func _on_detect_player_body_entered(body: Node2D) -> void:
 	if body.name == "PlayerBody":
 		target = body
 		print("found_you")
+
+
+func _on_enemy_hurt_ded() -> void:
+	print("the trash bag is dead")
+	queue_free()
