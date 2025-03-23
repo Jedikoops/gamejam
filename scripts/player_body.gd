@@ -19,9 +19,9 @@ const SLOW = 100.0
 var speed
 const JUMP_VELOCITY = -400.0
 var jump_velocity
-const MIN_JUMP = -300.0
-const MAX_JUMP = -500.0
-const JUMP_CHARGERATE = 300.0
+const MIN_JUMP = -400.0
+const MAX_JUMP = -800.0
+const JUMP_CHARGERATE = 200.0
 
 signal player_dead
 signal player_ouchie

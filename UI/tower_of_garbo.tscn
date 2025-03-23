@@ -1,57 +1,249 @@
-[gd_scene load_steps=24 format=3 uid="uid://5ktmjbnm2a4u"]
+[gd_scene load_steps=67 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
-[ext_resource type="Texture2D" uid="uid://k7phc48rf3ij" path="res://Non-pixelated images/Plains.jpg" id="2_0giap"]
 [ext_resource type="Texture2D" uid="uid://bb8yd5vfn31mj" path="res://pixelated images/StoneHallSegmentBiggerer.png" id="2_1i7vl"]
-[ext_resource type="PackedScene" path="res://UI/dialogue_player.tscn" id="2_aykru"]
+[ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="2_aykru"]
 [ext_resource type="Texture2D" uid="uid://bhj4j3f3cdgiu" path="res://Non-pixelated images/dirt.jpg" id="2_bkxtt"]
-[ext_resource type="PackedScene" uid="uid://bmyhlmm1g17v7" path="res://prefabs/dialogue_area.tscn" id="3_ag1ip"]
+[ext_resource type="Texture2D" uid="uid://kqx5r8jgf034" path="res://pixelated images/GrassFloor.png" id="2_kayiq"]
+[ext_resource type="PackedScene" uid="uid://bih3ibwr3qie5" path="res://prefabs/dialogue_area.tscn" id="3_ag1ip"]
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="3_aykru"]
-[ext_resource type="Texture2D" uid="uid://6oc6osqrifoc" path="res://npcs/SusBoi.png" id="4_bosin"]
 [ext_resource type="Texture2D" uid="uid://cpvw00gh0m8i7" path="res://pixelated images/Hole.png" id="5_kayiq"]
-[ext_resource type="PackedScene" uid="uid://bsayqmrw8pl64" path="res://prefabs/spawn_point_holder.tscn" id="6_dcify"]
-[ext_resource type="PackedScene" uid="uid://qjfy8h5qv0r6" path="res://prefabs/doorBase.tscn" id="6_e25tj"]
+[ext_resource type="PackedScene" uid="uid://dbpcmd8qrxgsn" path="res://prefabs/spawn_point_holder.tscn" id="6_dcify"]
+[ext_resource type="PackedScene" uid="uid://y61m7264um26" path="res://prefabs/doorBase.tscn" id="6_e25tj"]
+[ext_resource type="Script" uid="uid://su2huihot6f0" path="res://UI/the_sky.gd" id="6_ohgds"]
+[ext_resource type="Texture2D" uid="uid://daibmhv2gfnuw" path="res://pixelated images/SkywithClouds.png" id="6_t1wed"]
 [ext_resource type="PackedScene" uid="uid://7285cgjxxqbk" path="res://prefabs/spawn_point.tscn" id="7_1i7vl"]
 [ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="8_1d2dd"]
-[ext_resource type="PackedScene" uid="uid://cmtr838e5arrd" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
+[ext_resource type="Texture2D" uid="uid://cfvdxr3e6kn1j" path="res://pixelated images/Houses/DudeEatingAtHome.png" id="8_66etr"]
+[ext_resource type="Texture2D" uid="uid://dsd8ky6i2lebu" path="res://pixelated images/TreePlatformsA.png" id="8_bynsa"]
+[ext_resource type="Texture2D" uid="uid://byqbleioeop2w" path="res://pixelated images/Houses/HomeFloorExtension.png" id="8_cgrxg"]
+[ext_resource type="Texture2D" uid="uid://cpv4vh7cvohuj" path="res://pixelated images/IslandSections/IslandMiddleSection.png" id="9_se266"]
+[ext_resource type="Texture2D" uid="uid://cmyv47qqnb55p" path="res://pixelated images/IslandSections/IslandEdgeRight.png" id="10_66etr"]
+[ext_resource type="Texture2D" uid="uid://pyktfh0rxclb" path="res://pixelated images/IslandSections/IslandEdgeLeft.png" id="11_cgrxg"]
+[ext_resource type="SpriteFrames" uid="uid://cakmuolc7tr5k" path="res://npcs/SusBoiIdle.tres" id="11_ohgds"]
+[ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/Spikes.png" id="14_63vdt"]
+[ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
+[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
+[ext_resource type="PackedScene" uid="uid://bwlevdeoalp3i" path="res://prefabs/can_proj.tscn" id="27_4f3r1"]
+[ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(0, 0, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bynsa"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(768, 0, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjt1x"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(1536, 0, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40v0s"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(2304, 0, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2sq1"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(0, 588, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se266"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(768, 588, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66etr"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(1536, 588, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgrxg"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(2304, 588, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lcyy"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(0, 1176, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63vdt"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(768, 1176, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4f3r1"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(1536, 1176, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bson8"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(2304, 1176, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asmem"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(0, 1764, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8y3r"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(768, 1764, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpgxr"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(1536, 1764, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqw2d"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(2304, 1764, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxsg3"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(0, 2352, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0yuj"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(768, 2352, 768, 588)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il2ep"]
+atlas = ExtResource("6_t1wed")
+region = Rect2(1536, 2352, 768, 588)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjcc5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohgds")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bynsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjt1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40v0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2sq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se266")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66etr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgrxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lcyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63vdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4f3r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bson8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asmem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8y3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpgxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqw2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxsg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0yuj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il2ep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjcc5"]
+atlas = ExtResource("8_66etr")
+region = Rect2(0, 0, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3osep"]
+atlas = ExtResource("8_66etr")
+region = Rect2(0, 512, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6x8b"]
+atlas = ExtResource("8_66etr")
+region = Rect2(0, 1024, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2h62g"]
+atlas = ExtResource("8_66etr")
+region = Rect2(0, 1536, 1024, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f0vg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjcc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3osep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6x8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2h62g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
 size = Vector2(136, 136)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bkxtt"]
-atlas = ExtResource("4_bosin")
-region = Rect2(0, 0, 256, 256)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohgds"]
+size = Vector2(166, 149)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65ydt"]
-atlas = ExtResource("4_bosin")
-region = Rect2(0, 256, 256, 256)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0giap"]
-animations = [{
-"frames": [{
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_bkxtt")
-}, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_65ydt")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt1x"]
+size = Vector2(113.274, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlqo"]
-size = Vector2(5678, 20)
+size = Vector2(5695, 211)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ag1ip"]
 size = Vector2(20, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1wed"]
-size = Vector2(5630, 20)
+size = Vector2(1901, 121.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8javk"]
+size = Vector2(3355.5, 210)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mte5q"]
+size = Vector2(612, 321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgrxg"]
+size = Vector2(270, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lcyy"]
+size = Vector2(272, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63vdt"]
+size = Vector2(31, 1004)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3r1"]
+size = Vector2(265, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
-size = Vector2(8407, 2348)
+size = Vector2(13034, 4699)
 
 [node name="TowerOfGarbo" type="Node2D"]
 
@@ -66,20 +258,136 @@ rotation = -0.0545242
 texture = ExtResource("1_bosin")
 
 [node name="TextureRect" type="TextureRect" parent="Backgrounds"]
-offset_left = 3043.0
-offset_top = -1458.0
-offset_right = 6918.0
-offset_bottom = 588.0
-rotation = -0.011124
-texture = ExtResource("2_0giap")
+offset_left = 3015.0
+offset_top = -284.0
+offset_right = 8634.0
+offset_bottom = 228.0
+texture = ExtResource("2_kayiq")
+stretch_mode = 1
 
 [node name="DirtUnderFloor" type="TextureRect" parent="Backgrounds"]
-offset_left = 817.0
-offset_top = 164.0
-offset_right = 6932.0
-offset_bottom = 607.0
+offset_left = 821.0
+offset_top = 132.0
+offset_right = 8628.0
+offset_bottom = 575.0
 texture = ExtResource("2_bkxtt")
 stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Backgrounds"]
+offset_left = 4501.0
+offset_top = -49.0
+offset_right = 4768.0
+offset_bottom = 252.0
+texture = ExtResource("5_kayiq")
+
+[node name="The Sky" type="Node2D" parent="Backgrounds"]
+script = ExtResource("6_ohgds")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(4244, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(3476, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5780, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5012, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(4244, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(3425.5, -1497)
+scale = Vector2(1.13151, 1)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5780, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5012, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(6548, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(6548, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5939, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5171, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(2867, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(3635, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(4403, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(6707, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(7316, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D18" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(7316, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D19" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(7475, -917)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D20" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(8084, -447)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="HomeFloorExtension" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(6224.75, 44)
+scale = Vector2(0.618653, 0.164062)
+texture = ExtResource("8_cgrxg")
 
 [node name="Hallway" type="TextureRect" parent="Backgrounds"]
 offset_left = 811.0
@@ -89,12 +397,235 @@ offset_bottom = 176.0
 texture = ExtResource("2_1i7vl")
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="Backgrounds"]
-offset_left = 4484.0
-offset_top = -50.0
-offset_right = 4785.0
-offset_bottom = 251.0
-texture = ExtResource("5_kayiq")
+[node name="DirtUnderFloor2" type="TextureRect" parent="Backgrounds"]
+offset_left = 5960.0
+offset_top = 26.0
+offset_right = 6485.0
+offset_bottom = 469.0
+texture = ExtResource("2_bkxtt")
+stretch_mode = 1
+
+[node name="Houses" type="Node2D" parent="Backgrounds"]
+script = ExtResource("6_ohgds")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
+position = Vector2(6224.75, -155.625)
+scale = Vector2(0.618652, 0.618652)
+sprite_frames = SubResource("SpriteFrames_f0vg7")
+
+[node name="TreePlatformsA" type="Sprite2D" parent="Backgrounds"]
+position = Vector2(5672, -244)
+texture = ExtResource("8_bynsa")
+
+[node name="FieldIslands" type="Control" parent="Backgrounds"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -992.0
+offset_top = -80.0
+offset_right = -952.0
+offset_bottom = -40.0
+
+[node name="IslandFieldE" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1326.0
+offset_top = 332.0
+offset_right = 1366.0
+offset_bottom = 372.0
+scale = Vector2(1.00485, 1.10113)
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldE"]
+layout_mode = 0
+offset_left = 5764.0
+offset_top = -1160.0
+offset_right = 6312.0
+offset_bottom = -648.0
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("9_se266")
+stretch_mode = 1
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldE"]
+layout_mode = 0
+offset_left = 5912.33
+offset_top = -1158.81
+offset_right = 6424.33
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldE"]
+layout_mode = 0
+offset_left = 5625.72
+offset_top = -1158.81
+offset_right = 6137.72
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="IslandFieldD" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1659.0
+offset_top = 494.0
+offset_right = 1699.0
+offset_bottom = 534.0
+scale = Vector2(1.00485, 1.10113)
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldD"]
+layout_mode = 0
+offset_left = 5764.0
+offset_top = -1160.0
+offset_right = 6312.0
+offset_bottom = -648.0
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("9_se266")
+stretch_mode = 1
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldD"]
+layout_mode = 0
+offset_left = 5912.33
+offset_top = -1158.81
+offset_right = 6424.33
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldD"]
+layout_mode = 0
+offset_left = 5625.72
+offset_top = -1158.81
+offset_right = 6137.72
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="IslandFieldC" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1366.0
+offset_top = 665.0
+offset_right = 1406.0
+offset_bottom = 705.0
+scale = Vector2(1.00485, 1.10113)
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldC"]
+layout_mode = 0
+offset_left = 5764.0
+offset_top = -1160.0
+offset_right = 6312.0
+offset_bottom = -648.0
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("9_se266")
+stretch_mode = 1
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldC"]
+layout_mode = 0
+offset_left = 5912.33
+offset_top = -1158.81
+offset_right = 6424.33
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldC"]
+layout_mode = 0
+offset_left = 5625.72
+offset_top = -1158.81
+offset_right = 6137.72
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="IslandFieldB" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1743.0
+offset_top = 843.0
+offset_right = 1783.0
+offset_bottom = 883.0
+scale = Vector2(1.00485, 1.10113)
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldB"]
+layout_mode = 0
+offset_left = 5764.0
+offset_top = -1160.0
+offset_right = 6312.0
+offset_bottom = -648.0
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("9_se266")
+stretch_mode = 1
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldB"]
+layout_mode = 0
+offset_left = 5912.33
+offset_top = -1158.81
+offset_right = 6424.33
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldB"]
+layout_mode = 0
+offset_left = 5625.72
+offset_top = -1158.81
+offset_right = 6137.72
+offset_bottom = -646.811
+scale = Vector2(0.270417, 0.270417)
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="IslandFieldA" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldA"]
+layout_mode = 0
+offset_left = 5351.0
+offset_top = -1160.0
+offset_right = 6804.0
+offset_bottom = -648.0
+texture = ExtResource("9_se266")
+stretch_mode = 1
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldA"]
+layout_mode = 0
+offset_left = 6803.0
+offset_top = -1156.0
+offset_right = 7315.0
+offset_bottom = -644.0
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldA"]
+layout_mode = 0
+offset_left = 4839.0
+offset_top = -1160.0
+offset_right = 5351.0
+offset_bottom = -648.0
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="FakeSpikes" type="TextureRect" parent="Backgrounds"]
+offset_left = 6559.0
+offset_top = -33.0
+offset_right = 7193.0
+offset_bottom = 31.0
+texture = ExtResource("14_63vdt")
+stretch_mode = 1
 
 [node name="UI" parent="." instance=ExtResource("1_sqn0o")]
 
@@ -113,26 +644,88 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_e25tj")
 
 [node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea" index="1"]
-sprite_frames = SubResource("SpriteFrames_0giap")
+sprite_frames = ExtResource("11_ohgds")
 animation = &"idle"
+
+[node name="DialogueArea2" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
+position = Vector2(5301, -76)
+dialogueKey = "susBoi Fields"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea2" index="0"]
+position = Vector2(0, 21.5)
+shape = SubResource("RectangleShape2D_ohgds")
+
+[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea2" index="1"]
+position = Vector2(0, 0)
+sprite_frames = ExtResource("11_ohgds")
+animation = &"idle"
+
+[node name="Cheese" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(7506, -31)
+
+[node name="Cheese2" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(-559, -62)
 
 [node name="Map Terrain" type="StaticBody2D" parent="."]
 texture_repeat = 2
 position = Vector2(0, 28)
-collision_layer = 3
-collision_mask = 3
+collision_layer = 11
+collision_mask = 11
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6240, -662)
+scale = Vector2(2.16841, 1.79934)
+shape = SubResource("RectangleShape2D_pjt1x")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(5785, -241)
+rotation = -0.0350505
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pjt1x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(1644, 0)
+position = Vector2(1652.5, 95.5)
 shape = SubResource("RectangleShape2D_nqlqo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(-1208, -278)
 shape = SubResource("RectangleShape2D_ag1ip")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(7593, 1)
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(5071, -1111.88)
 shape = SubResource("RectangleShape2D_t1wed")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(5599, -179)
+rotation = 0.100084
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_pjt1x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6444.25, 95)
+shape = SubResource("RectangleShape2D_8javk")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6223, -172.5)
+shape = SubResource("RectangleShape2D_mte5q")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6615, -421)
+shape = SubResource("RectangleShape2D_cgrxg")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6535, -837)
+shape = SubResource("RectangleShape2D_0lcyy")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6951, -960)
+rotation = 0.401141
+shape = SubResource("RectangleShape2D_63vdt")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(6197.5, -996)
+shape = SubResource("RectangleShape2D_4f3r1")
 
 [node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
 position = Vector2(-785, -47)
@@ -147,7 +740,7 @@ position = Vector2(790, -237)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(-911, -276)
+position = Vector2(3291, -400)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 
@@ -159,16 +752,16 @@ metadata/_custom_type_script = "uid://6muyfejx2agd"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutofBoundsKillBox"]
-position = Vector2(-108.5, 804)
+position = Vector2(2205, 1979.5)
 shape = SubResource("RectangleShape2D_4bwmo")
 
 [node name="GarbageBag2" parent="." instance=ExtResource("15_kayiq")]
-position = Vector2(2089, -195)
+position = Vector2(2088, -126)
 idle_patrol = true
 metadata/_edit_group_ = true
 
 [node name="Line2D" parent="GarbageBag2" index="1"]
-points = PackedVector2Array(1996, 43, 2347, 39)
+points = PackedVector2Array(1978, -173, 2301, -180)
 
 [node name="Sprite2D" parent="GarbageBag2" index="2"]
 animation = &"standing"
@@ -178,18 +771,45 @@ position = Vector2(1549, -74)
 metadata/_edit_group_ = true
 
 [node name="Line2D" parent="GarbageBag3" index="1"]
-points = PackedVector2Array(1449, 73, 1846, 65)
+points = PackedVector2Array(1467, -221, 1862, -224)
 
 [node name="GarbageBag" parent="." instance=ExtResource("15_kayiq")]
-position = Vector2(1365, -153)
+position = Vector2(1231, -190)
 metadata/_edit_group_ = true
 
 [node name="Line2D" parent="GarbageBag" index="1"]
-points = PackedVector2Array(1192, 74, 1581, 75)
+points = PackedVector2Array(1248, -350, 1654, -345)
+
+[node name="GarbageBag5" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(4751, -1292)
+
+[node name="Line2D" parent="GarbageBag5" index="1"]
+points = PackedVector2Array(4654, -1384, 5241, -1382)
+
+[node name="GarbageBag4" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(4292, -1287)
+
+[node name="Line2D" parent="GarbageBag4" index="1"]
+points = PackedVector2Array(4217, -1369, 4861, -1365)
+
+[node name="TreeB" type="Sprite2D" parent="."]
+position = Vector2(3828, -201)
+scale = Vector2(0.791016, 0.791016)
+texture = ExtResource("19_pjt1x")
+
+[node name="CanProj" parent="." instance=ExtResource("27_4f3r1")]
+position = Vector2(6183, -1369)
+linear_velocity = Vector2(-5, 0)
+
+[node name="CANnon" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(4200, -96)
 
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 
 [editable path="DialogueAreas/DialogueArea"]
+[editable path="DialogueAreas/DialogueArea2"]
 [editable path="GarbageBag2"]
 [editable path="GarbageBag3"]
 [editable path="GarbageBag"]
+[editable path="GarbageBag5"]
+[editable path="GarbageBag4"]

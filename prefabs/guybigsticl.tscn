@@ -10,9 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="6_r405y"]
 [ext_resource type="Script" uid="uid://cxovqajwuebwv" path="res://scripts/reactive_text.gd" id="7_tl8b1"]
 [ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
-[ext_resource type="PackedScene" uid="uid://cmtr838e5arrd" path="res://prefabs/garbage_bag.tscn" id="11_tl8b1"]
-[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="12_nrrmd"]
-[ext_resource type="PackedScene" uid="uid://bsayqmrw8pl64" path="res://prefabs/spawn_point_holder.tscn" id="15_5kmqt"]
+[ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="11_tl8b1"]
+[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="12_nrrmd"]
+[ext_resource type="PackedScene" uid="uid://dbpcmd8qrxgsn" path="res://prefabs/spawn_point_holder.tscn" id="15_5kmqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r43ak"]
 size = Vector2(535, 20)

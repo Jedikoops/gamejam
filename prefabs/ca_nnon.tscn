@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d2svtumcoa3e"]
+
+[ext_resource type="Script" uid="uid://b2aak2nfvb7k6" path="res://ca_nnon.gd" id="1_bl1sl"]
+[ext_resource type="Texture2D" uid="uid://dlbsjrdhss0bu" path="res://garbage can/sodaCan/CannonGun.png" id="2_1beol"]
+[ext_resource type="PackedScene" uid="uid://bwlevdeoalp3i" path="res://prefabs/can_proj.tscn" id="2_n72eh"]
+[ext_resource type="Texture2D" uid="uid://bhbu8dnypw5dj" path="res://garbage can/sodaCan/CannonBase.png" id="3_n72eh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubh3r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wao42"]
+radius = 652.823
+
+[node name="CANnon" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_bl1sl")
+projectile = ExtResource("2_n72eh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.35938, 1.35938)
+texture = ExtResource("2_1beol")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ubh3r")
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(0, -1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Gun"]
+position = Vector2(33, 0)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_n72eh")
+
+[node name="DetectPlayer" type="Area2D" parent="."]
+position = Vector2(-1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
+shape = SubResource("CircleShape2D_wao42")
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="DetectPlayer" to="." method="_on_detect_player_body_entered"]
+[connection signal="body_exited" from="DetectPlayer" to="." method="_on_detect_player_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

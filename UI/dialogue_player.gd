@@ -39,6 +39,7 @@ func interuption():
 func finish():
 	$Text.text = ""
 	$Background.visible = false
+	interactable = ""
 	inProgress = false
 	
 func on_display_dialog(text_key, interactableKey):
