@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cpbsqo6n8skku"]
+[gd_scene load_steps=35 format=3 uid="uid://cmtr838e5arrd"]
 
 [ext_resource type="Script" uid="uid://dpxqhvq5ks8de" path="res://scripts/trashbag.gd" id="1_h616w"]
 [ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="2_qlpwu"]

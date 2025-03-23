@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://gslcvwpaxm8f"]
+[gd_scene load_steps=8 format=3 uid="uid://ble1brfd6vcm3"]
 
 [ext_resource type="PackedScene" uid="uid://boe08j1nsmg2b" path="res://prefabs/player_body.tscn" id="1_kkeuq"]
 [ext_resource type="Texture2D" uid="uid://dhmskaoycv8ik" path="res://Circle_-_black_simple.svg.webp" id="2_tbpo3"]
-[ext_resource type="PackedScene" uid="uid://bih3ibwr3qie5" path="res://prefabs/dialogue_area.tscn" id="3_qye3k"]
+[ext_resource type="PackedScene" uid="uid://bmyhlmm1g17v7" path="res://prefabs/dialogue_area.tscn" id="3_qye3k"]
 [ext_resource type="Texture2D" uid="uid://c75p5haimuao3" path="res://apple.png" id="4_t6066"]
-[ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="5_t6066"]
+[ext_resource type="PackedScene" path="res://UI/dialogue_player.tscn" id="5_t6066"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qye3k"]
 size = Vector2(535, 20)
@@ -37,9 +37,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="DialogueArea" index="0"]
 shape = SubResource("RectangleShape2D_5qqld")
-
-[node name="AnimatedSprite2D" parent="DialogueArea" index="1"]
-animation = &""
 
 [node name="Apple" type="Sprite2D" parent="DialogueArea"]
 texture = ExtResource("4_t6066")
