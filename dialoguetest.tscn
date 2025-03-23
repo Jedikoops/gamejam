@@ -38,6 +38,9 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" parent="DialogueArea" index="0"]
 shape = SubResource("RectangleShape2D_5qqld")
 
+[node name="AnimatedSprite2D" parent="DialogueArea" index="1"]
+animation = &""
+
 [node name="Apple" type="Sprite2D" parent="DialogueArea"]
 texture = ExtResource("4_t6066")
 
