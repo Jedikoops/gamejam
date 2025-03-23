@@ -740,7 +740,7 @@ position = Vector2(790, -237)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(3291, -400)
+position = Vector2(1051, -344)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 
@@ -803,6 +803,9 @@ linear_velocity = Vector2(-5, 0)
 
 [node name="CANnon" parent="." instance=ExtResource("28_bson8")]
 position = Vector2(4200, -96)
+
+[node name="CANnon2" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(5403, -1226)
 
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 
