@@ -531,6 +531,7 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -100)
+zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
 [node name="PlayerAnchor" type="Node2D" parent="."]

@@ -10,3 +10,7 @@ func _on_enemy_hurt_ded() -> void:
 
 func _hurt(value):
 	enemy_hurt._hurt(value)
+
+
+func _on_button_pressed() -> void:
+	_hurt(1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://k4g6cbkf6g1u"]
+[gd_scene load_steps=23 format=3 uid="uid://k4g6cbkf6g1u"]
 
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_5nnlr"]
 [ext_resource type="Texture2D" uid="uid://d0baek72nt33f" path="res://ye.jpg" id="1_cgtp0"]
@@ -11,7 +11,8 @@
 [ext_resource type="Script" uid="uid://cxovqajwuebwv" path="res://scripts/reactive_text.gd" id="7_tl8b1"]
 [ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="8_r405y"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="11_tl8b1"]
-[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="12_nrrmd"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="12_nrrmd"]
+[ext_resource type="PackedScene" uid="uid://dme7611kf7dhe" path="res://prefabs/button.tscn" id="14_nrrmd"]
 [ext_resource type="PackedScene" uid="uid://dbpcmd8qrxgsn" path="res://prefabs/spawn_point_holder.tscn" id="15_5kmqt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r43ak"]
@@ -217,12 +218,20 @@ position = Vector2(192, 292)
 [node name="SpawnPointHolder" parent="." instance=ExtResource("15_5kmqt")]
 position = Vector2(649, 276)
 
+[node name="Button" parent="." instance=ExtResource("14_nrrmd")]
+position = Vector2(324, 354)
+
+[node name="Line2D" parent="Button" index="1"]
+points = PackedVector2Array(-4, 8, -7, 24, -13, 55, 184, 53, 168, -7)
+
 [connection signal="body_entered" from="Giraffe/HurtPlayer" to="Giraffe/HurtPlayer" method="_on_body_entered"]
 [connection signal="ded" from="Giraffe/enemy_hurt" to="Giraffe" method="_on_enemy_hurt_ded"]
 [connection signal="player_ouchie" from="PlayerBody" to="UI" method="_on_player_body_player_ouchie"]
 [connection signal="body_entered" from="Reactive Text" to="Reactive Text" method="_on_body_entered"]
 [connection signal="body_exited" from="Reactive Text" to="Reactive Text" method="_on_body_exited"]
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]
+[connection signal="pressed" from="Button" to="Giraffe" method="_on_button_pressed"]
 
 [editable path="GarbageBag2"]
 [editable path="GarbageBag3"]
+[editable path="Button"]
