@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bfo2yrcnp52ib"]
+
+[ext_resource type="Shader" uid="uid://bgkbcwfveflwc" path="res://particles/wavygiraffe.tres" id="1_55juk"]
+
+[resource]
+shader = ExtResource("1_55juk")
+shader_parameter/Wind = 35.0

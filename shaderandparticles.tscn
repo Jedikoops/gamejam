@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dfxf3jn1g5asg"]
+[gd_scene load_steps=9 format=3 uid="uid://dqv4i0nkwgvon"]
 
 [ext_resource type="Texture2D" uid="uid://cpwcgpaspql5f" path="res://particles/spiral2.png" id="1_i0ccl"]
-[ext_resource type="Shader" uid="uid://bgkbcwfveflwc" path="res://particles/wavygiraffe.tres" id="2_qxxae"]
+[ext_resource type="Material" uid="uid://bfo2yrcnp52ib" path="res://npcs/waveyshader.tres" id="2_qxxae"]
 [ext_resource type="Texture2D" uid="uid://ch0ytfvussg46" path="res://Giraffe.webp" id="3_idfkx"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dv4lf"]
@@ -79,10 +79,6 @@ _data = {
 &"new_animation": SubResource("Animation_i0ccl")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7tbkt"]
-shader = ExtResource("2_qxxae")
-shader_parameter/Wind = 20.0
-
 [node name="Node2D" type="Node2D"]
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
@@ -99,6 +95,6 @@ libraries = {
 autoplay = "new_animation"
 
 [node name="Giraffe" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_7tbkt")
+material = ExtResource("2_qxxae")
 position = Vector2(221, 473)
 texture = ExtResource("3_idfkx")

@@ -155,7 +155,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		area.get_parent()._hurt(damage)
 		print("hit")
 
-
+func yeet(force):
+	velocity.y = -1 * force
 
 func set_health(value: int):
 	print("knock it off!")
