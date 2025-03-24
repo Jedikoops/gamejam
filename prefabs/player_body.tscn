@@ -541,7 +541,9 @@ z_index = 10
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_00ltt")
-animation = &"falldownleft"
+animation = &"walkleft"
+frame = 4
+frame_progress = 0.236268
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnchor"]
 visible = false
@@ -572,6 +574,7 @@ shape = SubResource("CapsuleShape2D_hpcau")
 disabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_n5ntd")
 
 [node name="DialougeTrigger" type="Area2D" parent="."]
