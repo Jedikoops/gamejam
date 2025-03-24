@@ -26,11 +26,11 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
-[ext_resource type="PackedScene" path="res://prefabs/button.tscn" id="31_bqw2d"]
+[ext_resource type="PackedScene" uid="uid://dme7611kf7dhe" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]

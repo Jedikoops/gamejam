@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="GameJam"
-run/main_scene="uid://k4g6cbkf6g1u"
+run/main_scene="uid://p5t8q2a6mugf"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 SignalBus="*res://DialogueSystem/SignalBus.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
