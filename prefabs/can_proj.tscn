@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://bwlevdeoalp3i"]
+[gd_scene load_steps=19 format=3 uid="uid://bwlevdeoalp3i"]
 
 [ext_resource type="Script" uid="uid://ca1eb5sjte5rr" path="res://prefabs/can_proj.gd" id="1_3riq0"]
 [ext_resource type="Texture2D" uid="uid://0axeowe6kdy0" path="res://garbage can/sodaCan/SodaCanFlying.png" id="2_jj0yh"]
 [ext_resource type="Texture2D" uid="uid://s45uor20bbpd" path="res://garbage can/sodaCan/SodaCanExit.png" id="3_up041"]
 [ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="4_jj0yh"]
+[ext_resource type="AudioStream" uid="uid://ckxy50sw6u381" path="res://Audio/Screaming.mp3" id="5_up041"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2hsww"]
 radius = 19.4165
@@ -116,6 +117,10 @@ metadata/_custom_type_script = "uid://6muyfejx2agd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayer"]
 shape = SubResource("CircleShape2D_up041")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_up041")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="HurtPlayer" to="HurtPlayer" method="_on_body_entered"]

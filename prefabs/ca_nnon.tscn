@@ -1,14 +1,71 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2svtumcoa3e"]
+[gd_scene load_steps=16 format=3 uid="uid://d2svtumcoa3e"]
 
 [ext_resource type="Script" uid="uid://b2aak2nfvb7k6" path="res://ca_nnon.gd" id="1_bl1sl"]
 [ext_resource type="Texture2D" uid="uid://dlbsjrdhss0bu" path="res://garbage can/sodaCan/CannonGun.png" id="2_1beol"]
 [ext_resource type="PackedScene" uid="uid://bwlevdeoalp3i" path="res://prefabs/can_proj.tscn" id="2_n72eh"]
 [ext_resource type="Texture2D" uid="uid://bhbu8dnypw5dj" path="res://garbage can/sodaCan/CannonBase.png" id="3_n72eh"]
+[ext_resource type="Texture2D" uid="uid://b62akso3ovykj" path="res://pixelated images/Explosion.png" id="5_n72eh"]
+[ext_resource type="AudioStream" uid="uid://cbm68lhg65x4w" path="res://Audio/smolBoom.mp3" id="6_4kgnr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubh3r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wao42"]
 radius = 652.823
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n72eh"]
+atlas = ExtResource("5_n72eh")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kgnr"]
+atlas = ExtResource("5_n72eh")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wkvd"]
+atlas = ExtResource("5_n72eh")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3apm"]
+atlas = ExtResource("5_n72eh")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3q5u"]
+atlas = ExtResource("5_n72eh")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oojsq"]
+atlas = ExtResource("5_n72eh")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kb0x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n72eh")
+}],
+"loop": true,
+"name": &"None",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kgnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wkvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3apm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3q5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oojsq")
+}],
+"loop": false,
+"name": &"kaBoom",
+"speed": 9.0
+}]
 
 [node name="CANnon" type="Area2D"]
 collision_layer = 2
@@ -41,6 +98,15 @@ shape = SubResource("CircleShape2D_wao42")
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.85938, 1.85938)
+sprite_frames = SubResource("SpriteFrames_1kb0x")
+animation = &"None"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4kgnr")
+
 [connection signal="body_entered" from="DetectPlayer" to="." method="_on_detect_player_body_entered"]
 [connection signal="body_exited" from="DetectPlayer" to="." method="_on_detect_player_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

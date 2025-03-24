@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://boe08j1nsmg2b"]
+[gd_scene load_steps=60 format=3 uid="uid://boe08j1nsmg2b"]
 
 [ext_resource type="Script" uid="uid://b0fk0b1brtehp" path="res://scripts/player_body.gd" id="1_f57or"]
 [ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="2_4eoj2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cqi8qb2357hbf" path="res://mouse.png" id="10_7f3fc"]
 [ext_resource type="Texture2D" uid="uid://cir1mlod3t5xm" path="res://BigStick.png" id="11_kibih"]
 [ext_resource type="Texture2D" uid="uid://cxi2oj0us6xqq" path="res://BigStickNoCheese.png" id="12_mxvbm"]
+[ext_resource type="AudioStream" uid="uid://bihb7cxe4knyq" path="res://Audio/OmNom.mp3" id="13_nol80"]
 
 [sub_resource type="Animation" id="Animation_40m2s"]
 length = 0.001
@@ -583,6 +584,9 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DialougeTrigger"]
 shape = SubResource("CircleShape2D_kf6ff")
+
+[node name="OmNom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_nol80")
 
 [connection signal="player_dead" from="." to="." method="_on_player_dead"]
 [connection signal="area_entered" from="PlayerAnchor/Shoulder/WeaponAnchor/Area2D" to="." method="_on_area_2d_area_entered"]

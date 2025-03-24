@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dme7611kf7dhe"]
+[gd_scene load_steps=10 format=3 uid="uid://clvbephlar7gr"]
 
 [ext_resource type="Script" uid="uid://ddo7pun875xru" path="res://prefabs/button.gd" id="1_f40y1"]
-[ext_resource type="Texture2D" uid="uid://cvjitypxa5d72" path="res://icon.svg" id="2_uqs03"]
+[ext_resource type="Texture2D" uid="uid://big1g5eb33tet" path="res://pixelated images/Button.png" id="2_uqs03"]
+[ext_resource type="Texture2D" uid="uid://bjkfpsntxt35a" path="res://pixelated images/ButtonHolder.png" id="3_2ure8"]
 
 [sub_resource type="Gradient" id="Gradient_nrrmd"]
 interpolation_mode = 2
@@ -161,11 +162,16 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nrrmd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
-position = Vector2(0, 0.999987)
-scale = Vector2(1, 0.171875)
+position = Vector2(0, -3)
+scale = Vector2(0.565295, 0.333971)
 texture = ExtResource("2_uqs03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
 shape = SubResource("RectangleShape2D_tl8b1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("3_2ure8")
 
 [connection signal="body_entered" from="Ground/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=81 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
@@ -18,20 +18,24 @@
 [ext_resource type="Texture2D" uid="uid://cfvdxr3e6kn1j" path="res://pixelated images/Houses/DudeEatingAtHome.png" id="8_66etr"]
 [ext_resource type="Texture2D" uid="uid://dsd8ky6i2lebu" path="res://pixelated images/TreePlatformsA.png" id="8_bynsa"]
 [ext_resource type="Texture2D" uid="uid://byqbleioeop2w" path="res://pixelated images/Houses/HomeFloorExtension.png" id="8_cgrxg"]
+[ext_resource type="Texture2D" uid="uid://b6yjxhtlas7g" path="res://pixelated images/StoneHallSegmentBigger.png" id="8_p0yuj"]
 [ext_resource type="Texture2D" uid="uid://cpv4vh7cvohuj" path="res://pixelated images/IslandSections/IslandMiddleSection.png" id="9_se266"]
 [ext_resource type="Texture2D" uid="uid://cmyv47qqnb55p" path="res://pixelated images/IslandSections/IslandEdgeRight.png" id="10_66etr"]
 [ext_resource type="Material" uid="uid://bfo2yrcnp52ib" path="res://npcs/waveyshader.tres" id="10_asmem"]
 [ext_resource type="Texture2D" uid="uid://pyktfh0rxclb" path="res://pixelated images/IslandSections/IslandEdgeLeft.png" id="11_cgrxg"]
+[ext_resource type="Texture2D" uid="uid://dldtiyx5wcjkh" path="res://pixelated images/Trampoline.png" id="11_il2ep"]
 [ext_resource type="SpriteFrames" uid="uid://cakmuolc7tr5k" path="res://npcs/SusBoiIdle.tres" id="11_ohgds"]
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
-[ext_resource type="PackedScene" uid="uid://dme7611kf7dhe" path="res://prefabs/button.tscn" id="31_bqw2d"]
+[ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
+[ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -210,6 +214,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0vg7"]
+atlas = ExtResource("11_il2ep")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_42g2a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0vg7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
 size = Vector2(136, 136)
 
@@ -247,10 +266,19 @@ size = Vector2(272, 38)
 size = Vector2(31, 1279.91)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g8y3r"]
-size = Vector2(1934, 102)
+size = Vector2(2543, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0yuj"]
+size = Vector2(6478, 616)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
 size = Vector2(13034, 4699)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjcc5"]
+size = Vector2(1032, 313)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqw2d"]
+size = Vector2(2591, 445)
 
 [node name="TowerOfGarbo" type="Node2D"]
 
@@ -496,6 +524,22 @@ position = Vector2(6224.75, 44)
 scale = Vector2(0.618653, 0.164062)
 texture = ExtResource("8_cgrxg")
 
+[node name="DirtUnderFloor3" type="TextureRect" parent="Backgrounds"]
+offset_left = 7623.0
+offset_top = -2001.0
+offset_right = 14097.0
+offset_bottom = 575.0
+texture = ExtResource("2_bkxtt")
+stretch_mode = 1
+
+[node name="StoneHallSegmentBigger" type="TextureRect" parent="Backgrounds"]
+offset_left = 7622.0
+offset_top = -2467.0
+offset_right = 14100.0
+offset_bottom = -1955.0
+texture = ExtResource("8_p0yuj")
+stretch_mode = 1
+
 [node name="Hallway" type="TextureRect" parent="Backgrounds"]
 offset_left = 811.0
 offset_top = -848.0
@@ -526,6 +570,11 @@ script = ExtResource("6_ohgds")
 position = Vector2(6224.75, -155.625)
 scale = Vector2(0.618652, 0.618652)
 sprite_frames = SubResource("SpriteFrames_f0vg7")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
+position = Vector2(7399, -2073)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_42g2a")
 
 [node name="FieldIslands" type="Control" parent="Backgrounds"]
 layout_mode = 3
@@ -708,16 +757,17 @@ clip_children = 2
 layout_mode = 0
 offset_left = 5351.0
 offset_top = -1160.0
-offset_right = 6804.0
+offset_right = 7403.0
 offset_bottom = -648.0
 texture = ExtResource("9_se266")
 stretch_mode = 1
+metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields"]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 95.0
-offset_right = 1029.0
+offset_right = 1422.0
 offset_bottom = 530.0
 scale = Vector2(1.44001, 1)
 color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
@@ -725,12 +775,13 @@ color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
 [node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldF"]
 clip_children = 2
 layout_mode = 0
-offset_left = 6803.0
+offset_left = 7399.0
 offset_top = -1156.0
-offset_right = 7315.0
+offset_right = 7911.0
 offset_bottom = -644.0
 texture = ExtResource("10_66etr")
 stretch_mode = 1
+metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields2"]
 layout_mode = 0
@@ -859,6 +910,14 @@ position = Vector2(5604, -1322.5)
 scale = Vector2(0.652344, 0.802734)
 texture = ExtResource("14_bqw2d")
 
+[node name="TextureRect3" type="TextureRect" parent="Backgrounds"]
+offset_left = 7622.0
+offset_top = -7576.0
+offset_right = 14099.0
+offset_bottom = -2467.0
+texture = ExtResource("19_il2ep")
+stretch_mode = 1
+
 [node name="UI" parent="." instance=ExtResource("1_sqn0o")]
 
 [node name="DialoguePlayer" parent="." instance=ExtResource("2_aykru")]
@@ -958,8 +1017,12 @@ rotation = 0.41261
 shape = SubResource("RectangleShape2D_63vdt")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(5355, -2012)
+position = Vector2(5659.5, -2012)
 shape = SubResource("RectangleShape2D_g8y3r")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(10861, -1783)
+shape = SubResource("RectangleShape2D_p0yuj")
 
 [node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
 position = Vector2(-785, -47)
@@ -977,7 +1040,7 @@ position = Vector2(790, -237)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(3180, -528)
+position = Vector2(3321, -296)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 
@@ -991,6 +1054,10 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutofBoundsKillBox"]
 position = Vector2(2205, 1979.5)
 shape = SubResource("RectangleShape2D_4bwmo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OutofBoundsKillBox"]
+position = Vector2(5928, -2591.5)
+shape = SubResource("RectangleShape2D_vjcc5")
 
 [node name="GarbageBag2" parent="." instance=ExtResource("15_kayiq")]
 position = Vector2(2088, -126)
@@ -1031,9 +1098,23 @@ points = PackedVector2Array(4217, -1369, 4861, -1365)
 
 [node name="CANnon" parent="." instance=ExtResource("28_bson8")]
 position = Vector2(4200, -96)
+fireRate = 1.5
 
 [node name="CANnon2" parent="." instance=ExtResource("28_bson8")]
 position = Vector2(5403, -1226)
+fireRate = 1.5
+
+[node name="CANnon3" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(5291, -2136)
+fireRate = 2.0
+
+[node name="CollisionShape2D" parent="CANnon3/DetectPlayer" index="0"]
+position = Vector2(554.5, -126.5)
+shape = SubResource("RectangleShape2D_bqw2d")
+
+[node name="CANnon4" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(6402, -2137)
+fireRate = 2.0
 
 [node name="SawBlade" parent="." instance=ExtResource("30_g8y3r")]
 position = Vector2(2935, 0)
@@ -1062,8 +1143,104 @@ position = Vector2(3998, -16)
 [node name="Line2D" parent="Button" index="1"]
 points = PackedVector2Array(-4, 8, -4, 10, 15, 102, 207, 102, 270, 45, 201, -28)
 
+[node name="Button2" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(5044, -1160)
+
+[node name="Line2D" parent="Button2" index="1"]
+points = PackedVector2Array(-4, 8, -4, 10, -3, 51, 118, 30, 36, 91, 242, 63, 276, 116, 359, -9)
+
+[node name="Button3" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(5118, -2059)
+
+[node name="AnimationPlayer" parent="Button3" index="0"]
+root_node = NodePath("../../Button3")
+
+[node name="Line2D" parent="Button3" index="1"]
+points = PackedVector2Array(-4, 8, -3, 14, 58, 101, 175, -26)
+
+[node name="Button4" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(5616, -2061)
+
+[node name="Line2D" parent="Button4" index="1"]
+points = PackedVector2Array(-4, 8, -5, 12, -6, 42, 780, 46, 781, -20)
+
+[node name="Button5" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(5934, -2061)
+
+[node name="Line2D" parent="Button5" index="1"]
+points = PackedVector2Array(-4, 8, -4, 12, -4, 66, -677, 71, -643, -21)
+
+[node name="Button6" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(6239, -2061)
+
+[node name="Line2D" parent="Button6" index="1"]
+points = PackedVector2Array(-4, 8, -5, 12, -8, 92, -863, 93, -947, -22)
+
+[node name="Cheese3" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(7732, -2125)
+
+[node name="JumpPad6" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(7143, -2074)
+
+[node name="GarbageBag6" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(8399, -2124)
+
+[node name="Line2D" parent="GarbageBag6" index="1"]
+points = PackedVector2Array(8198, -2215, 9329, -2192)
+
+[node name="GarbageBag7" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(8495, -2301)
+
+[node name="Line2D" parent="GarbageBag7" index="1"]
+points = PackedVector2Array(8256, -2127, 8891, -2118)
+
+[node name="GarbageBag8" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(8889, -2169)
+
+[node name="Line2D" parent="GarbageBag8" index="1"]
+points = PackedVector2Array(8895, -2294, 9872, -2302)
+
+[node name="GarbageBag9" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(9006, -2361)
+
+[node name="Line2D" parent="GarbageBag9" index="1"]
+points = PackedVector2Array(8748, -2383, 9562, -2391)
+
+[node name="GarbageBag10" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(8632, -2594)
+
+[node name="Line2D" parent="GarbageBag10" index="1"]
+points = PackedVector2Array(8089, -2318, 8911, -2302)
+
+[node name="GarbageBag13" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(9258, -2558)
+
+[node name="Line2D" parent="GarbageBag13" index="1"]
+points = PackedVector2Array(7926, -2139, 9090, -2155)
+
+[node name="GarbageBag11" parent="." instance=ExtResource("36_vjcc5")]
+position = Vector2(10253, -2182)
+SPEED = 300
+JUMP_HEIGHT = 200
+JUMP_DISTANCE = 600
+
+[node name="Line2D" parent="GarbageBag11" index="1"]
+points = PackedVector2Array(9966, -2154, 11181, -2154)
+
+[node name="GarbageBag12" parent="." instance=ExtResource("36_vjcc5")]
+position = Vector2(10705, -2309)
+SPEED = 300
+JUMP_HEIGHT = 200
+JUMP_DISTANCE = 600
+
+[node name="Line2D" parent="GarbageBag12" index="1"]
+points = PackedVector2Array(10451, -2182, 11648, -2162)
+
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]
+[connection signal="pressed" from="Button2" to="CANnon2" method="death"]
+[connection signal="pressed" from="Button4" to="CANnon4" method="death"]
+[connection signal="pressed" from="Button5" to="CANnon3" method="death"]
 
 [editable path="DialogueAreas/DialogueArea"]
 [editable path="DialogueAreas/DialogueArea2"]
@@ -1072,4 +1249,18 @@ points = PackedVector2Array(-4, 8, -4, 10, 15, 102, 207, 102, 270, 45, 201, -28)
 [editable path="GarbageBag"]
 [editable path="GarbageBag5"]
 [editable path="GarbageBag4"]
+[editable path="CANnon3"]
 [editable path="Button"]
+[editable path="Button2"]
+[editable path="Button3"]
+[editable path="Button4"]
+[editable path="Button5"]
+[editable path="Button6"]
+[editable path="GarbageBag6"]
+[editable path="GarbageBag7"]
+[editable path="GarbageBag8"]
+[editable path="GarbageBag9"]
+[editable path="GarbageBag10"]
+[editable path="GarbageBag13"]
+[editable path="GarbageBag11"]
+[editable path="GarbageBag12"]

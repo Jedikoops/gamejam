@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://p5t8q2a6mugf"]
+[gd_scene load_steps=28 format=3 uid="uid://c4f31o40jg1k4"]
 
 [ext_resource type="Script" uid="uid://424q2jh2twcc" path="res://UI/mainmenu.gd" id="1_81nvf"]
 [ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="1_427s3"]
@@ -746,9 +746,9 @@ color = Color(0, 0, 0, 1)
 clip_children = 2
 layout_mode = 0
 offset_left = 56.0
-offset_top = 83.2438
+offset_top = 81.0
 offset_right = 1098.0
-offset_bottom = 83.2438
+offset_bottom = 81.0
 pivot_offset = Vector2(-376.972, 381.994)
 
 [node name="GrassFloor" type="Sprite2D" parent="Guy"]
