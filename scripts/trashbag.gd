@@ -18,10 +18,7 @@ var fly
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-<<<<<<< Updated upstream
 	line_2d.hide()
-=======
->>>>>>> Stashed changes
 	JUMP_DISTANCE *= -1
 	JUMP_HEIGHT *= -1
 	patrol = true
@@ -49,7 +46,6 @@ func _process(delta: float) -> void:
 		
 	
 	if(patrol):
-<<<<<<< Updated upstream
 		time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
 		prev_pos = global_position
 		if(!idle_patrol):
@@ -61,16 +57,6 @@ func _process(delta: float) -> void:
 		detect_player.scale.x = sign(sprite.scale.x)
 	else:
 		sprite.scale.x = abs(sprite_xscale) * sign(sprite.scale.x)
-=======
-		if(!idle_patrol):
-			time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
-			prev_pos = position
-			position.x = _cubic(line_2d.points[0].x, line_2d.points[1].x, abs(fmod(time, 2)-1))
-			sprite.scale.x = move_toward(sprite.scale.x, sign(fmod(time, 2)-1)*abs(sprite_xscale), 10*delta)
-		detect_player.scale.x = sign(sprite.scale.x)
-	else:
-		sprite.scale.x = sprite_xscale * sign(sprite.scale.x)
->>>>>>> Stashed changes
 		if(fly):
 			look_at(global_position + (prev_pos - global_position))
 			rotation_degrees -= 90
