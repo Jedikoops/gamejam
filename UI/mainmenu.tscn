@@ -1,0 +1,679 @@
+[gd_scene load_steps=21 format=3 uid="uid://p5t8q2a6mugf"]
+
+[ext_resource type="Script" uid="uid://424q2jh2twcc" path="res://UI/mainmenu.gd" id="1_81nvf"]
+[ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="1_427s3"]
+[ext_resource type="SpriteFrames" uid="uid://cakmuolc7tr5k" path="res://npcs/SusBoiIdle.tres" id="1_fuin7"]
+[ext_resource type="Texture2D" uid="uid://0axeowe6kdy0" path="res://garbage can/sodaCan/SodaCanFlying.png" id="2_6xc76"]
+[ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="2_jmcqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xc76"]
+atlas = ExtResource("1_427s3")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81nvf"]
+atlas = ExtResource("1_427s3")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6whui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xc76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81nvf")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 3.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3hvi"]
+atlas = ExtResource("2_6xc76")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6whui"]
+atlas = ExtResource("2_6xc76")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xgd8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3hvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6whui")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.11
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmcqw"]
+atlas = ExtResource("2_jmcqw")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_427s3"]
+atlas = ExtResource("2_jmcqw")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81nvf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmcqw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_427s3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Animation" id="Animation_awb5e"]
+resource_name = "backgroundanim"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guy:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(56, -0.25, 0, 1.1, 1, 84, -0.25, 0, 0.863333, 18, 52, -0.746666, -11, 0.886667, 22, 32, -1.13333, 3, 1.00553, -2, 56, -1.19447, 6, 1.23333, -8),
+"times": PackedFloat32Array(0, 1.73667, 4, 5.93333, 8)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guy:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(83, -0.25, 0, 0.25, 0, 107, -0.903333, 24, 0.796667, -16, 37, -0.846667, 8, 0.25, 0, 99, -1.0278, -15, 0.738864, 12, 81, -1.1, -24, 0.25, 0),
+"times": PackedFloat32Array(-0.0333333, 1.73667, 3.91333, 5.93333, 8)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.00872665, -0.25, 0, 0.25, 0, 0.0139626, -0.25, 0, 0.25, 0, -0.00523599, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.984194, 2.7534, 5.53023, 8)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Guy/AnimatedSprite2D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(136, -0.25, 0, 0.25, 0, 174.125, -0.25, 0, 0.25, 0, 136, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.59118, 8)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Guy/AnimatedSprite2D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(267.756, -0.25, 0, 0.25, 0, 267.756, -0.25, 0, 0.25, 0, 267.756, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.59118, 8)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guy/AnimatedSprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.136136, -0.25, 0, 0.25, 0, 0.0872665, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.86067, 4.84077, 8)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Guy/AnimatedSprite2D:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(2.035, -0.25, 0, 0.25, 0, 1.888, -0.25, 0, 0.25, 0, 2.092, -0.25, 0, 0.25, 0, 1.965, -0.25, 0, 0.25, 0, 2.035, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.15004, 3.58709, 5.86011, 8)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Guy/AnimatedSprite2D:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(2.035, -0.25, 0, 0.25, 0, 1.888, -0.25, 0, 0.25, 0, 2.092, -0.25, 0, 0.25, 0, 1.965, -0.25, 0, 0.25, 0, 2.035, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.15004, 3.58709, 5.86011, 8)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Guy/AnimatedSprite2D2:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(730, -0.25, 0, 0.25, 0, 716.88, -0.25, 0, 0.25, 0, 730, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.61462, 8)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Guy/AnimatedSprite2D2:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(153.756, -0.25, 0, 0.25, 0, 140.236, -0.25, 0, 0.25, 0, 153.756, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.61462, 8)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Guy/AnimatedSprite2D2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.064599, -0.25, 0, 0.25, 0, -0.0261799, -0.25, 0, 0.25, 0, 0.064599, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2.87238, 8)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Guy/AnimatedSprite2D2:scale:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.405, -0.25, 0, 0.25, 0, 1.545, -0.25, 0, 0.25, 0, 1.325, -0.25, 0, 0.25, 0, 1.546, -0.25, 0, 0.25, 0, 1.405, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.13833, 3.62224, 5.87183, 8)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Guy/AnimatedSprite2D2:scale:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1.405, -0.25, 0, 0.25, 0, 1.545, -0.25, 0, 0.25, 0, 1.325, -0.25, 0, 0.25, 0, 1.546, -0.25, 0, 0.25, 0, 1.405, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.13833, 3.62224, 5.87183, 8)
+}
+
+[sub_resource type="Animation" id="Animation_fuin7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guy:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(56, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guy:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(81, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guy:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Guy/AnimatedSprite2D:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(136, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Guy/AnimatedSprite2D:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(267.756, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guy/AnimatedSprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Guy/AnimatedSprite2D:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.035, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Guy/AnimatedSprite2D:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.035, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Guy/AnimatedSprite2D2:position:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(730, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Guy/AnimatedSprite2D2:position:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(153.756, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Guy/AnimatedSprite2D2:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.064599, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Guy/AnimatedSprite2D2:scale:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.405, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Guy/AnimatedSprite2D2:scale:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.405, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jmcqw"]
+_data = {
+&"RESET": SubResource("Animation_fuin7"),
+&"backgroundanim": SubResource("Animation_awb5e")
+}
+
+[sub_resource type="Animation" id="Animation_6xc76"]
+resource_name = "start_oneshot"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guy:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.633333)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guy:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.633333)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guy:size:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1042, -0.25, 0, 0.25, 0, 1042, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Guy:size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 484, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Guy:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(56, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.691279)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guy:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(83.2438, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.691279)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Start:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.679562),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Ready:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_81nvf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guy:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Guy:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guy:size:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1042, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Guy:size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Guy:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(56, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guy:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(83.2438, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Ready:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Start:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6whui"]
+_data = {
+&"RESET": SubResource("Animation_81nvf"),
+&"start_oneshot": SubResource("Animation_6xc76")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_81nvf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Guy" type="ColorRect" parent="."]
+clip_children = 2
+layout_mode = 0
+offset_left = 56.0
+offset_top = 83.2438
+offset_right = 1098.0
+offset_bottom = 83.2438
+pivot_offset = Vector2(-376.972, 381.994)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Guy"]
+position = Vector2(730, 153.756)
+rotation = 0.064599
+scale = Vector2(1.405, 1.405)
+sprite_frames = SubResource("SpriteFrames_6whui")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.412639
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Guy/AnimatedSprite2D2"]
+position = Vector2(152.855, 58.5822)
+rotation = 0.112501
+scale = Vector2(0.427, 0.427)
+sprite_frames = SubResource("SpriteFrames_xgd8u")
+autoplay = "default"
+frame_progress = 0.264131
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Guy/AnimatedSprite2D2"]
+position = Vector2(83.2343, -25.3548)
+rotation = -0.268881
+scale = Vector2(0.480326, 0.388665)
+sprite_frames = SubResource("SpriteFrames_xgd8u")
+autoplay = "default"
+frame_progress = 0.78836
+
+[node name="ColorRect3" type="ColorRect" parent="Guy"]
+layout_mode = 0
+offset_left = 28.5353
+offset_top = -131.244
+offset_right = 68.5353
+offset_bottom = -91.2437
+rotation = 0.617007
+scale = Vector2(5617.53, 4.75076)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Guy"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = -131.244
+offset_right = 70.0
+offset_bottom = -91.2438
+rotation = 0.510572
+scale = Vector2(5617.53, 4.75076)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guy"]
+position = Vector2(136, 267.756)
+scale = Vector2(2.035, 2.035)
+sprite_frames = ExtResource("1_fuin7")
+animation = &"idle"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Guy/AnimatedSprite2D"]
+position = Vector2(-46.6831, 59.4595)
+scale = Vector2(1.12039, 1.11794)
+sprite_frames = SubResource("SpriteFrames_81nvf")
+frame_progress = 0.485536
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_jmcqw")
+}
+autoplay = "backgroundanim"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6whui")
+}
+
+[node name="Ready" type="Button" parent="."]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 235.0
+offset_right = 703.0
+offset_bottom = 364.0
+text = "READY?"
+
+[node name="Start" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 351.0
+offset_top = 235.0
+offset_right = 703.0
+offset_bottom = 364.0
+text = "START
+"
+
+[connection signal="pressed" from="Ready" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]

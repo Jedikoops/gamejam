@@ -1,43 +1,43 @@
 {
-    "tutorialSign 1":
-    [
+	"tutorialSign 1":
+	[
 
-    ],
-    "tutorialSign 2":
-    [
+	],
+	"tutorialSign 2":
+	[
 
-    ],
-    "tutorialSign 3":
-    [
+	],
+	"tutorialSign 3":
+	[
 
-    ],
-    "susBoi Entrance":
-    [
-        "Why hello there RGB Rat!",
-        "I don't suppose you'd be interested in helping me clean up the tower's garbage, would you?",
-        "Better yet, at the top of the tower, there's a really big block of cheese.",
-        "We're going to the moon, not because it is easy, but because it is cheese.",
-        "Right, well, on you go."
-    ],
-    "susBoi Fields":
-    [
-        "I know, it's weird how there's an outdoor in the indoor, right?",
-        "Either way, we're gonna ki-",
-        "erm-",
-        "'clean up' all the garbage here.",
-        "Just go climb that Tree, you should be able to parkour over that weird plastic building."
-    ],
-    "susBoi bossFightStart":
-    [
-        "Oh dang you made it.",
-        "Uh- So the cheese might have fallen out the window.",
-        "But I do see it down there, so you could just... go get it",
-        "Just go take that lil' wormhole over there, it'll be like a slide."
-    ],
-    "susBoi slain":
-    [
-        "OW GOSH DARNIT MY FACE!!",
-        "You think beating me up did anything?!?",
-        "you can't un-stab the garbage bags, you can't un-spill the "
-    ]
+	],
+	"susBoi Entrance":
+	[
+		"Why hello there RGB Rat!",
+		"I don't suppose you'd be interested in helping me clean up the tower's garbage, would you?",
+		"Better yet, at the top of the tower, there's a really big block of cheese.",
+		"We're going to the moon, not because it is easy, but because it is cheese.",
+		"Right, well, on you go."
+	],
+	"susBoi Fields":
+	[
+		"I know, it's weird how there's an outdoor in the indoor, right?",
+		"Either way, we're gonna ki-",
+		"erm-",
+		"'clean up' all the garbage here.",
+		"Just go climb that Tree, you should be able to parkour over that weird plastic building."
+	],
+	"susBoi bossFightStart":
+	[
+		"Oh dang you made it.",
+		"Uh- So the cheese might have fallen out the window.",
+		"But I do see it down there, so you could just... go get it",
+		"Just go take that lil' wormhole over there, it'll be like a slide."
+	],
+	"susBoi slain":
+	[
+		"OW GOSH DARNIT MY FACE!!",
+		"You think beating me up did anything?!?",
+		"you can't un-stab the garbage bags, you can't un-spill the "
+	]
 }
