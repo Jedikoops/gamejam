@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=72 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
@@ -24,12 +24,13 @@
 [ext_resource type="Texture2D" uid="uid://pyktfh0rxclb" path="res://pixelated images/IslandSections/IslandEdgeLeft.png" id="11_cgrxg"]
 [ext_resource type="SpriteFrames" uid="uid://cakmuolc7tr5k" path="res://npcs/SusBoiIdle.tres" id="11_ohgds"]
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
+[ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
-[ext_resource type="PackedScene" uid="uid://bwlevdeoalp3i" path="res://prefabs/can_proj.tscn" id="27_4f3r1"]
 [ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
+[ext_resource type="PackedScene" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
@@ -237,7 +238,7 @@ size = Vector2(3355.5, 210)
 size = Vector2(612, 321)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cgrxg"]
-size = Vector2(270, 176)
+size = Vector2(270, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lcyy"]
 size = Vector2(272, 38)
@@ -245,12 +246,22 @@ size = Vector2(272, 38)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63vdt"]
 size = Vector2(31, 1279.91)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8y3r"]
+size = Vector2(1934, 102)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
 size = Vector2(13034, 4699)
 
 [node name="TowerOfGarbo" type="Node2D"]
 
 [node name="Backgrounds" type="Node2D" parent="."]
+
+[node name="ColorRect2" type="ColorRect" parent="Backgrounds"]
+offset_left = 1759.0
+offset_top = -3858.0
+offset_right = 9565.0
+offset_bottom = 1093.0
+color = Color(0, 0.956863, 1, 1)
 
 [node name="FloorOutside" type="TextureRect" parent="Backgrounds"]
 offset_left = -3212.0
@@ -269,7 +280,7 @@ texture = ExtResource("2_kayiq")
 stretch_mode = 1
 
 [node name="DirtUnderFloor" type="TextureRect" parent="Backgrounds"]
-offset_left = 821.0
+offset_left = -1850.0
 offset_top = 132.0
 offset_right = 8628.0
 offset_bottom = 575.0
@@ -308,6 +319,12 @@ frame_progress = 0.182081
 
 [node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
 position = Vector2(4244, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D37" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(2500, -1497)
+scale = Vector2(1.28031, 1)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
 frame_progress = 0.182081
 
@@ -367,6 +384,93 @@ position = Vector2(6707, -917)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
 frame_progress = 0.182081
 
+[node name="AnimatedSprite2D21" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(3856, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D22" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(3037.5, -2085)
+scale = Vector2(1.13151, 1)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D23" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5392, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D24" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(4624, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D25" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(6160, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D29" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(3610.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D30" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(2792, -2670)
+scale = Vector2(1.13151, 1)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D31" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5146.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D32" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(4378.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D33" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(5914.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D34" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(7450.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D35" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(8218.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D36" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(6682.5, -2670)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D27" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(7696, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D28" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(8464, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D26" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(6928, -2085)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D38" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
+position = Vector2(8085, -1497)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
 [node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Backgrounds/The Sky"]
 position = Vector2(7316, -1497)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
@@ -423,17 +527,6 @@ position = Vector2(6224.75, -155.625)
 scale = Vector2(0.618652, 0.618652)
 sprite_frames = SubResource("SpriteFrames_f0vg7")
 
-[node name="TreeB" type="Sprite2D" parent="Backgrounds"]
-material = ExtResource("10_asmem")
-position = Vector2(3828, -201)
-scale = Vector2(0.791016, 0.791016)
-texture = ExtResource("19_pjt1x")
-
-[node name="TreePlatformsA" type="Sprite2D" parent="Backgrounds"]
-material = ExtResource("10_asmem")
-position = Vector2(5672, -244)
-texture = ExtResource("8_bynsa")
-
 [node name="FieldIslands" type="Control" parent="Backgrounds"]
 layout_mode = 3
 anchors_preset = 0
@@ -485,10 +578,10 @@ stretch_mode = 1
 [node name="IslandFieldD" type="Control" parent="Backgrounds/FieldIslands"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 2442.0
-offset_top = 565.0
-offset_right = 2482.0
-offset_bottom = 605.0
+offset_left = -728.0
+offset_top = -507.0
+offset_right = -688.0
+offset_bottom = -467.0
 scale = Vector2(1.00485, 1.10113)
 metadata/_edit_group_ = true
 
@@ -565,10 +658,10 @@ stretch_mode = 1
 [node name="IslandFieldB" type="Control" parent="Backgrounds/FieldIslands"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 2464.0
-offset_top = 812.0
-offset_right = 2504.0
-offset_bottom = 852.0
+offset_left = -980.0
+offset_top = -184.5
+offset_right = -940.0
+offset_bottom = -144.5
 scale = Vector2(1.00485, 1.10113)
 metadata/_edit_group_ = true
 
@@ -602,6 +695,71 @@ scale = Vector2(0.270417, 0.270417)
 texture = ExtResource("11_cgrxg")
 stretch_mode = 1
 
+[node name="IslandFieldF" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 276.0
+offset_top = -890.0
+offset_right = 316.0
+offset_bottom = -850.0
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldF"]
+clip_children = 2
+layout_mode = 0
+offset_left = 5351.0
+offset_top = -1160.0
+offset_right = 6804.0
+offset_bottom = -648.0
+texture = ExtResource("9_se266")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 95.0
+offset_right = 1029.0
+offset_bottom = 530.0
+scale = Vector2(1.44001, 1)
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldF"]
+clip_children = 2
+layout_mode = 0
+offset_left = 6803.0
+offset_top = -1156.0
+offset_right = 7315.0
+offset_bottom = -644.0
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields2"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 92.0
+offset_right = 1155.0
+offset_bottom = 423.0
+scale = Vector2(0.24, 1)
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldF"]
+clip_children = 2
+layout_mode = 0
+offset_left = 4839.0
+offset_top = -1160.0
+offset_right = 5351.0
+offset_bottom = -648.0
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 95.0
+offset_right = 1413.0
+offset_bottom = 426.0
+scale = Vector2(0.24, 1)
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
 [node name="IslandFieldA" type="Control" parent="Backgrounds/FieldIslands"]
 layout_mode = 3
 anchors_preset = 0
@@ -620,6 +778,7 @@ texture = ExtResource("9_se266")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldA/IslandMiddleFields"]
+layout_mode = 0
 offset_left = -4.0
 offset_top = 95.0
 offset_right = 1029.0
@@ -638,6 +797,7 @@ texture = ExtResource("10_66etr")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldA/IslandMiddleFields2"]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 92.0
 offset_right = 1155.0
@@ -656,12 +816,29 @@ texture = ExtResource("11_cgrxg")
 stretch_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldA/IslandMiddleFields3"]
+layout_mode = 0
 offset_left = 255.0
 offset_top = 95.0
 offset_right = 1413.0
 offset_bottom = 426.0
 scale = Vector2(0.24, 1)
 color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
+[node name="TreeA" type="Sprite2D" parent="Backgrounds"]
+material = ExtResource("10_asmem")
+position = Vector2(4945, -2255)
+texture = ExtResource("14_bqw2d")
+
+[node name="TreeB" type="Sprite2D" parent="Backgrounds"]
+material = ExtResource("10_asmem")
+position = Vector2(3828, -201)
+scale = Vector2(0.791016, 0.791016)
+texture = ExtResource("19_pjt1x")
+
+[node name="TreePlatformsA" type="Sprite2D" parent="Backgrounds"]
+material = ExtResource("10_asmem")
+position = Vector2(5672, -244)
+texture = ExtResource("8_bynsa")
 
 [node name="FakeSpikes" type="TextureRect" parent="Backgrounds"]
 offset_left = 6559.0
@@ -670,6 +847,17 @@ offset_right = 7193.0
 offset_bottom = 31.0
 texture = ExtResource("14_63vdt")
 stretch_mode = 1
+
+[node name="TreeB2" type="Sprite2D" parent="Backgrounds"]
+material = ExtResource("10_asmem")
+position = Vector2(4544, -1394)
+texture = ExtResource("19_pjt1x")
+
+[node name="TreeA2" type="Sprite2D" parent="Backgrounds"]
+material = ExtResource("10_asmem")
+position = Vector2(5604, -1322.5)
+scale = Vector2(0.652344, 0.802734)
+texture = ExtResource("14_bqw2d")
 
 [node name="UI" parent="." instance=ExtResource("1_sqn0o")]
 
@@ -706,7 +894,7 @@ sprite_frames = ExtResource("11_ohgds")
 animation = &"idle"
 
 [node name="Cheese" parent="." instance=ExtResource("19_4f3r1")]
-position = Vector2(7506, -31)
+position = Vector2(4137, -1568)
 
 [node name="Cheese2" parent="." instance=ExtResource("19_4f3r1")]
 position = Vector2(-559, -62)
@@ -757,17 +945,21 @@ position = Vector2(6223, -172.5)
 shape = SubResource("RectangleShape2D_mte5q")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(7380, -337)
+position = Vector2(3893, -1518)
 shape = SubResource("RectangleShape2D_cgrxg")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(7300, -753)
+position = Vector2(4151, -1838)
 shape = SubResource("RectangleShape2D_0lcyy")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(6795, -902)
 rotation = 0.41261
 shape = SubResource("RectangleShape2D_63vdt")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(5355, -2012)
+shape = SubResource("RectangleShape2D_g8y3r")
 
 [node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
 position = Vector2(-785, -47)
@@ -785,7 +977,7 @@ position = Vector2(790, -237)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(6090, -424)
+position = Vector2(3180, -528)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 
@@ -837,10 +1029,6 @@ position = Vector2(4292, -1287)
 [node name="Line2D" parent="GarbageBag4" index="1"]
 points = PackedVector2Array(4217, -1369, 4861, -1365)
 
-[node name="CanProj" parent="." instance=ExtResource("27_4f3r1")]
-position = Vector2(6183, -1369)
-linear_velocity = Vector2(-5, 0)
-
 [node name="CANnon" parent="." instance=ExtResource("28_bson8")]
 position = Vector2(4200, -96)
 
@@ -860,7 +1048,22 @@ yeetForce = 1000.0
 [node name="JumpPad2" parent="." instance=ExtResource("31_wpgxr")]
 position = Vector2(6182, -681)
 
+[node name="JumpPad3" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(4204, -1188)
+yeetForce = 1000.0
+
+[node name="JumpPad4" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(3857, -1537)
+yeetForce = 1000.0
+
+[node name="Button" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(3998, -16)
+
+[node name="Line2D" parent="Button" index="1"]
+points = PackedVector2Array(-4, 8, -4, 10, 15, 102, 207, 102, 270, 45, 201, -28)
+
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
+[connection signal="pressed" from="Button" to="CANnon" method="death"]
 
 [editable path="DialogueAreas/DialogueArea"]
 [editable path="DialogueAreas/DialogueArea2"]
@@ -869,3 +1072,4 @@ position = Vector2(6182, -681)
 [editable path="GarbageBag"]
 [editable path="GarbageBag5"]
 [editable path="GarbageBag4"]
+[editable path="Button"]

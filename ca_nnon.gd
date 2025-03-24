@@ -20,9 +20,10 @@ func _hurt(damage):
 		queue_free()
 
 func _on_detect_player_body_entered(body: Node2D) -> void:
-	print("hi")
-	$AttackTimer.start()
-	target = body
+	#print("hi")
+	if body.has_method("yeet"):
+		$AttackTimer.start()
+		target = body
 	pass # Replace with function body.w
 
 func _on_detect_player_body_exited(body: Node2D) -> void:
@@ -31,6 +32,7 @@ func _on_detect_player_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _on_attack_timer_timeout() -> void:
+	print(target.position)
 	if target == null: return
 	var newProj = projectile.instantiate()
 	#print()
@@ -38,4 +40,8 @@ func _on_attack_timer_timeout() -> void:
 	var ranging = (target.position - position).length()/4
 	newProj.linear_velocity = (((target.position + Vector2.UP * ranging) - position).normalized() * 1000)
 	add_child(newProj)
+	pass # Replace with function body.
+
+func death() -> void:
+	queue_free()
 	pass # Replace with function body.
