@@ -1,15 +1,15 @@
 {
     "tutorialSign 1":
     [
-
+        "placeHolder"
     ],
     "tutorialSign 2":
     [
-
+        "placeHolder"
     ],
     "tutorialSign 3":
     [
-
+        "placeHolder"
     ],
     "susBoi Entrance":
     [
@@ -38,6 +38,37 @@
     [
         "OW GOSH DARNIT MY FACE!!",
         "You think beating me up did anything?!?",
-        "you can't un-stab the garbage bags, you can't un-spill the "
+        "you can't un-stab the garbage bags, you can't un-spill the mess you've made you goofy rat.",
+        "Unless you restart the game- but that's besides the point.",
+        "whatever. I'm just gonna finish dying now.",
+        "* bleeds out *"
+    ],
+    "garbageNPC 1":
+    [
+        "Psst! don't trust that guy!",
+        "He's lying!!!"
+    ],
+    "garbageNPC 2":
+    [
+        "Dude, we eat garbage- We're cleaning up the mess! chill out!!!"
+    ],
+    "garbageNPC 3":
+    [
+        "Haven't heard back from my brother trashicus the third for a weird amount of time...",
+        "Did you happen to see him?"
+    ],
+    "garbageNPC 4":
+    [
+        "The cheese is a lie."
+    ],
+    "sodaCanNPC 1":
+    [
+        "Man, being a soda can is scary.",
+        "You get shot out of a CANnon at high speeds- "
+    ],
+    "sodaCanNPC 2":
+    [
+        "Seriously? you're doing all of this for a block of cheese?",
+        "Wow, you're real easy to convince..."
     ]
 }
