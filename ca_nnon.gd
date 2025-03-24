@@ -3,7 +3,7 @@ extends Area2D
 @export var projectile: PackedScene
 @export var maxHealth: int = 3
 @onready var health: int = maxHealth
-var target: Node2D = null
+@onready var target: Node2D = null
 
 func _ready() -> void:
 	pass
@@ -11,6 +11,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if target != null:
 		$Gun.look_at(target.position)
+	else:
+		$AttackTimer.stop()
 
 func _hurt(damage):
 	health -= damage
@@ -21,7 +23,7 @@ func _on_detect_player_body_entered(body: Node2D) -> void:
 	print("hi")
 	$AttackTimer.start()
 	target = body
-	pass # Replace with function body.
+	pass # Replace with function body.w
 
 func _on_detect_player_body_exited(body: Node2D) -> void:
 	$AttackTimer.stop()
@@ -29,6 +31,7 @@ func _on_detect_player_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
 
 func _on_attack_timer_timeout() -> void:
+	if target == null: return
 	var newProj = projectile.instantiate()
 	#print()
 	#newProj.look_at(target.position)

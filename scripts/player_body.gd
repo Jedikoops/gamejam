@@ -175,10 +175,11 @@ func _on_player_dead() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	body._hurt(damage)
-	
+	if body.has_method("_hurt"):
+		body._hurt(damage)
+
 func _find_cheese():
 	hascheese = true
-	
+
 func _eat_cheese():
 	hascheese = true
