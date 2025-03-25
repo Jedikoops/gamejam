@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=83 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
@@ -241,6 +241,10 @@ size = Vector2(265, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt1x"]
 size = Vector2(113.274, 26)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vjcc5"]
+a = Vector2(65.2407, -5.71727)
+b = Vector2(-61.1025, 1.85989)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlqo"]
 size = Vector2(5695, 211)
 
@@ -249,6 +253,10 @@ size = Vector2(20, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1wed"]
 size = Vector2(1901, 121.75)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3osep"]
+a = Vector2(73.6294, -7.39392)
+b = Vector2(-74.4331, -10.616)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8javk"]
 size = Vector2(3355.5, 210)
@@ -948,7 +956,7 @@ position = Vector2(0, 21.5)
 shape = SubResource("RectangleShape2D_ohgds")
 
 [node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea2" index="1"]
-position = Vector2(0, 0)
+position = Vector2(0, 13)
 sprite_frames = ExtResource("11_ohgds")
 animation = &"idle"
 
@@ -973,10 +981,11 @@ position = Vector2(6240, -662)
 scale = Vector2(2.16841, 1.79934)
 shape = SubResource("RectangleShape2D_pjt1x")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map Terrain"]
+[node name="treer" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(5785, -241)
 rotation = -0.0350505
-shape = SubResource("RectangleShape2D_pjt1x")
+shape = SubResource("SegmentShape2D_vjcc5")
+one_way_collision = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(1652.5, 95.5)
@@ -990,10 +999,11 @@ shape = SubResource("RectangleShape2D_ag1ip")
 position = Vector2(5071, -1111.88)
 shape = SubResource("RectangleShape2D_t1wed")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map Terrain"]
+[node name="treel" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(5599, -179)
 rotation = 0.100084
-shape = SubResource("RectangleShape2D_pjt1x")
+shape = SubResource("SegmentShape2D_3osep")
+one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(6444.25, 95)
@@ -1040,7 +1050,7 @@ position = Vector2(790, -237)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(3321, -296)
+position = Vector2(4884, -1243)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 

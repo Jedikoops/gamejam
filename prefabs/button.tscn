@@ -136,8 +136,9 @@ _data = {
 radius = 5.0
 height = 128.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl8b1"]
-size = Vector2(130, 20)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uqs03"]
+a = Vector2(65, -9)
+b = Vector2(-66, -9)
 
 [node name="Button" type="Node2D"]
 script = ExtResource("1_f40y1")
@@ -167,7 +168,10 @@ scale = Vector2(0.565295, 0.333971)
 texture = ExtResource("2_uqs03")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("RectangleShape2D_tl8b1")
+position = Vector2(0, -1)
+shape = SubResource("SegmentShape2D_uqs03")
+one_way_collision = true
+one_way_collision_margin = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 6)
