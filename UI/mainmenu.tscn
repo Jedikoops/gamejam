@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c4f31o40jg1k4"]
+[gd_scene load_steps=26 format=3 uid="uid://c4f31o40jg1k4"]
 
 [ext_resource type="Script" uid="uid://424q2jh2twcc" path="res://UI/mainmenu.gd" id="1_81nvf"]
 [ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="1_427s3"]
@@ -9,9 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://kqx5r8jgf034" path="res://pixelated images/GrassFloor.png" id="2_pqw7e"]
 [ext_resource type="Texture2D" uid="uid://daibmhv2gfnuw" path="res://pixelated images/SkywithClouds.png" id="3_hq757"]
 [ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="6_m7qvm"]
-[ext_resource type="Texture2D" uid="uid://c2ah3w50xadjq" path="res://UI/tile_0043.png" id="6_xgd8u"]
-[ext_resource type="Texture2D" uid="uid://dhfsd8ysvvw10" path="res://UI/tile_0044.png" id="7_m7qvm"]
-[ext_resource type="Texture2D" uid="uid://counsoq4r3kp1" path="res://UI/tile_0045.png" id="8_dt0da"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xc76"]
 atlas = ExtResource("1_427s3")
@@ -727,6 +724,9 @@ _data = {
 &"start_oneshot": SubResource("Animation_6xc76")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7qvm"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -746,9 +746,9 @@ color = Color(0, 0, 0, 1)
 clip_children = 2
 layout_mode = 0
 offset_left = 56.0
-offset_top = 81.0
+offset_top = 83.2438
 offset_right = 1098.0
-offset_bottom = 81.0
+offset_bottom = 83.2438
 pivot_offset = Vector2(-376.972, 381.994)
 
 [node name="GrassFloor" type="Sprite2D" parent="Guy"]
@@ -878,42 +878,11 @@ offset_top = 314.0
 offset_right = 873.0
 offset_bottom = 447.0
 scale = Vector2(0.378171, 0.378171)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_m7qvm")
 theme_override_font_sizes/font_size = 66
-text = "READY"
-
-[node name="Node2D" type="Node2D" parent="Ready"]
-position = Vector2(176, 52)
-scale = Vector2(7.42, 7.42)
-
-[node name="Tile0043" type="Sprite2D" parent="Ready/Node2D"]
-position = Vector2(-32, 0)
-texture = ExtResource("6_xgd8u")
-
-[node name="Tile0044" type="Sprite2D" parent="Ready/Node2D"]
-texture = ExtResource("7_m7qvm")
-
-[node name="Tile0045" type="Sprite2D" parent="Ready/Node2D"]
-position = Vector2(32, 0)
-texture = ExtResource("8_dt0da")
-
-[node name="Label" type="Label" parent="Ready"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("6_m7qvm")
-theme_override_font_sizes/font_size = 66
-text = "READY"
-horizontal_alignment = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_m7qvm")
+text = "READY?"
 
 [node name="Start" type="Button" parent="."]
 visible = false
@@ -928,21 +897,6 @@ scale = Vector2(0.378171, 0.378171)
 theme_override_fonts/font = ExtResource("6_m7qvm")
 theme_override_font_sizes/font_size = 66
 text = "PLAY"
-
-[node name="Node2D" type="Node2D" parent="Start"]
-position = Vector2(176, 61)
-scale = Vector2(7.42, 7.42)
-
-[node name="Tile0043" type="Sprite2D" parent="Start/Node2D"]
-position = Vector2(-32, 0)
-texture = ExtResource("6_xgd8u")
-
-[node name="Tile0044" type="Sprite2D" parent="Start/Node2D"]
-texture = ExtResource("7_m7qvm")
-
-[node name="Tile0045" type="Sprite2D" parent="Start/Node2D"]
-position = Vector2(32, 0)
-texture = ExtResource("8_dt0da")
 
 [node name="Label" type="Label" parent="Start"]
 layout_mode = 1
