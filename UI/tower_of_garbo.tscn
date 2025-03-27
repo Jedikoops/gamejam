@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=107 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="Texture2D" uid="uid://88kmh0nhllc7" path="res://garbage can/sodaCan/SodaCanIdle.png" id="24_3osep"]
@@ -38,7 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
 [ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
-[ext_resource type="PackedScene" uid="uid://pfjimka5oa74" path="res://wall_punch.tscn" id="38_m6x8b"]
+[ext_resource type="PackedScene" path="res://wall_punch.tscn" id="38_m6x8b"]
+[ext_resource type="PackedScene" uid="uid://ll6yirwfkw6k" path="res://prefabs/evil.tscn" id="40_f0vg7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -1373,7 +1374,6 @@ shape = SubResource("RectangleShape2D_p0yuj")
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(12325.7, -3432.63)
 rotation = -1.20693
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hcge2")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Map Terrain"]
@@ -1864,6 +1864,9 @@ position = Vector2(8001, -6257)
 [node name="Door" parent="." instance=ExtResource("6_e25tj")]
 position = Vector2(7739, -6395)
 openKey = "FINAL_BOSS"
+
+[node name="Area2D" parent="." instance=ExtResource("40_f0vg7")]
+position = Vector2(-1118, 1)
 
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]

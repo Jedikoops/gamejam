@@ -1,102 +1,102 @@
 {
-    "tutorialSign 1":
-    [
-        "placeHolder"
-    ],
-    "tutorialSign 2":
-    [
-        "placeHolder"
-    ],
-    "tutorialSign 3":
-    [
-        "placeHolder"
-    ],
-    "susBoi Entrance":
-    [
-        "Why hello there RGB Rat!",
-        "I don't suppose you'd be interested in helping me clean up the tower's garbage, would you?",
-        "Better yet, at the top of the tower, there's a really big block of cheese.",
-        "We're going to the moon, not because it is easy, but because it is cheese.",
-        "Right, well, on you go."
-    ],
-    "susBoi Fields":
-    [
-        "I know, it's weird how there's an outdoor in the indoor, right?.",
-        "Either way, we're gonna ki-.",
-        "erm-",
-        "'clean up' all the garbage here",
-        "Just go climb that Tree, you should be able to parkour over that weird plastic building."
-    ],
-    "susBoi bossFightStart":
-    [
-        "Oh dang you made it.",
-        "Uh- So the cheese might have fallen out the window.",
-        "But I do see it down there, so you could just... go get it",
-        "Just go take that lil' wormhole over there, it'll be like a slide."
-    ],
-    "susBoi slain":
-    [
-        "OW GOSH DARNIT MY FACE!!",
-        "You think beating me up did anything?!?",
-        "you can't un-stab the garbage bags, you can't un-spill the mess you've made you goofy rat.",
-        "Unless you restart the game- but that's besides the point.",
-        "whatever. I'm just gonna finish dying now.",
-        "* bleeds out *"
-    ],
-    "garbageNPC 1":
-    [
-        "Psst! don't trust that guy!",
-        "He's lying!!!"
-    ],
-    "garbageNPC 2":
-    [
-        "Dude, we eat garbage- We're cleaning up the mess! chill out!!!"
-    ],
-    "garbageNPC 3":
-    [
-        "Haven't heard back from my brother trashicus the third for a weird amount of time...",
-        "Did you happen to see him?"
-    ],
-    "garbageNPC 4":
-    [
-        "The cheese is a lie."
-    ],
-    "sodaCanNPC 1":
-    [
-        "Man, being a soda can is scary.",
-        "You get shot out of a CANnon at high speeds- "
-    ],
-    "sodaCanNPC 2":
-    [
-        "Seriously? you're doing all of this for a block of cheese?",
-        "Wow, you're real easy to convince..."
-    ],
-    "sodaCanNPC 3":
-    [
-        "I bet you hope the fake buttons aren't going to be a recurring theme :3"
-    ],
-    "SignForDoor":
-    [
-        "Alright so listen, the button to destroy those automated defenses is on the very right of the first floor.",
-        "And the key to unlock the door is all the way hidden under a plant next to the front door",
-        "Trust me, I'm tellin' the truth,",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        " ",
-        "OKAY FINE I LIED ABOUT THE KEY.",
-        "I opened the door just go away :,O"
-    ]
+	"tutorialSign 1":
+	[
+		"placeHolder"
+	],
+	"tutorialSign 2":
+	[
+		"placeHolder"
+	],
+	"tutorialSign 3":
+	[
+		"placeHolder"
+	],
+	"susBoi Entrance":
+	[
+		"Why hello there RGB Rat!",
+		"I don't suppose you'd be interested in helping me clean up the tower's garbage, would you?",
+		"Better yet, at the top of the tower, there's a really big block of cheese.",
+		"We're going to the moon, not because it is easy, but because it is cheese.",
+		"Right, well, on you go."
+	],
+	"susBoi Fields":
+	[
+		"I know, it's weird how there's an outdoor in the indoor, right?.",
+		"Either way, we're gonna ki-.",
+		"erm-",
+		"'clean up' all the garbage here",
+		"Just go climb that Tree, you should be able to parkour over that weird plastic building."
+	],
+	"susBoi bossFightStart":
+	[
+		"Oh dang you made it.",
+		"Uh- So the cheese might have fallen out the window.",
+		"But I do see it down there, so you could just... go get it",
+		"Just go take that lil' wormhole over there, it'll be like a slide."
+	],
+	"susBoi slain":
+	[
+		"OW GOSH DARNIT MY FACE!!",
+		"You think beating me up did anything?!?",
+		"you can't un-stab the garbage bags, you can't un-spill the mess you've made you goofy rat.",
+		"Unless you restart the game- but that's besides the point.",
+		"whatever. I'm just gonna finish dying now.",
+		"* bleeds out *"
+	],
+	"garbageNPC 1":
+	[
+		"Psst! don't trust that guy!",
+		"He's lying!!!"
+	],
+	"garbageNPC 2":
+	[
+		"Dude, we eat garbage- We're cleaning up the mess! chill out!!!"
+	],
+	"garbageNPC 3":
+	[
+		"Haven't heard back from my brother trashicus the third for a weird amount of time...",
+		"Did you happen to see him?"
+	],
+	"garbageNPC 4":
+	[
+		"The cheese is a lie."
+	],
+	"sodaCanNPC 1":
+	[
+		"Man, being a soda can is scary.",
+		"You get shot out of a CANnon at high speeds- "
+	],
+	"sodaCanNPC 2":
+	[
+		"Seriously? you're doing all of this for a block of cheese?",
+		"Wow, you're real easy to convince..."
+	],
+	"sodaCanNPC 3":
+	[
+		"I bet you hope the fake buttons aren't going to be a recurring theme :3"
+	],
+	"SignForDoor":
+	[
+		"Alright so listen, the button to destroy those automated defenses is on the very right of the first floor.",
+		"And the key to unlock the door is all the way hidden under a plant next to the front door",
+		"Trust me, I'm tellin' the truth,",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		" ",
+		"OKAY FINE I LIED ABOUT THE KEY.",
+		"I opened the door just go away :,O"
+	]
 }
