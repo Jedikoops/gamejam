@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://bqo8gq2r5spg2"]
+
+[ext_resource type="Texture2D" uid="uid://b62akso3ovykj" path="res://pixelated images/Explosion.png" id="1_kd0w6"]
+[ext_resource type="Texture2D" uid="uid://jgpqr31d54pr" path="res://pixelated images/Missile.png" id="2_28vpk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_668dj"]
+atlas = ExtResource("1_kd0w6")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfe1n"]
+atlas = ExtResource("1_kd0w6")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44ani"]
+atlas = ExtResource("1_kd0w6")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqkiy"]
+atlas = ExtResource("1_kd0w6")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a54ar"]
+atlas = ExtResource("1_kd0w6")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gepuv"]
+atlas = ExtResource("2_28vpk")
+region = Rect2(0, 256, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niovk"]
+atlas = ExtResource("2_28vpk")
+region = Rect2(0, 384, 384, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcw13"]
+atlas = ExtResource("2_28vpk")
+region = Rect2(0, 512, 384, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6x633"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_668dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfe1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44ani")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqkiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a54ar")
+}],
+"loop": false,
+"name": &"Kaboomboom",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gepuv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_niovk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcw13")
+}],
+"loop": true,
+"name": &"Missile",
+"speed": 12.0
+}]
+
+[node name="Missile" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-35, 0)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_6x633")
+animation = &"Missile"
+frame_progress = 0.892664
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

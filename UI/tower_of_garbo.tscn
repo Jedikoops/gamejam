@@ -1,6 +1,6 @@
 [gd_scene load_steps=106 format=3 uid="uid://btpbbon16o8hx"]
 
-[ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
+[ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
 [ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="2_aykru"]
 [ext_resource type="Texture2D" uid="uid://bhj4j3f3cdgiu" path="res://Non-pixelated images/dirt.jpg" id="2_bkxtt"]
@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="Texture2D" uid="uid://88kmh0nhllc7" path="res://garbage can/sodaCan/SodaCanIdle.png" id="24_3osep"]
@@ -38,7 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
 [ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
-[ext_resource type="PackedScene" path="res://wall_punch.tscn" id="38_m6x8b"]
+[ext_resource type="PackedScene" uid="uid://pfjimka5oa74" path="res://wall_punch.tscn" id="38_m6x8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -378,19 +378,19 @@ size = Vector2(2591, 445)
 [node name="Backgrounds" type="Node2D" parent="."]
 
 [node name="ColorRect2" type="ColorRect" parent="Backgrounds"]
-offset_left = 1759.0
-offset_top = -8761.0
-offset_right = 9565.0
-offset_bottom = 1093.0
+offset_left = 1932.0
+offset_top = -9510.0
+offset_right = 9738.0
+offset_bottom = 344.0
 color = Color(0, 0.956863, 1, 1)
 
 [node name="FloorOutside" type="TextureRect" parent="Backgrounds"]
-offset_left = -3212.0
-offset_top = -2495.0
-offset_right = 884.0
-offset_bottom = 577.0
-rotation = -0.0545242
-texture = ExtResource("1_bosin")
+offset_left = -3045.0
+offset_top = -2066.0
+offset_right = 795.0
+offset_bottom = 94.0
+texture = ExtResource("1_f0vg7")
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Backgrounds"]
 offset_left = 3015.0
@@ -401,8 +401,8 @@ texture = ExtResource("2_kayiq")
 stretch_mode = 1
 
 [node name="DirtUnderFloor" type="TextureRect" parent="Backgrounds"]
-offset_left = -1850.0
-offset_top = 132.0
+offset_left = 803.0
+offset_top = 54.0
 offset_right = 8628.0
 offset_bottom = 575.0
 texture = ExtResource("2_bkxtt")
@@ -414,6 +414,7 @@ offset_top = -49.0
 offset_right = 4768.0
 offset_bottom = 252.0
 texture = ExtResource("5_kayiq")
+metadata/_edit_use_anchors_ = true
 
 [node name="The Sky" type="Node2D" parent="Backgrounds"]
 script = ExtResource("6_ohgds")
@@ -766,6 +767,7 @@ offset_right = 3075.0
 offset_bottom = 111.0
 texture = ExtResource("8_p0yuj")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="DirtUnderFloor2" type="TextureRect" parent="Backgrounds"]
 offset_left = 5960.0
@@ -774,6 +776,7 @@ offset_right = 6485.0
 offset_bottom = 469.0
 texture = ExtResource("2_bkxtt")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Houses" type="Node2D" parent="Backgrounds"]
 script = ExtResource("6_ohgds")
@@ -819,6 +822,7 @@ offset_left = -992.0
 offset_top = -80.0
 offset_right = -952.0
 offset_bottom = -40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandFieldE" type="Control" parent="Backgrounds/FieldIslands"]
 layout_mode = 3
@@ -829,6 +833,7 @@ offset_right = 1556.0
 offset_bottom = 378.0
 scale = Vector2(1.00485, 1.10113)
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldE"]
 layout_mode = 0
@@ -869,6 +874,7 @@ offset_right = -688.0
 offset_bottom = -467.0
 scale = Vector2(1.00485, 1.10113)
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldD"]
 layout_mode = 0
@@ -909,6 +915,7 @@ offset_right = 1406.0
 offset_bottom = 705.0
 scale = Vector2(1.00485, 1.10113)
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldC"]
 layout_mode = 0
@@ -949,6 +956,7 @@ offset_right = -940.0
 offset_bottom = -144.5
 scale = Vector2(1.00485, 1.10113)
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldB"]
 layout_mode = 0
@@ -988,6 +996,7 @@ offset_top = -2514.54
 offset_right = 997.0
 offset_bottom = -2474.54
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldG"]
 clip_children = 2
@@ -1055,6 +1064,7 @@ offset_left = 276.0
 offset_top = -890.0
 offset_right = 316.0
 offset_bottom = -850.0
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldF"]
 clip_children = 2
@@ -1066,6 +1076,7 @@ offset_bottom = -648.0
 texture = ExtResource("9_se266")
 stretch_mode = 1
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields"]
 layout_mode = 0
@@ -1105,6 +1116,7 @@ offset_right = 5351.0
 offset_bottom = -648.0
 texture = ExtResource("11_cgrxg")
 stretch_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldF/IslandMiddleFields3"]
 layout_mode = 0
@@ -1114,6 +1126,7 @@ offset_right = 1413.0
 offset_bottom = 426.0
 scale = Vector2(0.24, 1)
 color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandFieldA" type="Control" parent="Backgrounds/FieldIslands"]
 layout_mode = 3
@@ -1121,6 +1134,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldA"]
 clip_children = 2
@@ -1228,7 +1242,7 @@ texture = ExtResource("14_bqw2d")
 
 [node name="wallbackground2" type="TextureRect" parent="Backgrounds"]
 offset_left = 794.0
-offset_top = -1936.0
+offset_top = -3976.0
 offset_right = 3075.0
 offset_bottom = -401.0
 texture = ExtResource("19_il2ep")
@@ -1452,7 +1466,7 @@ position = Vector2(7191, -1002)
 [node name="DoorHolder" type="Node2D" parent="."]
 
 [node name="MainEntrance" parent="DoorHolder" instance=ExtResource("6_e25tj")]
-position = Vector2(767, -214)
+position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
@@ -1683,7 +1697,7 @@ position = Vector2(9848, -2130)
 position = Vector2(5901, -4)
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1304.0
+offset_left = 803.0
 offset_top = 18.0
 offset_right = 9303.0
 offset_bottom = 616.0
