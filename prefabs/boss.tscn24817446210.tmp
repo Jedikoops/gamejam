@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8gke62ydhsvf"]
+
+[ext_resource type="Script" uid="uid://dc4g2svntt4da" path="res://boss.gd" id="1_s2rfe"]
+[ext_resource type="PackedScene" uid="uid://bqo8gq2r5spg2" path="res://prefabs/missile.tscn" id="2_ktg0e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ktg0e"]
+radius = 27.0185
+
+[node name="Boss" type="Node2D"]
+script = ExtResource("1_s2rfe")
+missileScene = ExtResource("2_ktg0e")
+
+[node name="BossHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossHitBox"]
+shape = SubResource("CircleShape2D_ktg0e")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="MissileTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="IndividualMissileTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="timeout" from="MissileTimer" to="." method="_on_missile_timer_timeout"]
+[connection signal="timeout" from="IndividualMissileTimer" to="." method="_on_individual_missile_timer_timeout"]

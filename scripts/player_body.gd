@@ -43,6 +43,9 @@ func _ready() -> void:
 	jump_velocity = MIN_JUMP
 	set_health(MAX_HEALTH)
 
+func _process(delta: float) -> void:
+	SignalBus.setPlayerPos(global_position)
+
 func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("move_left", "move_right")

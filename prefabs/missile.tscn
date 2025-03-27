@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqo8gq2r5spg2"]
+[gd_scene load_steps=14 format=3 uid="uid://bqo8gq2r5spg2"]
 
+[ext_resource type="Script" uid="uid://bfn6k7arnhna8" path="res://prefabs/missile.gd" id="1_28vpk"]
 [ext_resource type="Texture2D" uid="uid://b62akso3ovykj" path="res://pixelated images/Explosion.png" id="1_kd0w6"]
 [ext_resource type="Texture2D" uid="uid://jgpqr31d54pr" path="res://pixelated images/Missile.png" id="2_28vpk"]
 
@@ -55,7 +56,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Kaboomboom",
-"speed": 12.0
+"speed": 7.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -72,13 +73,26 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_28vpk"]
+radius = 22.0227
+
 [node name="Missile" type="Area2D"]
+script = ExtResource("1_28vpk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-35, 0)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_6x633")
-animation = &"Missile"
-frame_progress = 0.892664
+animation = &"Kaboomboom"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
+shape = SubResource("CircleShape2D_28vpk")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
