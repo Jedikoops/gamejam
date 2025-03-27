@@ -21,10 +21,10 @@
     ],
     "susBoi Fields":
     [
-        "I know, it's weird how there's an outdoor in the indoor, right?",
-        "Either way, we're gonna ki-",
+        "I know, it's weird how there's an outdoor in the indoor, right?.",
+        "Either way, we're gonna ki-.",
         "erm-",
-        "'clean up' all the garbage here.",
+        "'clean up' all the garbage here",
         "Just go climb that Tree, you should be able to parkour over that weird plastic building."
     ],
     "susBoi bossFightStart":
@@ -70,5 +70,33 @@
     [
         "Seriously? you're doing all of this for a block of cheese?",
         "Wow, you're real easy to convince..."
+    ],
+    "sodaCanNPC 3":
+    [
+        "I bet you hope the fake buttons aren't going to be a recurring theme :3"
+    ],
+    "SignForDoor":
+    [
+        "Alright so listen, the button to destroy those automated defenses is on the very right of the first floor.",
+        "And the key to unlock the door is all the way hidden under a plant next to the front door",
+        "Trust me, I'm tellin' the truth,",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        " ",
+        "OKAY FINE I LIED ABOUT THE KEY.",
+        "I opened the door just go away :,O"
     ]
 }

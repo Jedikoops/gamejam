@@ -158,6 +158,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func yeet(force):
 	velocity.y = -1 * force
+func yeetX(force):
+	velocity.x = -1 * force
+	print(velocity.x)
 
 func set_health(value: int):
 	print("knock it off!")

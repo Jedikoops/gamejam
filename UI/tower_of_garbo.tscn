@@ -1,8 +1,7 @@
-[gd_scene load_steps=83 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=106 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
-[ext_resource type="Texture2D" uid="uid://bb8yd5vfn31mj" path="res://pixelated images/StoneHallSegmentBiggerer.png" id="2_1i7vl"]
 [ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="2_aykru"]
 [ext_resource type="Texture2D" uid="uid://bhj4j3f3cdgiu" path="res://Non-pixelated images/dirt.jpg" id="2_bkxtt"]
 [ext_resource type="Texture2D" uid="uid://kqx5r8jgf034" path="res://pixelated images/GrassFloor.png" id="2_kayiq"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://byqbleioeop2w" path="res://pixelated images/Houses/HomeFloorExtension.png" id="8_cgrxg"]
 [ext_resource type="Texture2D" uid="uid://b6yjxhtlas7g" path="res://pixelated images/StoneHallSegmentBigger.png" id="8_p0yuj"]
 [ext_resource type="Texture2D" uid="uid://cpv4vh7cvohuj" path="res://pixelated images/IslandSections/IslandMiddleSection.png" id="9_se266"]
+[ext_resource type="Texture2D" uid="uid://cdb355adrod0f" path="res://pixelated images/StonePlatformSegmentMiddle.png" id="9_vjcc5"]
 [ext_resource type="Texture2D" uid="uid://cmyv47qqnb55p" path="res://pixelated images/IslandSections/IslandEdgeRight.png" id="10_66etr"]
 [ext_resource type="Material" uid="uid://bfo2yrcnp52ib" path="res://npcs/waveyshader.tres" id="10_asmem"]
 [ext_resource type="Texture2D" uid="uid://pyktfh0rxclb" path="res://pixelated images/IslandSections/IslandEdgeLeft.png" id="11_cgrxg"]
@@ -28,14 +28,17 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
+[ext_resource type="Texture2D" uid="uid://88kmh0nhllc7" path="res://garbage can/sodaCan/SodaCanIdle.png" id="24_3osep"]
+[ext_resource type="Texture2D" uid="uid://d0ux707gjx3kl" path="res://pixelated images/Sign.png" id="25_2h62g"]
 [ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
 [ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
 [ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
+[ext_resource type="PackedScene" uid="uid://pfjimka5oa74" path="res://wall_punch.tscn" id="38_m6x8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -229,6 +232,49 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oecn5"]
+size = Vector2(320, 248)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ty22"]
+atlas = ExtResource("25_2h62g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1dmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ty22")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2h62g"]
+size = Vector2(164, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8javk"]
+atlas = ExtResource("24_3osep")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mte5q"]
+atlas = ExtResource("24_3osep")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rfben"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8javk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mte5q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
 size = Vector2(136, 136)
 
@@ -279,6 +325,45 @@ size = Vector2(2543, 102)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p0yuj"]
 size = Vector2(6478, 616)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcge2"]
+size = Vector2(95.7791, 1145.7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3osep"]
+size = Vector2(1061.91, 102.139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6x8b"]
+size = Vector2(574.25, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3ek2"]
+size = Vector2(1207, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42g2a"]
+size = Vector2(94, 738)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erlid"]
+size = Vector2(97, 751)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve7w2"]
+size = Vector2(566.633, 97)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a3kk"]
+size = Vector2(1037, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_th4b2"]
+size = Vector2(6212, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xoaye"]
+size = Vector2(1000, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2d64"]
+size = Vector2(1010, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f0vg7"]
+size = Vector2(1013, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfben"]
+size = Vector2(1009, 94)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
 size = Vector2(13034, 4699)
 
@@ -294,7 +379,7 @@ size = Vector2(2591, 445)
 
 [node name="ColorRect2" type="ColorRect" parent="Backgrounds"]
 offset_left = 1759.0
-offset_top = -3858.0
+offset_top = -8761.0
 offset_right = 9565.0
 offset_bottom = 1093.0
 color = Color(0, 0.956863, 1, 1)
@@ -540,6 +625,132 @@ offset_bottom = 575.0
 texture = ExtResource("2_bkxtt")
 stretch_mode = 1
 
+[node name="wallbackground" type="TextureRect" parent="Backgrounds"]
+offset_left = 7622.0
+offset_top = -8600.0
+offset_right = 14099.0
+offset_bottom = -2467.0
+texture = ExtResource("19_il2ep")
+stretch_mode = 1
+
+[node name="Platforms" type="Node2D" parent="Backgrounds"]
+position = Vector2(11773, -2465)
+
+[node name="TextureRect7" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -1358.64
+offset_top = -659.0
+offset_right = -781.642
+offset_bottom = -403.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_top = -1282.0
+offset_right = 1210.0
+offset_bottom = -1026.0
+rotation = 0.363933
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_right = 1210.0
+offset_bottom = 256.0
+rotation = -0.510085
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = 123.0
+offset_top = -2928.0
+offset_right = 862.0
+offset_bottom = -2672.0
+rotation = 1.5708
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -982.0
+offset_top = -2941.0
+offset_right = -226.0
+offset_bottom = -2685.0
+rotation = 1.5708
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -1061.0
+offset_top = -2360.0
+offset_right = -46.0
+offset_bottom = -2104.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = 47.0
+offset_top = -3003.0
+offset_right = 1134.0
+offset_bottom = -2747.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = 993.0
+offset_top = -2982.0
+offset_right = 1991.0
+offset_bottom = -2726.0
+rotation = -0.559682
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -3561.0
+offset_top = -2523.0
+offset_right = -2990.0
+offset_bottom = -2267.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -3325.0
+offset_top = -2839.0
+offset_right = -2753.0
+offset_bottom = -2583.0
+rotation = -0.399134
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -2505.0
+offset_top = -1266.0
+offset_right = -1493.0
+offset_bottom = -1010.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect16" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -4517.0
+offset_top = -3753.0
+offset_right = 1697.0
+offset_bottom = -3497.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = -976.0
+offset_top = -1266.0
+offset_right = 36.0
+offset_bottom = -1010.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="Backgrounds/Platforms"]
+offset_left = 1056.0
+offset_top = -588.0
+offset_right = 2266.0
+offset_bottom = -332.0
+texture = ExtResource("9_vjcc5")
+stretch_mode = 1
+
 [node name="StoneHallSegmentBigger" type="TextureRect" parent="Backgrounds"]
 offset_left = 7622.0
 offset_top = -2467.0
@@ -549,11 +760,11 @@ texture = ExtResource("8_p0yuj")
 stretch_mode = 1
 
 [node name="Hallway" type="TextureRect" parent="Backgrounds"]
-offset_left = 811.0
-offset_top = -848.0
-offset_right = 3092.0
-offset_bottom = 176.0
-texture = ExtResource("2_1i7vl")
+offset_left = 794.0
+offset_top = -401.0
+offset_right = 3075.0
+offset_bottom = 111.0
+texture = ExtResource("8_p0yuj")
 stretch_mode = 1
 
 [node name="DirtUnderFloor2" type="TextureRect" parent="Backgrounds"]
@@ -564,13 +775,6 @@ offset_bottom = 469.0
 texture = ExtResource("2_bkxtt")
 stretch_mode = 1
 
-[node name="ColorRect" type="ColorRect" parent="Backgrounds"]
-offset_left = -1304.0
-offset_top = 18.0
-offset_right = 9303.0
-offset_bottom = 616.0
-color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
-
 [node name="Houses" type="Node2D" parent="Backgrounds"]
 script = ExtResource("6_ohgds")
 
@@ -578,6 +782,30 @@ script = ExtResource("6_ohgds")
 position = Vector2(6224.75, -155.625)
 scale = Vector2(0.618652, 0.618652)
 sprite_frames = SubResource("SpriteFrames_f0vg7")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
+position = Vector2(10302, -5473)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_42g2a")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Backgrounds/Houses/AnimatedSprite2D6"]
+position = Vector2(446, 26)
+sprite_frames = SubResource("SpriteFrames_42g2a")
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
+position = Vector2(9569, -5479)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_42g2a")
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
+position = Vector2(9138, -4389)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_42g2a")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
+position = Vector2(11195, -5227)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_42g2a")
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Backgrounds/Houses"]
 position = Vector2(7399, -2073)
@@ -752,6 +980,74 @@ scale = Vector2(0.270417, 0.270417)
 texture = ExtResource("11_cgrxg")
 stretch_mode = 1
 
+[node name="IslandFieldG" type="Control" parent="Backgrounds/FieldIslands"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 957.0
+offset_top = -2514.54
+offset_right = 997.0
+offset_bottom = -2474.54
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldG"]
+clip_children = 2
+layout_mode = 0
+offset_left = 6891.0
+offset_top = -1160.0
+offset_right = 7403.0
+offset_bottom = -648.0
+texture = ExtResource("9_se266")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldG/IslandMiddleFields"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 95.0
+offset_right = 1422.0
+offset_bottom = 530.0
+scale = Vector2(1.44001, 1)
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldG"]
+clip_children = 2
+layout_mode = 0
+offset_left = 7399.0
+offset_top = -1156.0
+offset_right = 7911.0
+offset_bottom = -644.0
+texture = ExtResource("10_66etr")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldG/IslandMiddleFields2"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 92.0
+offset_right = 1155.0
+offset_bottom = 423.0
+scale = Vector2(0.24, 1)
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="Backgrounds/FieldIslands/IslandFieldG"]
+clip_children = 2
+layout_mode = 0
+offset_left = 6380.0
+offset_top = -1156.0
+offset_right = 6892.0
+offset_bottom = -644.0
+texture = ExtResource("11_cgrxg")
+stretch_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="Backgrounds/FieldIslands/IslandFieldG/IslandMiddleFields3"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 95.0
+offset_right = 1413.0
+offset_bottom = 426.0
+scale = Vector2(0.24, 1)
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
 [node name="IslandFieldF" type="Control" parent="Backgrounds/FieldIslands"]
 layout_mode = 3
 anchors_preset = 0
@@ -883,6 +1179,12 @@ offset_bottom = 426.0
 scale = Vector2(0.24, 1)
 color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
 
+[node name="JumpPad" parent="Backgrounds/FieldIslands" instance=ExtResource("31_wpgxr")]
+position = Vector2(11940, -5144)
+
+[node name="JumpPad2" parent="Backgrounds/FieldIslands" instance=ExtResource("31_wpgxr")]
+position = Vector2(12463, -5144)
+
 [node name="TreeA" type="Sprite2D" parent="Backgrounds"]
 material = ExtResource("10_asmem")
 position = Vector2(4945, -2255)
@@ -907,6 +1209,12 @@ offset_bottom = 31.0
 texture = ExtResource("14_63vdt")
 stretch_mode = 1
 
+[node name="TreeB3" type="Sprite2D" parent="Backgrounds"]
+material = ExtResource("10_asmem")
+position = Vector2(7083, -4065.54)
+scale = Vector2(1.67369, 1.67369)
+texture = ExtResource("19_pjt1x")
+
 [node name="TreeB2" type="Sprite2D" parent="Backgrounds"]
 material = ExtResource("10_asmem")
 position = Vector2(4544, -1394)
@@ -918,11 +1226,11 @@ position = Vector2(5604, -1322.5)
 scale = Vector2(0.652344, 0.802734)
 texture = ExtResource("14_bqw2d")
 
-[node name="TextureRect3" type="TextureRect" parent="Backgrounds"]
-offset_left = 7622.0
-offset_top = -7576.0
-offset_right = 14099.0
-offset_bottom = -2467.0
+[node name="wallbackground2" type="TextureRect" parent="Backgrounds"]
+offset_left = 794.0
+offset_top = -1936.0
+offset_right = 3075.0
+offset_bottom = -401.0
 texture = ExtResource("19_il2ep")
 stretch_mode = 1
 
@@ -932,6 +1240,34 @@ stretch_mode = 1
 sceneTextFile = "res://DialogueSystem/Dialogues/towerDialogue.json"
 
 [node name="DialogueAreas" type="Node2D" parent="."]
+
+[node name="DialogueArea4" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
+position = Vector2(10195, -6163)
+dialogueKey = "SignForDoor"
+textFinishTriggerKey = "FINAL_BOSS"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea4" index="0"]
+position = Vector2(0, -26)
+shape = SubResource("RectangleShape2D_oecn5")
+
+[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea4" index="1"]
+sprite_frames = SubResource("SpriteFrames_o1dmy")
+animation = &"default"
+
+[node name="DialogueArea3" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
+position = Vector2(6687, -2218)
+dialogueKey = "sodaCanNPC 3"
+
+[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea3" index="0"]
+position = Vector2(0, 94)
+shape = SubResource("RectangleShape2D_2h62g")
+
+[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea3" index="1"]
+position = Vector2(3, 144)
+scale = Vector2(-0.189728, 0.203929)
+sprite_frames = SubResource("SpriteFrames_rfben")
+animation = &"default"
 
 [node name="DialogueArea" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
 position = Vector2(212, -49)
@@ -1006,7 +1342,7 @@ shape = SubResource("SegmentShape2D_3osep")
 one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(6444.25, 95)
+position = Vector2(6440, 94)
 shape = SubResource("RectangleShape2D_8javk")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Map Terrain"]
@@ -1034,8 +1370,79 @@ shape = SubResource("RectangleShape2D_g8y3r")
 position = Vector2(10861, -1783)
 shape = SubResource("RectangleShape2D_p0yuj")
 
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(12325.7, -3432.63)
+rotation = -1.20693
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hcge2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(12406.2, -2706.87)
+rotation = -0.501134
+shape = SubResource("RectangleShape2D_3osep")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(10702.1, -3030)
+shape = SubResource("RectangleShape2D_m6x8b")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(13434.5, -2955.5)
+shape = SubResource("RectangleShape2D_o3ek2")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(11773, -5050)
+shape = SubResource("RectangleShape2D_42g2a")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(10668.5, -5055.5)
+shape = SubResource("RectangleShape2D_erlid")
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(8759.57, -5330.61)
+rotation = -0.398744
+shape = SubResource("RectangleShape2D_ve7w2")
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(13239, -5626)
+rotation = -0.562765
+shape = SubResource("RectangleShape2D_1a3kk")
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(10364, -6122)
+shape = SubResource("RectangleShape2D_th4b2")
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(12338.5, -5371)
+shape = SubResource("RectangleShape2D_1a3kk")
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(7110, -3638)
+shape = SubResource("RectangleShape2D_xoaye")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(8497, -4891.5)
+shape = SubResource("RectangleShape2D_ve7w2")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(11220, -4730)
+shape = SubResource("RectangleShape2D_s2d64")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(9772.5, -3633)
+shape = SubResource("RectangleShape2D_f0vg7")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(11301.5, -3636)
+shape = SubResource("RectangleShape2D_rfben")
+
 [node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
 position = Vector2(-785, -47)
+
+[node name="SpawnPoint4" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
+position = Vector2(9375, -4914)
+
+[node name="SpawnPoint3" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
+position = Vector2(8602, -2078)
 
 [node name="SpawnPoint" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
 position = Vector2(3314, 5)
@@ -1046,11 +1453,11 @@ position = Vector2(7191, -1002)
 [node name="DoorHolder" type="Node2D" parent="."]
 
 [node name="MainEntrance" parent="DoorHolder" instance=ExtResource("6_e25tj")]
-position = Vector2(790, -237)
+position = Vector2(767, -214)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(4884, -1243)
+position = Vector2(-988, -212)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 10
 
@@ -1186,11 +1593,23 @@ position = Vector2(6239, -2061)
 [node name="Line2D" parent="Button6" index="1"]
 points = PackedVector2Array(-4, 8, -5, 12, -8, 92, -863, 93, -947, -22)
 
+[node name="Button7" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(10700.4, -3065)
+
+[node name="Line2D" parent="Button7" index="1"]
+points = PackedVector2Array(-4, 8, -7, 24)
+
+[node name="Button8" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(13594, -2070)
+
 [node name="Cheese3" parent="." instance=ExtResource("19_4f3r1")]
 position = Vector2(7732, -2125)
 
 [node name="JumpPad6" parent="." instance=ExtResource("31_wpgxr")]
 position = Vector2(7143, -2074)
+
+[node name="JumpPad5" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(11265, -2086)
 
 [node name="GarbageBag6" parent="." instance=ExtResource("15_kayiq")]
 position = Vector2(8399, -2124)
@@ -1246,12 +1665,218 @@ JUMP_DISTANCE = 600
 [node name="Line2D" parent="GarbageBag12" index="1"]
 points = PackedVector2Array(10451, -2182, 11648, -2162)
 
+[node name="JumpPad7" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(11627, -2255)
+
+[node name="JumpPad8" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(10439, -3447)
+
+[node name="CANnon5" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(13331, -3048)
+
+[node name="Cheese4" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(10436, -3545)
+
+[node name="Cheese5" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(9848, -2130)
+
+[node name="WallPunch" parent="." instance=ExtResource("38_m6x8b")]
+position = Vector2(5901, -4)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1304.0
+offset_top = 18.0
+offset_right = 9303.0
+offset_bottom = 616.0
+color = Color(0.265444, 0.156591, 0.0218546, 0.321569)
+
+[node name="Button9" parent="." instance=ExtResource("31_bqw2d")]
+position = Vector2(13861, -2995)
+
+[node name="Line2D" parent="Button9" index="1"]
+points = PackedVector2Array(-4, 8, -7, 24, -31, 98, -260, 38, -573, 86, -528, 0)
+
+[node name="JumpPad9" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(8918, -3694)
+
+[node name="JumpPad10" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(8913, -4033)
+
+[node name="JumpPad11" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(8687, -4389)
+
+[node name="JumpPad12" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(8919, -4732)
+
+[node name="JumpPad13" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(8340, -4935)
+
+[node name="JumpPad14" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(9333, -5480)
+
+[node name="JumpPad16" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(9829, -5482)
+
+[node name="JumpPad17" parent="." instance=ExtResource("31_wpgxr")]
+position = Vector2(10078, -5484)
+
+[node name="GarbageBag14" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10153, -5100)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag14" index="1"]
+points = PackedVector2Array(10236, -5227, 10827, -5269)
+
+[node name="GarbageBag15" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10186, -5388)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag15" index="1"]
+points = PackedVector2Array(10151, -5332, 10827, -5290)
+
+[node name="GarbageBag16" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10369, -4866)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag16" index="1"]
+points = PackedVector2Array(10194, -5206, 10848, -5206)
+
+[node name="GarbageBag17" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10347, -4990)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag17" index="1"]
+points = PackedVector2Array(10130, -5290, 10869, -5227)
+
+[node name="GarbageBag18" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10173, -4959)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag18" index="1"]
+points = PackedVector2Array(10130, -5227, 10848, -5248)
+
+[node name="GarbageBag19" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10366, -5543)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag19" index="1"]
+points = PackedVector2Array(10189, -5172, 10869, -5137)
+
+[node name="GarbageBag20" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10501, -5060)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag20" index="1"]
+points = PackedVector2Array(10189, -5137, 10956, -5137)
+
+[node name="GarbageBag21" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10270, -5274)
+metadata/_edit_group_ = true
+
+[node name="Line2D" parent="GarbageBag21" index="1"]
+points = PackedVector2Array(10119, -5172, 10921, -5190)
+
+[node name="GarbageBag22" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10218, -5538)
+
+[node name="Line2D" parent="GarbageBag22" index="1"]
+points = PackedVector2Array(10060, -5196, 10981, -5176)
+
+[node name="GarbageBag23" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10337, -5189)
+
+[node name="Line2D" parent="GarbageBag23" index="1"]
+points = PackedVector2Array(10117, -5234, 10923, -5234)
+
+[node name="GarbageBag24" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10322, -5141)
+
+[node name="Line2D" parent="GarbageBag24" index="1"]
+points = PackedVector2Array(10182, -5208, 10928, -5256)
+
+[node name="GarbageBag25" parent="." instance=ExtResource("15_kayiq")]
+position = Vector2(10300, -5426)
+
+[node name="Line2D" parent="GarbageBag25" index="1"]
+points = PackedVector2Array(10166, -5240, 10875, -5177)
+
+[node name="CANnon6" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(9671, -5262)
+fireRate = 2.0
+
+[node name="CANnon7" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(9356, -5270)
+fireRate = 2.0
+
+[node name="SawBlade3" parent="." instance=ExtResource("30_g8y3r")]
+position = Vector2(10792, -4767)
+scale = Vector2(2.36, 1)
+damage = 10
+
+[node name="SawBlade4" parent="." instance=ExtResource("30_g8y3r")]
+position = Vector2(11320, -4768)
+scale = Vector2(2.64, 1)
+damage = 10
+
+[node name="SawBlade5" parent="." instance=ExtResource("30_g8y3r")]
+position = Vector2(10952, -4767)
+scale = Vector2(2.52, 1)
+damage = 10
+
+[node name="SawBlade6" parent="." instance=ExtResource("30_g8y3r")]
+position = Vector2(11132, -4768)
+scale = Vector2(2.76, 1)
+damage = 10
+
+[node name="SawBlade7" parent="." instance=ExtResource("30_g8y3r")]
+position = Vector2(11492, -4767)
+scale = Vector2(2.56, 1)
+damage = 10
+
+[node name="SawBlade8" parent="." instance=ExtResource("30_g8y3r")]
+position = Vector2(11636, -4767)
+scale = Vector2(2.76, 1)
+damage = 10
+
+[node name="CANnon8" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(9986, -5269)
+fireRate = 2.0
+
+[node name="CANnon9" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(11212, -5024)
+fireRate = 2.0
+
+[node name="CANnon10" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(8249, -6590)
+
+[node name="CANnon11" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(8079, -6455)
+
+[node name="CANnon12" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(8323, -6456)
+
+[node name="CANnon13" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(8195, -6326)
+
+[node name="CANnon14" parent="." instance=ExtResource("28_bson8")]
+position = Vector2(8001, -6257)
+
+[node name="Door" parent="." instance=ExtResource("6_e25tj")]
+position = Vector2(7739, -6395)
+openKey = "FINAL_BOSS"
+
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]
 [connection signal="pressed" from="Button2" to="CANnon2" method="death"]
 [connection signal="pressed" from="Button4" to="CANnon4" method="death"]
 [connection signal="pressed" from="Button5" to="CANnon3" method="death"]
+[connection signal="pressed" from="Button7" to="CANnon6" method="death"]
+[connection signal="pressed" from="Button7" to="CANnon7" method="death"]
+[connection signal="pressed" from="Button7" to="CANnon8" method="death"]
+[connection signal="pressed" from="Button9" to="CANnon5" method="death"]
 
+[editable path="DialogueAreas/DialogueArea4"]
+[editable path="DialogueAreas/DialogueArea3"]
 [editable path="DialogueAreas/DialogueArea"]
 [editable path="DialogueAreas/DialogueArea2"]
 [editable path="GarbageBag2"]
@@ -1266,6 +1891,7 @@ points = PackedVector2Array(10451, -2182, 11648, -2162)
 [editable path="Button4"]
 [editable path="Button5"]
 [editable path="Button6"]
+[editable path="Button7"]
 [editable path="GarbageBag6"]
 [editable path="GarbageBag7"]
 [editable path="GarbageBag8"]
@@ -1274,3 +1900,16 @@ points = PackedVector2Array(10451, -2182, 11648, -2162)
 [editable path="GarbageBag13"]
 [editable path="GarbageBag11"]
 [editable path="GarbageBag12"]
+[editable path="Button9"]
+[editable path="GarbageBag14"]
+[editable path="GarbageBag15"]
+[editable path="GarbageBag16"]
+[editable path="GarbageBag17"]
+[editable path="GarbageBag18"]
+[editable path="GarbageBag19"]
+[editable path="GarbageBag20"]
+[editable path="GarbageBag21"]
+[editable path="GarbageBag22"]
+[editable path="GarbageBag23"]
+[editable path="GarbageBag24"]
+[editable path="GarbageBag25"]
