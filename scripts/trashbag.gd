@@ -2,6 +2,9 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $Sprite2D
 @onready var enemy_hurt: enemy_hurt = $enemy_hurt
 @onready var detect_player: Area2D = $detect_player
+@onready var hurt_collision: CollisionShape2D = $HurtPlayer/HurtCollision
+@onready var hurt_player: HurtPlayer = $HurtPlayer
+
 
 @onready var line_2d: Line2D = $Line2D
 var time: float
@@ -14,6 +17,7 @@ var target: PlayerBody
 var patrol
 var hop
 var fly
+var ded
 @export var idle_patrol: bool
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +32,7 @@ func _ready() -> void:
 	time = 0
 	sprite_xscale = sprite.scale.x
 	sprite.flip_h = true
+	ded = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -45,7 +50,7 @@ func _process(delta: float) -> void:
 		patrol = false
 		
 	
-	if(patrol):
+	if(patrol && !ded):
 		time += delta * SPEED * 1/abs(line_2d.points[0].x-line_2d.points[1].x)
 		prev_pos = global_position
 		if(!idle_patrol):
@@ -74,12 +79,18 @@ func _process(delta: float) -> void:
 					patrol = true
 					idle_patrol = true	
 					target = null
-	
-	if(hop):
+	if(hop && !ded):
 		sprite.play("jumpready")
 		velocity.y = JUMP_HEIGHT
 		velocity.x = JUMP_DISTANCE * sign(position.x-target.position.x)
 		look_at(target.position)
+	if(ded):
+		if(is_on_floor()):
+			sprite.play("jumpcrash")
+			sprite.rotation_degrees = 0
+		else:
+			sprite.play("jumpfly")
+			sprite.rotation_degrees = 90
 
 	
 	velocity.y += get_gravity().y * delta
@@ -103,5 +114,10 @@ func _on_detect_player_body_entered(body: Node2D) -> void:
 
 
 func _on_enemy_hurt_ded() -> void:
+	
 	print("the trash bag is dead")
-	queue_free()
+	velocity.x = -velocity.x - randf_range(-200, 200)
+	velocity.y = -velocity.y - 200
+	ded = true
+	hurt_player.damage = 0
+	

@@ -173,8 +173,9 @@ func set_health(value: int):
 
 func take_damage(value: int):
 	set_health(health - value)
-	hurt.play()
-	hurt_anim.play("hurty")
+	if(value != 0):
+		hurt.play()
+		hurt_anim.play("hurty")
 
 func _on_player_dead() -> void:
 	global_position = spawnPointHolder.getSpawnPos()

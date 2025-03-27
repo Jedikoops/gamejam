@@ -226,7 +226,7 @@ script = ExtResource("2_qlpwu")
 damage = 1
 metadata/_custom_type_script = "uid://6muyfejx2agd"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtPlayer"]
+[node name="HurtCollision" type="CollisionShape2D" parent="HurtPlayer"]
 shape = SubResource("CircleShape2D_tl8b1")
 
 [node name="Line2D" type="Line2D" parent="."]
@@ -238,7 +238,7 @@ metadata/_edit_lock_ = true
 position = Vector2(0, -5)
 scale = Vector2(0.39, 0.39)
 sprite_frames = SubResource("SpriteFrames_pk8uv")
-animation = &"jumpgetup"
+animation = &"jumpfly"
 autoplay = "default"
 flip_h = true
 
