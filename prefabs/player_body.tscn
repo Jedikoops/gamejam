@@ -1,7 +1,8 @@
-[gd_scene load_steps=60 format=3 uid="uid://boe08j1nsmg2b"]
+[gd_scene load_steps=65 format=3 uid="uid://boe08j1nsmg2b"]
 
 [ext_resource type="Script" uid="uid://b0fk0b1brtehp" path="res://scripts/player_body.gd" id="1_f57or"]
 [ext_resource type="Texture2D" uid="uid://1w45g0k8sls5" path="res://mousey/ratfalldownleft.png" id="2_4eoj2"]
+[ext_resource type="AudioStream" uid="uid://di31pek2gxvp8" path="res://Audio/mcdeath_pitchup.mp3" id="2_alrbs"]
 [ext_resource type="Texture2D" uid="uid://coe7pl5yi1ydr" path="res://mousey/ratfalldownright.png" id="3_lti6e"]
 [ext_resource type="Texture2D" uid="uid://bennqcc8g3pln" path="res://mousey/ratfallupleft.png" id="4_mh846"]
 [ext_resource type="Texture2D" uid="uid://cpvpqewbi3g7d" path="res://mousey/ratfallupright.png" id="5_wh7ba"]
@@ -172,6 +173,10 @@ _data = {
 &"idle": SubResource("Animation_00ltt")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o22x0"]
+atlas = ExtResource("10_7f3fc")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_grcxj"]
 atlas = ExtResource("2_4eoj2")
 region = Rect2(0, 0, 256, 256)
@@ -318,6 +323,14 @@ region = Rect2(256, 512, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_00ltt"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o22x0")
+}],
+"loop": true,
+"name": &"damage",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_grcxj")
@@ -487,6 +500,66 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="Animation" id="Animation_alrbs"]
+resource_name = "hurty"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimMouse:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.87, 0.3567, 0.3567, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shoulder/WeaponAnchor/WeaponSprite:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.87, 0.3567, 0.3567, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lbmt5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimMouse:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shoulder/WeaponAnchor/WeaponSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o22x0"]
+_data = {
+&"RESET": SubResource("Animation_lbmt5"),
+&"hurty": SubResource("Animation_alrbs")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nol80"]
 atlas = ExtResource("11_kibih")
 region = Rect2(0, 0, 256, 256)
@@ -525,6 +598,10 @@ collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_f57or")
 
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_alrbs")
+volume_db = -8.0
+
 [node name="WeaponAnim" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_40m2s")
@@ -538,13 +615,17 @@ position_smoothing_enabled = true
 [node name="PlayerAnchor" type="Node2D" parent="."]
 
 [node name="AnimMouse" type="AnimatedSprite2D" parent="PlayerAnchor"]
+clip_children = 2
 z_index = 10
 position = Vector2(0, -1)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_00ltt")
-animation = &"walkleft"
-frame = 4
-frame_progress = 0.236268
+animation = &"falldownleft"
+
+[node name="HurtAnim" type="AnimationPlayer" parent="PlayerAnchor"]
+libraries = {
+&"": SubResource("AnimationLibrary_o22x0")
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerAnchor"]
 visible = false

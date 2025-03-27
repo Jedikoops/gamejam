@@ -8,6 +8,8 @@ class_name PlayerBody
 @onready var anim_mouse: AnimatedSprite2D = $PlayerAnchor/AnimMouse
 @onready var shoulder: Node2D = $PlayerAnchor/Shoulder
 @onready var weapon_sprite: AnimatedSprite2D = $PlayerAnchor/Shoulder/WeaponAnchor/WeaponSprite
+@onready var hurt: AudioStreamPlayer2D = $Hurt
+@onready var hurt_anim: AnimationPlayer = $PlayerAnchor/HurtAnim
 
 @export var spawnPointHolder: Node2D
 
@@ -171,6 +173,8 @@ func set_health(value: int):
 
 func take_damage(value: int):
 	set_health(health - value)
+	hurt.play()
+	hurt_anim.play("hurty")
 
 func _on_player_dead() -> void:
 	global_position = spawnPointHolder.getSpawnPos()

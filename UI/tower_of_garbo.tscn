@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=106 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://gehprr0d364p" path="res://Non-pixelated images/Floor.jpg" id="1_bosin"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
@@ -39,7 +39,6 @@
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
 [ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
 [ext_resource type="PackedScene" path="res://wall_punch.tscn" id="38_m6x8b"]
-[ext_resource type="PackedScene" uid="uid://ll6yirwfkw6k" path="res://prefabs/evil.tscn" id="40_f0vg7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -1864,9 +1863,6 @@ position = Vector2(8001, -6257)
 [node name="Door" parent="." instance=ExtResource("6_e25tj")]
 position = Vector2(7739, -6395)
 openKey = "FINAL_BOSS"
-
-[node name="Area2D" parent="." instance=ExtResource("40_f0vg7")]
-position = Vector2(-1118, 1)
 
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]
