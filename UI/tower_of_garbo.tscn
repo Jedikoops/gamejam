@@ -1,4 +1,4 @@
-[gd_scene load_steps=128 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=129 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
 [ext_resource type="Texture2D" uid="uid://b53wln3d42ovs" path="res://pixelated images/voidBackDark.png" id="1_hcge2"]
@@ -45,6 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://b8gke62ydhsvf" path="res://prefabs/boss.tscn" id="40_f0vg7"]
 [ext_resource type="PackedScene" uid="uid://iy6txos2bb7b" path="res://prefabs/boss_health.tscn" id="42_mte5q"]
 [ext_resource type="PackedScene" uid="uid://340wgblxu1io" path="res://prefabs/portal.tscn" id="44_hcge2"]
+[ext_resource type="PackedScene" path="res://prefabs/evil.tscn" id="46_42g2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -1869,7 +1870,7 @@ position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(7359, -6446)
+position = Vector2(-961, -307)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 6
 
@@ -1989,10 +1990,10 @@ position = Vector2(3998, -16)
 points = PackedVector2Array(-4, 8, -4, 10, 15, 102, 207, 102, 270, 45, 201, -28)
 
 [node name="Button2" parent="." instance=ExtResource("31_bqw2d")]
-position = Vector2(5044, -1160)
+position = Vector2(5044, -1152)
 
 [node name="Line2D" parent="Button2" index="1"]
-points = PackedVector2Array(-4, 8, -4, 10, -3, 51, 118, 30, 36, 91, 242, 63, 276, 116, 359, -9)
+points = PackedVector2Array(-4, 8, -4, 10, -3, 51, 118, 30, 36, 91, 242, 63, 276, 116, 361, -22)
 
 [node name="Button3" parent="." instance=ExtResource("31_bqw2d")]
 position = Vector2(5118, -2059)
@@ -2439,6 +2440,30 @@ position = Vector2(6154, -5900)
 
 [node name="Cheese9" parent="." instance=ExtResource("19_4f3r1")]
 position = Vector2(4845, -5904)
+
+[node name="Area2D" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(9145, -4392)
+
+[node name="Area2D2" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(9567, -5474)
+
+[node name="Area2D3" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(10303, -5471)
+
+[node name="Area2D4" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(10527, -5457)
+
+[node name="Area2D5" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(11194, -5224)
+
+[node name="Area2D6" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(7395, -2073)
+
+[node name="Area2D7" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(5115, -2060)
+
+[node name="Area2D8" parent="." instance=ExtResource("46_42g2a")]
+position = Vector2(6236, -2057)
 
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]

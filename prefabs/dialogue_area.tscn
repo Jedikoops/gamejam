@@ -14,5 +14,13 @@ position = Vector2(3, -15)
 scale = Vector2(-0.634089, 0.634089)
 animation = &""
 
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -152.0
+offset_right = -10.0
+offset_bottom = -129.0
+scale = Vector2(4, 4)
+text = "E"
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
