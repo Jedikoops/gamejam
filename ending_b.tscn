@@ -1,14 +1,91 @@
-[gd_scene load_steps=19 format=3 uid="uid://y4gx8owswrej"]
+[gd_scene load_steps=24 format=3 uid="uid://y4gx8owswrej"]
 
 [ext_resource type="Script" uid="uid://b5psdmmvr5m25" path="res://ending_a.gd" id="1_lqrho"]
+[ext_resource type="AudioStream" uid="uid://brrubb7alby3" path="res://Audio/cheer.mp3" id="2_45smp"]
 [ext_resource type="Texture2D" uid="uid://cpv4vh7cvohuj" path="res://pixelated images/IslandSections/IslandMiddleSection.png" id="2_olpev"]
 [ext_resource type="Texture2D" uid="uid://cmyv47qqnb55p" path="res://pixelated images/IslandSections/IslandEdgeRight.png" id="3_jc3o8"]
+[ext_resource type="AudioStream" uid="uid://cdwglhv0271po" path="res://Audio/logon.mp3" id="3_o6xws"]
 [ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="3_olpev"]
 [ext_resource type="Texture2D" uid="uid://pyktfh0rxclb" path="res://pixelated images/IslandSections/IslandEdgeLeft.png" id="4_7fkxr"]
 [ext_resource type="Texture2D" uid="uid://dk3kpbvcmw067" path="res://mousey/rathappi.png" id="4_lqrho"]
 [ext_resource type="Material" uid="uid://bfo2yrcnp52ib" path="res://npcs/waveyshader.tres" id="5_7fkxr"]
 [ext_resource type="Texture2D" uid="uid://dsd8ky6i2lebu" path="res://pixelated images/TreePlatformsA.png" id="6_w106x"]
 [ext_resource type="Texture2D" uid="uid://xh3v8ch01piu" path="res://pixelated images/Cheese2.png" id="9_w106x"]
+
+[sub_resource type="Animation" id="Animation_vq4f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o6xws"]
+resource_name = "buttonpress"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_to_main_menu"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vq4f8"]
+_data = {
+&"RESET": SubResource("Animation_vq4f8"),
+&"buttonpress": SubResource("Animation_o6xws")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qy85g"]
 atlas = ExtResource("4_lqrho")
@@ -82,6 +159,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lqrho")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vq4f8")
+}
+
+[node name="VictoryAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_45smp")
+volume_db = -12.0
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o6xws")
+volume_db = -8.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

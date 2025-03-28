@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpaqiermgi6wx"]
+
+[ext_resource type="Script" uid="uid://d0bnd25fx8iva" path="res://prefabs/torch.gd" id="1_b4sym"]
+[ext_resource type="Texture2D" uid="uid://dylwk8hkf5pop" path="res://pixelated images/Torch.png" id="1_jgtk7"]
+[ext_resource type="AudioStream" uid="uid://42ra5j0uheg5" path="res://Audio/fire.mp3" id="3_6rwpf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t24cj"]
+atlas = ExtResource("1_jgtk7")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4sym"]
+atlas = ExtResource("1_jgtk7")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rwpf"]
+atlas = ExtResource("1_jgtk7")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn1fu"]
+atlas = ExtResource("1_jgtk7")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqqr6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t24cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4sym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rwpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn1fu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Torch" type="Node2D"]
+script = ExtResource("1_b4sym")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_kqqr6")
+autoplay = "default"
+frame_progress = 0.579031
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6rwpf")
+volume_db = -8.0
+autoplay = true
+max_distance = 605.0

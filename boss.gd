@@ -35,6 +35,19 @@ func _process(delta: float) -> void:
 
 func _hurt(damage):
 	if health > 0:
+		var rand_sound = randi_range(1,3)
+		if rand_sound == 1:
+			$Hurt1.play()
+			$Hurt2.stop()
+			$Hurt3.stop()
+		if rand_sound == 2:
+			$Hurt1.stop()
+			$Hurt2.play()
+			$Hurt3.stop()
+		if rand_sound == 3:
+			$Hurt1.stop()
+			$Hurt2.stop()
+			$Hurt3.play()
 		health -= damage
 		get_parent().setHealthbar(100*health/30.0)
 		if health <= 0:

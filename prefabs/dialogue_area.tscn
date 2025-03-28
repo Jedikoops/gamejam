@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bih3ibwr3qie5"]
+[gd_scene load_steps=5 format=3 uid="uid://bih3ibwr3qie5"]
 
 [ext_resource type="Script" uid="uid://oahablkxrpfy" path="res://prefabs/dialogue_area.gd" id="1_hix5u"]
+[ext_resource type="AudioStream" uid="uid://ci32h5ipm24m1" path="res://Audio/Dialogue/TalkingA.mp3" id="2_3fsnh"]
+[ext_resource type="AudioStream" uid="uid://dsen2racjt64b" path="res://Audio/Dialogue/TalkingB.mp3" id="3_ew64p"]
+[ext_resource type="AudioStream" uid="uid://dm2fecynwjbb5" path="res://Audio/Dialogue/TaklingC.mp3" id="4_xk7t4"]
 
 [node name="DialogueArea" type="Area2D"]
 collision_layer = 0
@@ -21,6 +24,21 @@ offset_right = -10.0
 offset_bottom = -129.0
 scale = Vector2(4, 4)
 text = "E"
+
+[node name="SoundOne" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3fsnh")
+volume_db = -8.0
+pitch_scale = 1.73
+
+[node name="SoundTwo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ew64p")
+volume_db = -8.0
+pitch_scale = 1.51
+
+[node name="SoundThree" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_xk7t4")
+volume_db = -8.0
+pitch_scale = 1.86
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

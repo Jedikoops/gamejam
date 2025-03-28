@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=136 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
 [ext_resource type="Texture2D" uid="uid://b53wln3d42ovs" path="res://pixelated images/voidBackDark.png" id="1_hcge2"]
@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="Texture2D" uid="uid://88kmh0nhllc7" path="res://garbage can/sodaCan/SodaCanIdle.png" id="24_3osep"]
@@ -39,13 +39,16 @@
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
 [ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
+[ext_resource type="PackedScene" uid="uid://cpaqiermgi6wx" path="res://prefabs/torch.tscn" id="33_erlid"]
 [ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
-[ext_resource type="PackedScene" uid="uid://pfjimka5oa74" path="res://wall_punch.tscn" id="38_m6x8b"]
+[ext_resource type="PackedScene" uid="uid://bljsbypv2vq7c" path="res://wall_punch.tscn" id="38_m6x8b"]
 [ext_resource type="Script" uid="uid://3yculrljy8u" path="res://UI/bossfight_handler.gd" id="40_8javk"]
 [ext_resource type="PackedScene" uid="uid://b8gke62ydhsvf" path="res://prefabs/boss.tscn" id="40_f0vg7"]
 [ext_resource type="PackedScene" uid="uid://iy6txos2bb7b" path="res://prefabs/boss_health.tscn" id="42_mte5q"]
 [ext_resource type="PackedScene" uid="uid://340wgblxu1io" path="res://prefabs/portal.tscn" id="44_hcge2"]
-[ext_resource type="PackedScene" path="res://prefabs/evil.tscn" id="46_42g2a"]
+[ext_resource type="Texture2D" uid="uid://0axeowe6kdy0" path="res://garbage can/sodaCan/SodaCanFlying.png" id="45_ve7w2"]
+[ext_resource type="PackedScene" uid="uid://ll6yirwfkw6k" path="res://prefabs/evil.tscn" id="46_42g2a"]
+[ext_resource type="AudioStream" uid="uid://efjdd1bpk6ma" path="res://Audio/LaughGoblinReal.mp3" id="46_s2d64"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -239,6 +242,14 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vjcc5"]
+a = Vector2(65.2407, -5.71727)
+b = Vector2(-61.1025, 1.85989)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_3osep"]
+a = Vector2(73.6294, -7.39392)
+b = Vector2(-74.4331, -10.616)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_roau7"]
 size = Vector2(194, 138)
 
@@ -359,10 +370,6 @@ size = Vector2(265, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjt1x"]
 size = Vector2(113.274, 26)
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_vjcc5"]
-a = Vector2(65.2407, -5.71727)
-b = Vector2(-61.1025, 1.85989)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqlqo"]
 size = Vector2(5695, 211)
 
@@ -371,10 +378,6 @@ size = Vector2(20, 576)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1wed"]
 size = Vector2(1901, 121.75)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_3osep"]
-a = Vector2(73.6294, -7.39392)
-b = Vector2(-74.4331, -10.616)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8javk"]
 size = Vector2(3355.5, 210)
@@ -454,6 +457,31 @@ size = Vector2(4112, 107)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqw2d"]
 size = Vector2(2591, 445)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuy65"]
+size = Vector2(157, 155)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbmwc"]
+atlas = ExtResource("45_ve7w2")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s0i5"]
+atlas = ExtResource("45_ve7w2")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ghk7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbmwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s0i5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1dmy"]
 size = Vector2(262, 164)
 
@@ -467,6 +495,152 @@ size = Vector2(136, 136)
 size = Vector2(166, 149)
 
 [node name="TowerOfGarbo" type="Node2D"]
+
+[node name="Torches" type="Node" parent="."]
+
+[node name="Torch5" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8044, -2192)
+
+[node name="Torch6" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8556, -2196)
+
+[node name="Torch7" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9079, -2196)
+
+[node name="Torch8" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9699, -2196)
+
+[node name="Torch9" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10360, -2197)
+
+[node name="Torch10" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10872, -2201)
+
+[node name="Torch11" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11395, -2201)
+
+[node name="Torch12" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12015, -2201)
+
+[node name="Torch" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(1101, -134)
+
+[node name="Torch2" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(1613, -138)
+
+[node name="Torch3" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(2136, -138)
+
+[node name="Torch4" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(2756, -138)
+
+[node name="Torch13" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9909, -3116)
+
+[node name="Torch14" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10421, -3120)
+
+[node name="Torch15" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10944, -3120)
+
+[node name="Torch16" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11564, -3120)
+
+[node name="Torch17" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12225, -3121)
+
+[node name="Torch18" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12737, -3125)
+
+[node name="Torch19" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(13260, -3125)
+
+[node name="Torch20" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(13880, -3125)
+
+[node name="Torch21" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9334, -3770)
+
+[node name="Torch22" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9846, -3774)
+
+[node name="Torch23" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10369, -3774)
+
+[node name="Torch24" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10989, -3774)
+
+[node name="Torch25" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11650, -3775)
+
+[node name="Torch26" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12162, -3779)
+
+[node name="Torch27" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12685, -3779)
+
+[node name="Torch28" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(13305, -3779)
+
+[node name="Torch29" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8957, -6279)
+
+[node name="Torch30" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9469, -6283)
+
+[node name="Torch31" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9992, -6283)
+
+[node name="Torch32" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10612, -6283)
+
+[node name="Torch33" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11273, -6284)
+
+[node name="Torch34" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11785, -6288)
+
+[node name="Torch35" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12308, -6288)
+
+[node name="Torch36" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12928, -6288)
+
+[node name="Torch37" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8696, -5534)
+
+[node name="Torch38" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9208, -5538)
+
+[node name="Torch39" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9731, -5538)
+
+[node name="Torch40" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(10351, -5538)
+
+[node name="Torch41" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11012, -5539)
+
+[node name="Torch42" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(11524, -5543)
+
+[node name="Torch43" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12047, -5543)
+
+[node name="Torch44" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(12667, -5543)
+
+[node name="Torch45" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8642, -4587)
+
+[node name="Torch46" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(9070, -4231)
+
+[node name="Torch47" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8742, -3859)
+
+[node name="Torch48" parent="Torches" instance=ExtResource("33_erlid")]
+position = Vector2(8245, -5097)
 
 [node name="Backgrounds" type="Node2D" parent="."]
 
@@ -1601,6 +1775,22 @@ material = ExtResource("10_asmem")
 position = Vector2(5672, -244)
 texture = ExtResource("8_bynsa")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="Backgrounds/TreePlatformsA"]
+collision_layer = 11
+
+[node name="treer" type="CollisionShape2D" parent="Backgrounds/TreePlatformsA/StaticBody2D"]
+position = Vector2(113, 31)
+rotation = -0.0350505
+scale = Vector2(1, 1)
+shape = SubResource("SegmentShape2D_vjcc5")
+one_way_collision = true
+
+[node name="treel" type="CollisionShape2D" parent="Backgrounds/TreePlatformsA/StaticBody2D"]
+position = Vector2(-73, 93)
+rotation = 0.100084
+shape = SubResource("SegmentShape2D_3osep")
+one_way_collision = true
+
 [node name="FakeSpikes" type="TextureRect" parent="Backgrounds"]
 offset_left = 6559.0
 offset_top = -33.0
@@ -1717,12 +1907,6 @@ position = Vector2(6240, -662)
 scale = Vector2(2.16841, 1.79934)
 shape = SubResource("RectangleShape2D_pjt1x")
 
-[node name="treer" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(5785, -241)
-rotation = -0.0350505
-shape = SubResource("SegmentShape2D_vjcc5")
-one_way_collision = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(1652.5, 95.5)
 shape = SubResource("RectangleShape2D_nqlqo")
@@ -1734,12 +1918,6 @@ shape = SubResource("RectangleShape2D_ag1ip")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(5071, -1111.88)
 shape = SubResource("RectangleShape2D_t1wed")
-
-[node name="treel" type="CollisionShape2D" parent="Map Terrain"]
-position = Vector2(5599, -179)
-rotation = 0.100084
-shape = SubResource("SegmentShape2D_3osep")
-one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Map Terrain"]
 position = Vector2(6440, 94)
@@ -1870,7 +2048,7 @@ position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(-961, -307)
+position = Vector2(-1074, -62)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 6
 
@@ -2149,7 +2327,8 @@ position = Vector2(10436, -3545)
 position = Vector2(9848, -2130)
 
 [node name="WallPunch" parent="." instance=ExtResource("38_m6x8b")]
-position = Vector2(5901, -4)
+position = Vector2(5999, -323)
+rotation = 1.5708
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 803.0
@@ -2378,6 +2557,22 @@ script = ExtResource("40_8javk")
 boss = ExtResource("40_f0vg7")
 portal = ExtResource("44_hcge2")
 
+[node name="DialogueArea" parent="BossfightHandler" instance=ExtResource("3_ag1ip")]
+position = Vector2(-1199, 96)
+dialogueKey = "canBoi1 dontGo"
+
+[node name="CollisionShape2D" parent="BossfightHandler/DialogueArea" index="0"]
+position = Vector2(18.5, 0.5)
+shape = SubResource("RectangleShape2D_tuy65")
+
+[node name="AnimatedSprite2D" parent="BossfightHandler/DialogueArea" index="1"]
+position = Vector2(2, 44)
+scale = Vector2(-0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_4ghk7")
+animation = &"default"
+frame_progress = 0.192834
+flip_h = true
+
 [node name="FirstDialogue" parent="BossfightHandler" instance=ExtResource("3_ag1ip")]
 position = Vector2(-1, 100)
 dialogueKey = "susBoi bossFightStart"
@@ -2391,6 +2586,15 @@ shape = SubResource("RectangleShape2D_o1dmy")
 sprite_frames = ExtResource("11_ohgds")
 animation = &"idle"
 
+[node name="SoundOne" parent="BossfightHandler/FirstDialogue" index="3"]
+stream = ExtResource("46_s2d64")
+
+[node name="SoundTwo" parent="BossfightHandler/FirstDialogue" index="4"]
+stream = ExtResource("46_s2d64")
+
+[node name="SoundThree" parent="BossfightHandler/FirstDialogue" index="5"]
+stream = ExtResource("46_s2d64")
+
 [node name="SecondDialogue" parent="BossfightHandler" instance=ExtResource("3_ag1ip")]
 position = Vector2(5546, -5968)
 dialogueKey = "susBoi startFight"
@@ -2402,6 +2606,15 @@ shape = SubResource("RectangleShape2D_q78fp")
 [node name="AnimatedSprite2D" parent="BossfightHandler/SecondDialogue" index="1"]
 sprite_frames = ExtResource("11_ohgds")
 animation = &"idle"
+
+[node name="SoundOne" parent="BossfightHandler/SecondDialogue" index="3"]
+stream = ExtResource("46_s2d64")
+
+[node name="SoundTwo" parent="BossfightHandler/SecondDialogue" index="4"]
+stream = ExtResource("46_s2d64")
+
+[node name="SoundThree" parent="BossfightHandler/SecondDialogue" index="5"]
+stream = ExtResource("46_s2d64")
 
 [node name="BossHealth" parent="BossfightHandler" instance=ExtResource("42_mte5q")]
 
@@ -2521,6 +2734,7 @@ position = Vector2(6236, -2057)
 [editable path="GarbageBag23"]
 [editable path="GarbageBag24"]
 [editable path="GarbageBag25"]
+[editable path="BossfightHandler/DialogueArea"]
 [editable path="BossfightHandler/FirstDialogue"]
 [editable path="BossfightHandler/SecondDialogue"]
 [editable path="BossfightHandler/FirstEncounter"]

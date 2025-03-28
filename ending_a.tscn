@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://yrm0g6b7ngm2"]
+[gd_scene load_steps=12 format=3 uid="uid://yrm0g6b7ngm2"]
 
 [ext_resource type="Script" uid="uid://b5psdmmvr5m25" path="res://ending_a.gd" id="1_vk37s"]
 [ext_resource type="Texture2D" uid="uid://cmh6ol452ucub" path="res://Non-pixelated images/smallerer.PNG" id="2_8hctd"]
 [ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="2_xcpfj"]
 [ext_resource type="Texture2D" uid="uid://dijg65rajh4w6" path="res://mousey/ratsad.png" id="4_xcpfj"]
+[ext_resource type="AudioStream" uid="uid://cdwglhv0271po" path="res://Audio/logon.mp3" id="5_8hctd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8hctd"]
 atlas = ExtResource("4_xcpfj")
@@ -27,6 +28,81 @@ animations = [{
 "speed": 2.0
 }]
 
+[sub_resource type="Animation" id="Animation_fi8hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nwmm8"]
+resource_name = "buttonpress"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_change_to_main_menu"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hctd"]
+_data = {
+&"RESET": SubResource("Animation_fi8hb"),
+&"buttonpress": SubResource("Animation_nwmm8")
+}
+
 [node name="EndingA" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -35,6 +111,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vk37s")
+metadata/_edit_lock_ = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -101,5 +178,18 @@ horizontal_alignment = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(581, 364)
 sprite_frames = SubResource("SpriteFrames_nwmm8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8hctd")
+}
+
+[node name="ButtonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8hctd")
+pitch_scale = 0.7
+
+[node name="VictoryAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8hctd")
+pitch_scale = 0.3
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://kqx5r8jgf034" path="res://pixelated images/GrassFloor.png" id="2_pqw7e"]
 [ext_resource type="Texture2D" uid="uid://daibmhv2gfnuw" path="res://pixelated images/SkywithClouds.png" id="3_hq757"]
 [ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="6_m7qvm"]
-[ext_resource type="AudioStream" uid="uid://b3ospxcf2tyw6" path="res://Audio/bgmm.mp3" id="10_dt0da"]
+[ext_resource type="AudioStream" uid="uid://bqnjg1lmmuxhu" path="res://Audio/MenuMusic.mp3" id="10_pjir5"]
 [ext_resource type="AudioStream" uid="uid://cdwglhv0271po" path="res://Audio/logon.mp3" id="11_pqw7e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xc76"]
@@ -935,9 +935,9 @@ color = Color(0, 0, 0, 1)
 clip_children = 2
 layout_mode = 0
 offset_left = 56.0
-offset_top = 83.2438
+offset_top = 81.0
 offset_right = 1098.0
-offset_bottom = 83.2438
+offset_bottom = 81.0
 pivot_offset = Vector2(-376.972, 381.994)
 
 [node name="GrassFloor" type="Sprite2D" parent="Guy"]
@@ -1121,7 +1121,7 @@ text = "Herald of the Tower"
 horizontal_alignment = 1
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_dt0da")
+stream = ExtResource("10_pjir5")
 
 [node name="ReadySound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_pqw7e")

@@ -13,7 +13,13 @@ class_name PlayerBody
 
 @export var spawnPointHolder: Node2D
 
+#STEPS
+@onready var step_anim: AnimationPlayer = $Steps/StepAnim
+
+
+
 #MOVEMENT VARIABLES
+var step = 0
 var right
 var jump
 const FAST = 300.0
@@ -62,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			jump = true
 		if Input.is_action_pressed("jump"):
+			step_anim.stop()
 			#you might want to make a function to stagger the jump_velocity
 			if(jump):
 				if right:
@@ -81,15 +88,20 @@ func _physics_process(delta: float) -> void:
 		elif  direction: #velocity and animations
 			if direction < 0:
 				anim_mouse.play("walkleft")
+				step_anim.play("step sounds")
 			else:
 				anim_mouse.play("walkright")
+				step_anim.play("step sounds")
 		else:
+			step_anim.stop()
 			if(right):
 				anim_mouse.play("idleright")
+				
 			else:
 				anim_mouse.play("idleleft")
 		
 	else: #not on floor
+		step_anim.stop()
 		if(velocity.y < 0): #going up
 			if(right):
 				anim_mouse.play("fallupright")
@@ -117,7 +129,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	
 	#HEALTH STUFF
-	if Input.is_action_just_pressed("Interact") && hascheese && health < MAX_HEALTH:
+	if Input.is_action_just_pressed("Eat") && hascheese && health < MAX_HEALTH:
 		$OmNom.play()
 		set_health(min(health + 3, MAX_HEALTH))
 		hascheese = false
@@ -178,6 +190,7 @@ func take_damage(value: int):
 	set_health(health - value)
 	if(value != 0):
 		hurt.play()
+		hurt_anim.stop()
 		hurt_anim.play("hurty")
 
 func _on_player_dead() -> void:
@@ -195,3 +208,5 @@ func _find_cheese():
 
 func _eat_cheese():
 	hascheese = true
+
+	

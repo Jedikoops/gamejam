@@ -11,8 +11,8 @@ func _on_body_entered(body: Node2D) -> void:
 		$StaticBody2D.position = Vector2.ZERO
 		$AnimatedSprite2D.play("Punch")
 		body.yeet(300.0)
-		body.yeetX(10000.0)
-		body.take_damage(5)
+		body.yeetX(-20.0)
+		body.take_damage(2)
 		punching = true
 	pass # Replace with function body.
 

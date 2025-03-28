@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://pfjimka5oa74"]
+[gd_scene load_steps=16 format=3 uid="uid://bljsbypv2vq7c"]
 
 [ext_resource type="Script" uid="uid://br16pcq03mh8h" path="res://wall_punch.gd" id="1_qj3wl"]
 [ext_resource type="Texture2D" uid="uid://34iw164vxeg8" path="res://garbage can/WallPunch.png" id="2_ohre8"]

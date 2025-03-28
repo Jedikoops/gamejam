@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://7285cgjxxqbk"]
+[gd_scene load_steps=14 format=3 uid="uid://7285cgjxxqbk"]
 
 [ext_resource type="Script" uid="uid://x8thw5osxxsu" path="res://spawn_point.gd" id="1_hqf7f"]
 [ext_resource type="Texture2D" uid="uid://bb3qr0i2yap0s" path="res://pixelated images/CursorRespawn.png" id="2_llolk"]
+[ext_resource type="AudioStream" uid="uid://guwmg551qd8v" path="res://Audio/Checkpoint.mp3" id="3_llolk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bt32y"]
 size = Vector2(164, 128)
@@ -94,6 +95,10 @@ animation = &"Deactivated"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, 34.5)
 shape = SubResource("RectangleShape2D_hqf7f")
+
+[node name="CheckpointGet" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_llolk")
+pitch_scale = 1.2
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

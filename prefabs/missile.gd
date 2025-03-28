@@ -7,7 +7,6 @@ var exploding = false
 #@onready var lifeSpanTime: float = 
 
 func _ready() -> void:
-	$AudioStreamPlayer2D2.play(RandomNumberGenerator.new().randf() * 24.0)
 	$Timer.start()
 	$AnimatedSprite2D.play("Missile")
 

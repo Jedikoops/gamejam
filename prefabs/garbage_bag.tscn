@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://6muyfejx2agd" path="res://scripts/hurtplayer.gd" id="2_qlpwu"]
 [ext_resource type="Texture2D" uid="uid://da330djd8oj53" path="res://garbage can/GarbageWalk.png" id="3_lf3nw"]
 [ext_resource type="Texture2D" uid="uid://bdehydvkncvnj" path="res://garbage can/GarbageAttackSet.png" id="4_hadwx"]
-[ext_resource type="AudioStream" uid="uid://ptj4k3es8qp4" path="res://bonksf.mp3" id="5_3r5l4"]
 [ext_resource type="Texture2D" uid="uid://ccwsfu5rw8hl8" path="res://garbage can/GarbageIdle.png" id="5_qlpwu"]
+[ext_resource type="AudioStream" uid="uid://c3svxubra2v4e" path="res://Audio/GarbageHit.mp3" id="6_qlpwu"]
 [ext_resource type="Script" uid="uid://betl1i82l8ml7" path="res://scripts/enemy_hurt_component.gd" id="6_vd217"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl8b1"]
@@ -246,7 +246,8 @@ flip_h = true
 shape = SubResource("CircleShape2D_06i16")
 
 [node name="enemy_hurt" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_3r5l4")
+stream = ExtResource("6_qlpwu")
+volume_db = -16.0
 script = ExtResource("6_vd217")
 health = 1
 
