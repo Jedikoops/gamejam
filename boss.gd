@@ -10,7 +10,7 @@ var moveTimer = -1.0
 var targetMove = Vector2.ZERO
 var startMove = Vector2.ZERO
 
-var moveOptions = [Vector2(-250, 0), Vector2(0, 0), Vector2(250, 0)]
+var moveOptions = [Vector2(-500, 0), Vector2(0, 0), Vector2(500, 0)]
 var missilesPerPhase = [2,4,6]
 
 var health = 30.0

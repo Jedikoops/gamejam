@@ -15,6 +15,7 @@ class_name PlayerBody
 
 #STEPS
 @onready var step_anim: AnimationPlayer = $Steps/StepAnim
+@onready var jump_sound: AudioStreamPlayer2D = $Jump
 
 
 
@@ -117,6 +118,7 @@ func _physics_process(delta: float) -> void:
 	#Movement
 	if(is_on_floor()):
 		if(Input.is_action_just_released("jump")):
+			jump_sound.play()
 			velocity.y = jump_velocity
 			jump_velocity = MIN_JUMP
 			

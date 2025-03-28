@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=141 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
 [ext_resource type="Texture2D" uid="uid://b53wln3d42ovs" path="res://pixelated images/voidBackDark.png" id="1_hcge2"]
@@ -49,6 +49,11 @@
 [ext_resource type="Texture2D" uid="uid://0axeowe6kdy0" path="res://garbage can/sodaCan/SodaCanFlying.png" id="45_ve7w2"]
 [ext_resource type="PackedScene" uid="uid://ll6yirwfkw6k" path="res://prefabs/evil.tscn" id="46_42g2a"]
 [ext_resource type="AudioStream" uid="uid://efjdd1bpk6ma" path="res://Audio/LaughGoblinReal.mp3" id="46_s2d64"]
+[ext_resource type="Texture2D" uid="uid://bpuq73amplxaw" path="res://pixelated images/flowers/TallFlowerBlue.png" id="50_oecn5"]
+[ext_resource type="Texture2D" uid="uid://dmlery2hsn7j0" path="res://pixelated images/flowers/FlowerRed.png" id="50_th4b2"]
+[ext_resource type="Texture2D" uid="uid://bq52l1j05rd5y" path="res://pixelated images/flowers/FlowerPurp.png" id="51_oecn5"]
+[ext_resource type="Texture2D" uid="uid://dvxtiebticxk4" path="res://pixelated images/flowers/FlowerBlue.png" id="52_3ty22"]
+[ext_resource type="PackedScene" uid="uid://di2xhmlc33j35" path="res://pixelated images/castledecor/pillar.tscn" id="54_3ty22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -1781,7 +1786,6 @@ collision_layer = 11
 [node name="treer" type="CollisionShape2D" parent="Backgrounds/TreePlatformsA/StaticBody2D"]
 position = Vector2(113, 31)
 rotation = -0.0350505
-scale = Vector2(1, 1)
 shape = SubResource("SegmentShape2D_vjcc5")
 one_way_collision = true
 
@@ -2048,7 +2052,7 @@ position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(-1074, -62)
+position = Vector2(-1090, -137)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 6
 
@@ -2646,7 +2650,7 @@ sprite_frames = ExtResource("11_ohgds")
 animation = &"idle"
 
 [node name="Cheese7" parent="." instance=ExtResource("19_4f3r1")]
-position = Vector2(12843, -6222)
+position = Vector2(12614, -6458)
 
 [node name="Cheese8" parent="." instance=ExtResource("19_4f3r1")]
 position = Vector2(6154, -5900)
@@ -2677,6 +2681,297 @@ position = Vector2(5115, -2060)
 
 [node name="Area2D8" parent="." instance=ExtResource("46_42g2a")]
 position = Vector2(6236, -2057)
+
+[node name="TallFlower" type="Node" parent="."]
+
+[node name="TallFlowerBlue2" type="Sprite2D" parent="TallFlower"]
+material = ExtResource("10_asmem")
+position = Vector2(6587.8, -1409.4)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("50_oecn5")
+
+[node name="TallFlowerBlue" type="Sprite2D" parent="TallFlower"]
+material = ExtResource("10_asmem")
+position = Vector2(5698, -1173)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("50_oecn5")
+
+[node name="Flower" type="Node" parent="."]
+
+[node name="FlowerRed" type="Sprite2D" parent="Flower"]
+position = Vector2(4282, -1090)
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerPurp" type="Sprite2D" parent="Flower"]
+position = Vector2(4711, -1052)
+rotation = -0.254339
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerBlue" type="Sprite2D" parent="Flower"]
+position = Vector2(5736, -1092)
+rotation = -3.01238
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("52_3ty22")
+
+[node name="FlowerPurp2" type="Sprite2D" parent="Flower"]
+position = Vector2(5565, -1067)
+rotation = 0.326331
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerPurp3" type="Sprite2D" parent="Flower"]
+position = Vector2(5283, -1113)
+rotation = -0.149683
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerRed2" type="Sprite2D" parent="Flower"]
+position = Vector2(5005, -1061)
+rotation = 0.191322
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerRed3" type="Sprite2D" parent="Flower"]
+position = Vector2(5451.05, -5777.5)
+rotation = 3.04437
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerPurp4" type="Sprite2D" parent="Flower"]
+position = Vector2(6185.86, -5778.24)
+rotation = 2.79003
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerBlue2" type="Sprite2D" parent="Flower"]
+position = Vector2(5315.06, -5766.94)
+rotation = 0.0319941
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("52_3ty22")
+
+[node name="FlowerPurp5" type="Sprite2D" parent="Flower"]
+position = Vector2(5848.86, -5751.69)
+rotation = -2.91248
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerPurp6" type="Sprite2D" parent="Flower"]
+position = Vector2(6706, -5758)
+rotation = 2.89469
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerRed4" type="Sprite2D" parent="Flower"]
+position = Vector2(6341, -5770)
+rotation = -3.04749
+scale = Vector2(0.31, 0.31)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerRed5" type="Sprite2D" parent="Flower"]
+position = Vector2(4437, -1079)
+rotation = 0.191322
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerRed6" type="Sprite2D" parent="Flower"]
+position = Vector2(4826.5, -5700.95)
+rotation = 3.04437
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerPurp7" type="Sprite2D" parent="Flower"]
+position = Vector2(4648.12, -5800.88)
+rotation = 2.79003
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerPurp8" type="Sprite2D" parent="Flower"]
+position = Vector2(5452, -1934)
+rotation = -0.254339
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerBlue3" type="Sprite2D" parent="Flower"]
+position = Vector2(4789, -1993)
+rotation = -3.01238
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("52_3ty22")
+
+[node name="FlowerPurp9" type="Sprite2D" parent="Flower"]
+position = Vector2(5056, -2010)
+rotation = 0.326331
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerRed7" type="Sprite2D" parent="Flower"]
+position = Vector2(6490, -1986)
+rotation = 0.191322
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerBlue4" type="Sprite2D" parent="Flower"]
+position = Vector2(5949.69, -1904.31)
+rotation = -3.01238
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("52_3ty22")
+
+[node name="FlowerPurp10" type="Sprite2D" parent="Flower"]
+position = Vector2(6705, -1990)
+rotation = 0.326331
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerRed8" type="Sprite2D" parent="Flower"]
+position = Vector2(4595, -1984)
+rotation = 0.191322
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerPurp11" type="Sprite2D" parent="Flower"]
+position = Vector2(3627.43, 11.5059)
+rotation = 0.326331
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerRed9" type="Sprite2D" parent="Flower"]
+position = Vector2(5061.43, 35.5068)
+rotation = 0.191322
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerPurp12" type="Sprite2D" parent="Flower"]
+position = Vector2(5276.43, 31.5059)
+rotation = 0.326331
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerRed10" type="Sprite2D" parent="Flower"]
+position = Vector2(3166.43, 37.5066)
+rotation = 0.191322
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerRed11" type="Sprite2D" parent="Flower"]
+position = Vector2(4239, -1823)
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("50_th4b2")
+
+[node name="FlowerPurp13" type="Sprite2D" parent="Flower"]
+position = Vector2(3796, -1495)
+rotation = -0.254339
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("51_oecn5")
+
+[node name="FlowerBlue5" type="Sprite2D" parent="Flower"]
+position = Vector2(6338, -642)
+rotation = -3.01238
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("52_3ty22")
+
+[node name="FlowerPurp14" type="Sprite2D" parent="Flower"]
+position = Vector2(6325, -971)
+rotation = 0.326331
+scale = Vector2(0.339, 0.339)
+texture = ExtResource("51_oecn5")
+
+[node name="PillarsAndSaws" type="Node" parent="."]
+
+[node name="Pillar" parent="PillarsAndSaws" instance=ExtResource("54_3ty22")]
+position = Vector2(12621, -6267)
+
+[node name="Pillar2" parent="PillarsAndSaws" instance=ExtResource("54_3ty22")]
+position = Vector2(11781, -6266)
+
+[node name="SawBlade" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12474, -6160)
+
+[node name="SawBlade2" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12532, -6160)
+
+[node name="SawBlade3" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12355, -6160)
+
+[node name="SawBlade4" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12412, -6159)
+
+[node name="SawBlade5" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12225, -6181)
+rotation = -0.443758
+
+[node name="SawBlade6" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12313, -6189)
+rotation = 0.449493
+
+[node name="SawBlade7" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12121, -6160)
+
+[node name="SawBlade8" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12179, -6160)
+
+[node name="SawBlade9" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12002, -6160)
+
+[node name="SawBlade10" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(12059, -6159)
+
+[node name="SawBlade11" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(11886, -6161)
+
+[node name="SawBlade12" parent="PillarsAndSaws" instance=ExtResource("30_g8y3r")]
+position = Vector2(11944, -6160)
+
+[node name="Pillar3" parent="PillarsAndSaws" instance=ExtResource("54_3ty22")]
+position = Vector2(12274, -6267)
+
+[node name="Pillar" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(10112, -3779)
+
+[node name="Pillar2" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(11589, -3768)
+
+[node name="Pillar3" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(9593, -2186)
+
+[node name="Pillar4" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(11848, -2185)
+
+[node name="Pillar5" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(12226, -2184)
+
+[node name="Pillar6" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(12579, -2184)
+
+[node name="Pillar7" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(12944, -2184)
+
+[node name="Pillar8" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(13346, -2183)
+
+[node name="Pillar9" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(11135, -3779)
+
+[node name="Pillar10" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(9534, -3780)
+
+[node name="Pillar11" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(9721, -6268)
+
+[node name="Pillar12" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(9226, -6267)
+
+[node name="Pillar13" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(8700, -6267)
+
+[node name="Pillar14" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(1240, -116)
+
+[node name="Pillar15" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(1917, -115)
+
+[node name="Pillar16" parent="." instance=ExtResource("54_3ty22")]
+position = Vector2(2823, -109)
 
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]
