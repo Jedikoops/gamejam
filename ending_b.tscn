@@ -1,0 +1,213 @@
+[gd_scene load_steps=19 format=3 uid="uid://y4gx8owswrej"]
+
+[ext_resource type="Script" uid="uid://b5psdmmvr5m25" path="res://ending_a.gd" id="1_lqrho"]
+[ext_resource type="Texture2D" uid="uid://cpv4vh7cvohuj" path="res://pixelated images/IslandSections/IslandMiddleSection.png" id="2_olpev"]
+[ext_resource type="Texture2D" uid="uid://cmyv47qqnb55p" path="res://pixelated images/IslandSections/IslandEdgeRight.png" id="3_jc3o8"]
+[ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="3_olpev"]
+[ext_resource type="Texture2D" uid="uid://pyktfh0rxclb" path="res://pixelated images/IslandSections/IslandEdgeLeft.png" id="4_7fkxr"]
+[ext_resource type="Texture2D" uid="uid://dk3kpbvcmw067" path="res://mousey/rathappi.png" id="4_lqrho"]
+[ext_resource type="Material" uid="uid://bfo2yrcnp52ib" path="res://npcs/waveyshader.tres" id="5_7fkxr"]
+[ext_resource type="Texture2D" uid="uid://dsd8ky6i2lebu" path="res://pixelated images/TreePlatformsA.png" id="6_w106x"]
+[ext_resource type="Texture2D" uid="uid://xh3v8ch01piu" path="res://pixelated images/Cheese2.png" id="9_w106x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy85g"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olpev"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3o8"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fkxr"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w106x"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45smp"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6xws"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vq4f8"]
+atlas = ExtResource("4_lqrho")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fwxg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy85g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olpev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc3o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fkxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w106x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45smp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6xws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vq4f8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="EndingB" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lqrho")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -10.0
+offset_right = 1159.0
+offset_bottom = 657.0
+color = Color(0, 0.956863, 1, 1)
+
+[node name="IslandFieldG" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -0.205729
+anchor_top = -0.0416667
+anchor_right = -0.205729
+anchor_bottom = -0.0416667
+offset_left = 566.0
+offset_top = 402.0
+offset_right = 606.0
+offset_bottom = 442.0
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="IslandMiddleFields" type="TextureRect" parent="IslandFieldG"]
+clip_children = 2
+layout_mode = 0
+offset_top = 1.0
+offset_right = 512.0
+offset_bottom = 513.0
+texture = ExtResource("2_olpev")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields2" type="TextureRect" parent="IslandFieldG"]
+clip_children = 2
+layout_mode = 0
+offset_left = 510.0
+offset_top = 5.0
+offset_right = 1022.0
+offset_bottom = 517.0
+texture = ExtResource("3_jc3o8")
+stretch_mode = 1
+metadata/_edit_group_ = true
+
+[node name="IslandMiddleFields3" type="TextureRect" parent="IslandFieldG"]
+clip_children = 2
+layout_mode = 0
+offset_left = -511.0
+offset_top = 4.0
+offset_right = 1.0
+offset_bottom = 516.0
+texture = ExtResource("4_7fkxr")
+stretch_mode = 1
+
+[node name="TreePlatformsA" type="Sprite2D" parent="."]
+material = ExtResource("5_7fkxr")
+position = Vector2(263, 238)
+texture = ExtResource("6_w106x")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -406.0
+offset_top = 16.0
+offset_right = 406.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_olpev")
+theme_override_font_sizes/font_size = 66
+text = "Cheese has been acquired"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 521.0
+offset_top = 489.0
+offset_right = 873.0
+offset_bottom = 635.0
+scale = Vector2(0.378171, 0.378171)
+theme_override_fonts/font = ExtResource("3_olpev")
+theme_override_font_sizes/font_size = 66
+text = "Replay"
+
+[node name="Label" type="Label" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -29.5
+offset_right = 77.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_olpev")
+theme_override_font_sizes/font_size = 66
+text = "Replay"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(566, 402)
+sprite_frames = SubResource("SpriteFrames_1fwxg")
+
+[node name="Cheese6" type="Sprite2D" parent="."]
+position = Vector2(925, 436)
+texture = ExtResource("9_w106x")
+
+[node name="Cheese2" type="Sprite2D" parent="."]
+position = Vector2(838, 445)
+texture = ExtResource("9_w106x")
+
+[node name="Cheese3" type="Sprite2D" parent="."]
+position = Vector2(853, 405)
+texture = ExtResource("9_w106x")
+
+[node name="Cheese4" type="Sprite2D" parent="."]
+position = Vector2(831, 364)
+texture = ExtResource("9_w106x")
+
+[node name="Cheese5" type="Sprite2D" parent="."]
+position = Vector2(958, 426)
+rotation = 0.937622
+texture = ExtResource("9_w106x")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

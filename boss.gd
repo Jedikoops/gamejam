@@ -17,6 +17,7 @@ var health = 30.0
 var phase = 1
 
 func _ready() -> void:
+	$BossHitBox/DeathExplosion.visible = false
 	get_parent().setHealthbar(100)
 	$BossHitBox/AnimatedSprite2D.play("default")
 	$MissileTimer.start()
@@ -43,6 +44,9 @@ func _hurt(damage):
 		phase = 2
 
 func deathProtocol():
+	$DeathTimer.start()
+	$BossHitBox/DeathExplosion.visible = true
+	$BossHitBox/DeathExplosion.play("default")
 	$MoveTimer.stop()
 	$MissileTimer.stop()
 	$IndividualMissileTimer.stop()
@@ -69,4 +73,8 @@ func _on_individual_missile_timer_timeout() -> void:
 	newMissle.position = $BossHitBox.position
 	add_child(newMissle)
 	missilesToShoot -= 1
+	pass # Replace with function body.
+
+func _on_death_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://ending_b.tscn")
 	pass # Replace with function body.

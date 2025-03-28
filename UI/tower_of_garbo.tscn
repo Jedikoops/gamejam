@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=116 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
 [ext_resource type="Texture2D" uid="uid://b53wln3d42ovs" path="res://pixelated images/voidBackDark.png" id="1_hcge2"]
@@ -366,8 +366,11 @@ size = Vector2(1013, 94)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfben"]
 size = Vector2(1009, 94)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tj57"]
+size = Vector2(192, 6552)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bwmo"]
-size = Vector2(13034, 4699)
+size = Vector2(19126, 4699)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjcc5"]
 size = Vector2(1032, 313)
@@ -1735,6 +1738,10 @@ shape = SubResource("RectangleShape2D_f0vg7")
 position = Vector2(11301.5, -3636)
 shape = SubResource("RectangleShape2D_rfben")
 
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="Map Terrain"]
+position = Vector2(14173, -5361)
+shape = SubResource("RectangleShape2D_6tj57")
+
 [node name="SpawnPointHolder" parent="." instance=ExtResource("6_dcify")]
 position = Vector2(-785, -47)
 
@@ -1765,7 +1772,7 @@ openKey = "MainEntrance"
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
 position = Vector2(5454, -6164)
 spawnPointHolder = NodePath("../SpawnPointHolder")
-MAX_HEALTH = 10
+MAX_HEALTH = 6
 
 [node name="OutofBoundsKillBox" type="Area2D" parent="."]
 position = Vector2(1457, 986)
@@ -1775,7 +1782,7 @@ metadata/_custom_type_script = "uid://6muyfejx2agd"
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutofBoundsKillBox"]
-position = Vector2(2205, 1979.5)
+position = Vector2(5251, 1979.5)
 shape = SubResource("RectangleShape2D_4bwmo")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OutofBoundsKillBox"]
