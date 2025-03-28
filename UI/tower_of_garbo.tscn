@@ -682,7 +682,7 @@ texture = ExtResource("2_kayiq")
 stretch_mode = 1
 
 [node name="DirtUnderFloor" type="TextureRect" parent="Backgrounds"]
-offset_left = 803.0
+offset_left = 794.0
 offset_top = 54.0
 offset_right = 8628.0
 offset_bottom = 575.0
@@ -2336,7 +2336,7 @@ position = Vector2(5999, -323)
 rotation = 1.5708
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 803.0
+offset_left = 793.0
 offset_top = 18.0
 offset_right = 9303.0
 offset_bottom = 616.0
