@@ -1,6 +1,7 @@
-[gd_scene load_steps=112 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=115 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
+[ext_resource type="Texture2D" uid="uid://b53wln3d42ovs" path="res://pixelated images/voidBackDark.png" id="1_hcge2"]
 [ext_resource type="PackedScene" uid="uid://cmq5bq7ordgjr" path="res://UI/ui.tscn" id="1_sqn0o"]
 [ext_resource type="PackedScene" uid="uid://dtl24o8voaudq" path="res://UI/dialogue_player.tscn" id="2_aykru"]
 [ext_resource type="Texture2D" uid="uid://bhj4j3f3cdgiu" path="res://Non-pixelated images/dirt.jpg" id="2_bkxtt"]
@@ -42,6 +43,7 @@
 [ext_resource type="Script" uid="uid://3yculrljy8u" path="res://UI/bossfight_handler.gd" id="40_8javk"]
 [ext_resource type="PackedScene" uid="uid://b8gke62ydhsvf" path="res://prefabs/boss.tscn" id="40_f0vg7"]
 [ext_resource type="PackedScene" uid="uid://iy6txos2bb7b" path="res://prefabs/boss_health.tscn" id="42_mte5q"]
+[ext_resource type="PackedScene" uid="uid://340wgblxu1io" path="res://prefabs/portal.tscn" id="44_hcge2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohgds"]
 atlas = ExtResource("6_t1wed")
@@ -278,12 +280,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
-size = Vector2(136, 136)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohgds"]
-size = Vector2(166, 149)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4f3r1"]
 size = Vector2(265, 36)
 
@@ -376,6 +372,9 @@ size = Vector2(13034, 4699)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vjcc5"]
 size = Vector2(1032, 313)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1t5y"]
+size = Vector2(4112, 107)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bqw2d"]
 size = Vector2(2591, 445)
 
@@ -385,17 +384,29 @@ size = Vector2(262, 164)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q78fp"]
 size = Vector2(260, 152)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e25tj"]
+size = Vector2(136, 136)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohgds"]
+size = Vector2(166, 149)
+
 [node name="TowerOfGarbo" type="Node2D"]
 
 [node name="Backgrounds" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="Backgrounds"]
+offset_left = -8232.0
+offset_top = -13127.0
+offset_right = 24227.0
+offset_bottom = 6774.0
+texture = ExtResource("1_hcge2")
+stretch_mode = 1
 
 [node name="ColorRect2" type="ColorRect" parent="Backgrounds"]
-offset_left = 1932.0
-offset_top = -9510.0
-offset_right = 9738.0
-offset_bottom = 344.0
+offset_left = 833.0
+offset_top = -9638.0
+offset_right = 8639.0
+offset_bottom = 216.0
 color = Color(0, 0.956863, 1, 1)
 
 [node name="FloorOutside" type="TextureRect" parent="Backgrounds"]
@@ -439,6 +450,16 @@ position = Vector2(4244, -447)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
 frame_progress = 0.182081
 
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Backgrounds/The Sky2/AnimatedSprite2D2"]
+position = Vector2(-1536, 0)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Backgrounds/The Sky2/AnimatedSprite2D2"]
+position = Vector2(-2304, 0)
+sprite_frames = SubResource("SpriteFrames_vjcc5")
+frame_progress = 0.182081
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Backgrounds/The Sky2"]
 position = Vector2(3476, -447)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
@@ -466,7 +487,7 @@ sprite_frames = SubResource("SpriteFrames_vjcc5")
 frame_progress = 0.182081
 
 [node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Backgrounds/The Sky2"]
-position = Vector2(3425.5, -1497)
+position = Vector2(3426, -1497)
 scale = Vector2(1.13151, 1)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
 frame_progress = 0.182081
@@ -495,8 +516,6 @@ frame_progress = 0.182081
 position = Vector2(5939, -917)
 sprite_frames = SubResource("SpriteFrames_vjcc5")
 frame_progress = 0.182081
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Backgrounds/The Sky2"]
 position = Vector2(5171, -917)
@@ -1574,33 +1593,6 @@ scale = Vector2(-0.189728, 0.203929)
 sprite_frames = SubResource("SpriteFrames_rfben")
 animation = &"default"
 
-[node name="DialogueArea" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
-position = Vector2(212, -49)
-dialogueKey = "susBoi Entrance"
-textFinishTriggerKey = "MainEntrance"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea" index="0"]
-shape = SubResource("RectangleShape2D_e25tj")
-
-[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea" index="1"]
-sprite_frames = ExtResource("11_ohgds")
-animation = &"idle"
-
-[node name="DialogueArea2" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
-position = Vector2(5301, -76)
-dialogueKey = "susBoi Fields"
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea2" index="0"]
-position = Vector2(0, 21.5)
-shape = SubResource("RectangleShape2D_ohgds")
-
-[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea2" index="1"]
-position = Vector2(0, 13)
-sprite_frames = ExtResource("11_ohgds")
-animation = &"idle"
-
 [node name="Cheese" parent="." instance=ExtResource("19_4f3r1")]
 position = Vector2(4137, -1568)
 
@@ -1758,6 +1750,12 @@ position = Vector2(3314, 5)
 [node name="SpawnPoint2" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
 position = Vector2(7191, -1002)
 
+[node name="SpawnPoint5" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
+position = Vector2(8160, -6151)
+
+[node name="SpawnPoint6" parent="SpawnPointHolder" instance=ExtResource("7_1i7vl")]
+position = Vector2(13001, -5405)
+
 [node name="DoorHolder" type="Node2D" parent="."]
 
 [node name="MainEntrance" parent="DoorHolder" instance=ExtResource("6_e25tj")]
@@ -1783,6 +1781,10 @@ shape = SubResource("RectangleShape2D_4bwmo")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="OutofBoundsKillBox"]
 position = Vector2(5928, -2591.5)
 shape = SubResource("RectangleShape2D_vjcc5")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="OutofBoundsKillBox"]
+position = Vector2(4109, -6369.5)
+shape = SubResource("RectangleShape2D_s1t5y")
 
 [node name="GarbageBag2" parent="." instance=ExtResource("15_kayiq")]
 position = Vector2(2088, -126)
@@ -1987,6 +1989,24 @@ points = PackedVector2Array(7926, -2139, 9090, -2155)
 
 [node name="Sprite2D" parent="GarbageBag13" index="2"]
 animation = &"jumpgetup"
+
+[node name="GarbageBag26" parent="." instance=ExtResource("36_vjcc5")]
+position = Vector2(10900, -6246)
+SPEED = 300
+JUMP_HEIGHT = 200
+JUMP_DISTANCE = 600
+
+[node name="Line2D" parent="GarbageBag26" index="1"]
+points = PackedVector2Array(10788, -6359, 12021, -6386)
+
+[node name="GarbageBag27" parent="." instance=ExtResource("36_vjcc5")]
+position = Vector2(11107, -6292)
+SPEED = 300
+JUMP_HEIGHT = 200
+JUMP_DISTANCE = 600
+
+[node name="Line2D" parent="GarbageBag27" index="1"]
+points = PackedVector2Array(10421, -6504, 11811, -6569)
 
 [node name="GarbageBag11" parent="." instance=ExtResource("36_vjcc5")]
 position = Vector2(10253, -2182)
@@ -2238,6 +2258,9 @@ position = Vector2(8195, -6326)
 [node name="CANnon14" parent="." instance=ExtResource("28_bson8")]
 position = Vector2(8001, -6257)
 
+[node name="Cheese6" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(12536, -5465)
+
 [node name="Door" parent="." instance=ExtResource("6_e25tj")]
 position = Vector2(7739, -6395)
 openKey = "FINAL_BOSS"
@@ -2246,6 +2269,7 @@ openKey = "FINAL_BOSS"
 position = Vector2(5532, -5999)
 script = ExtResource("40_8javk")
 boss = ExtResource("40_f0vg7")
+portal = ExtResource("44_hcge2")
 
 [node name="FirstDialogue" parent="BossfightHandler" instance=ExtResource("3_ag1ip")]
 position = Vector2(-1, 100)
@@ -2273,6 +2297,42 @@ animation = &"idle"
 
 [node name="BossHealth" parent="BossfightHandler" instance=ExtResource("42_mte5q")]
 
+[node name="FirstEncounter" parent="BossfightHandler" instance=ExtResource("3_ag1ip")]
+position = Vector2(-5302, 5953)
+dialogueKey = "susBoi Entrance"
+textFinishTriggerKey = "MainEntrance"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="BossfightHandler/FirstEncounter" index="0"]
+shape = SubResource("RectangleShape2D_e25tj")
+
+[node name="AnimatedSprite2D" parent="BossfightHandler/FirstEncounter" index="1"]
+sprite_frames = ExtResource("11_ohgds")
+animation = &"idle"
+
+[node name="SecondEncounter" parent="BossfightHandler" instance=ExtResource("3_ag1ip")]
+position = Vector2(-213, 5926)
+dialogueKey = "susBoi Fields"
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" parent="BossfightHandler/SecondEncounter" index="0"]
+position = Vector2(0, 21.5)
+shape = SubResource("RectangleShape2D_ohgds")
+
+[node name="AnimatedSprite2D" parent="BossfightHandler/SecondEncounter" index="1"]
+position = Vector2(0, 13)
+sprite_frames = ExtResource("11_ohgds")
+animation = &"idle"
+
+[node name="Cheese7" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(12843, -6222)
+
+[node name="Cheese8" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(6154, -5900)
+
+[node name="Cheese9" parent="." instance=ExtResource("19_4f3r1")]
+position = Vector2(4845, -5904)
+
 [connection signal="body_entered" from="OutofBoundsKillBox" to="OutofBoundsKillBox" method="_on_body_entered"]
 [connection signal="pressed" from="Button" to="CANnon" method="death"]
 [connection signal="pressed" from="Button2" to="CANnon2" method="death"]
@@ -2290,8 +2350,6 @@ animation = &"idle"
 
 [editable path="DialogueAreas/DialogueArea4"]
 [editable path="DialogueAreas/DialogueArea3"]
-[editable path="DialogueAreas/DialogueArea"]
-[editable path="DialogueAreas/DialogueArea2"]
 [editable path="GarbageBag2"]
 [editable path="GarbageBag3"]
 [editable path="GarbageBag"]
@@ -2312,6 +2370,8 @@ animation = &"idle"
 [editable path="GarbageBag9"]
 [editable path="GarbageBag10"]
 [editable path="GarbageBag13"]
+[editable path="GarbageBag26"]
+[editable path="GarbageBag27"]
 [editable path="GarbageBag11"]
 [editable path="GarbageBag12"]
 [editable path="Button9"]
@@ -2329,3 +2389,5 @@ animation = &"idle"
 [editable path="GarbageBag25"]
 [editable path="BossfightHandler/FirstDialogue"]
 [editable path="BossfightHandler/SecondDialogue"]
+[editable path="BossfightHandler/FirstEncounter"]
+[editable path="BossfightHandler/SecondEncounter"]

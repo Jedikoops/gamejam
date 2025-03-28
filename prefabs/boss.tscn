@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8gke62ydhsvf"]
+[gd_scene load_steps=13 format=3 uid="uid://b8gke62ydhsvf"]
 
 [ext_resource type="Script" uid="uid://dc4g2svntt4da" path="res://boss.gd" id="1_s2rfe"]
 [ext_resource type="PackedScene" uid="uid://bqo8gq2r5spg2" path="res://prefabs/missile.tscn" id="2_ktg0e"]
@@ -44,6 +44,12 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfepy"]
+size = Vector2(64, 358)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyv5m"]
+size = Vector2(46, 344)
+
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_s2rfe")
 missileScene = ExtResource("2_ktg0e")
@@ -68,6 +74,16 @@ wait_time = 3.0
 
 [node name="IndividualMissileTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1022, 0)
+shape = SubResource("RectangleShape2D_cfepy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-987, 0)
+shape = SubResource("RectangleShape2D_cyv5m")
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="MissileTimer" to="." method="_on_missile_timer_timeout"]

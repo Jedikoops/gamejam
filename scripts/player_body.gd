@@ -119,7 +119,7 @@ func _physics_process(delta: float) -> void:
 	#HEALTH STUFF
 	if Input.is_action_just_pressed("Interact") && hascheese && health < MAX_HEALTH:
 		$OmNom.play()
-		set_health(health + 1)
+		set_health(min(health + 3, MAX_HEALTH))
 		hascheese = false
 				
 	if direction: #velocity and animations

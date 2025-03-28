@@ -57,10 +57,12 @@ func _on_move_timer_timeout() -> void:
 func _on_missile_timer_timeout() -> void:
 	missilesToShoot = missilesPerPhase[phase - 1]
 	$IndividualMissileTimer.start()
+	$MissileTimer.stop()
 	pass # Replace with function body.
 
 func _on_individual_missile_timer_timeout() -> void:
 	if missilesToShoot <= 0:
+		$MissileTimer.start()
 		$IndividualMissileTimer.stop()
 		return
 	var newMissle = missileScene.instantiate()

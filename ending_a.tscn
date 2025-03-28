@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=3 uid="uid://yrm0g6b7ngm2"]
+
+[ext_resource type="Script" uid="uid://b5psdmmvr5m25" path="res://ending_a.gd" id="1_vk37s"]
+[ext_resource type="Texture2D" uid="uid://cmh6ol452ucub" path="res://Non-pixelated images/smallerer.PNG" id="2_8hctd"]
+[ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="2_xcpfj"]
+[ext_resource type="Texture2D" uid="uid://bmw4cfhsm41xv" path="res://mousey/RatBoiTSCSadness.png" id="3_8hctd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi8hb"]
+atlas = ExtResource("3_8hctd")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwmm8"]
+atlas = ExtResource("3_8hctd")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1fwxg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi8hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwmm8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="EndingA" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vk37s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -14.0
+offset_top = -10.0
+offset_right = 1159.0
+offset_bottom = 657.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 97.0
+offset_right = 705.0
+offset_bottom = 375.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_8hctd")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -406.0
+offset_top = 16.0
+offset_right = 406.0
+offset_bottom = 75.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_xcpfj")
+theme_override_font_sizes/font_size = 66
+text = "The Cheese was a lie"
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="."]
+clip_contents = true
+offset_left = 521.0
+offset_top = 539.0
+offset_right = 873.0
+offset_bottom = 685.0
+scale = Vector2(0.378171, 0.378171)
+theme_override_fonts/font = ExtResource("2_xcpfj")
+theme_override_font_sizes/font_size = 66
+text = "Replay"
+
+[node name="Label" type="Label" parent="Start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -29.5
+offset_right = 77.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xcpfj")
+theme_override_font_sizes/font_size = 66
+text = "Replay"
+horizontal_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(581, 364)
+sprite_frames = SubResource("SpriteFrames_1fwxg")
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
