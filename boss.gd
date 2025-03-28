@@ -13,10 +13,11 @@ var startMove = Vector2.ZERO
 var moveOptions = [Vector2(-250, 0), Vector2(0, 0), Vector2(250, 0)]
 var missilesPerPhase = [2,4,6]
 
-var health = 30
+var health = 30.0
 var phase = 1
 
 func _ready() -> void:
+	get_parent().setHealthbar(100)
 	$BossHitBox/AnimatedSprite2D.play("default")
 	$MissileTimer.start()
 	$MoveTimer.start()
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 
 func _hurt(damage):
 	health -= damage
+	get_parent().setHealthbar(100*health/30.0)
 	if health <= 0:
 		deathProtocol()
 	elif(health < 10):

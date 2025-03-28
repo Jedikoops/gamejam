@@ -34,14 +34,11 @@
 		"But I do see it down there, so you could just... go get it",
 		"Just go take that lil' wormhole over there, it'll be like a slide."
 	],
-	"susBoi slain":
+	"susBoi startFight":
 	[
-		"OW GOSH DARNIT MY FACE!!",
-		"You think beating me up did anything?!?",
-		"you can't un-stab the garbage bags, you can't un-spill the mess you've made you goofy rat.",
-		"Unless you restart the game- but that's besides the point.",
-		"whatever. I'm just gonna finish dying now.",
-		"* bleeds out *"
+		"Catching on, are we?",
+        "Or maybe you knew from the start. I'm not really subtle, heh.",
+        "Welp, your funeral"
 	],
 	"garbageNPC 1":
 	[

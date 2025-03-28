@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8gke62ydhsvf"]
+[gd_scene load_steps=11 format=3 uid="uid://b8gke62ydhsvf"]
 
 [ext_resource type="Script" uid="uid://dc4g2svntt4da" path="res://boss.gd" id="1_s2rfe"]
 [ext_resource type="PackedScene" uid="uid://bqo8gq2r5spg2" path="res://prefabs/missile.tscn" id="2_ktg0e"]
+[ext_resource type="Script" uid="uid://cjy00slrdvflx" path="res://prefabs/boss_hit_box.gd" id="3_cfepy"]
 [ext_resource type="Texture2D" uid="uid://dgfev8jlmb0gf" path="res://garbage can/SusBoi/SusBoi Boss.png" id="3_jvehu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktg0e"]
-radius = 27.0185
+radius = 68.0661
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cfepy"]
 atlas = ExtResource("3_jvehu")
@@ -48,6 +49,9 @@ script = ExtResource("1_s2rfe")
 missileScene = ExtResource("2_ktg0e")
 
 [node name="BossHitBox" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_cfepy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossHitBox"]
 shape = SubResource("CircleShape2D_ktg0e")

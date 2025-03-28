@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://iy6txos2bb7b"]
+
+[ext_resource type="Texture2D" uid="uid://btdgyjeocplac" path="res://UI/BossOutline.png" id="1_5j4fo"]
+[ext_resource type="Texture2D" uid="uid://mjqj8bofwhfp" path="res://UI/BossFill.png" id="2_k72om"]
+
+[node name="BossHealth" type="CanvasLayer"]
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -130.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+value = 42.0
+texture_over = ExtResource("1_5j4fo")
+texture_progress = ExtResource("2_k72om")
