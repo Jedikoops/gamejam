@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://btpbbon16o8hx"]
+[gd_scene load_steps=128 format=3 uid="uid://btpbbon16o8hx"]
 
 [ext_resource type="Texture2D" uid="uid://c6m2uf1524jkm" path="res://Non-pixelated images/desktop.PNG" id="1_f0vg7"]
 [ext_resource type="Texture2D" uid="uid://b53wln3d42ovs" path="res://pixelated images/voidBackDark.png" id="1_hcge2"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="Texture2D" uid="uid://88kmh0nhllc7" path="res://garbage can/sodaCan/SodaCanIdle.png" id="24_3osep"]
 [ext_resource type="Texture2D" uid="uid://d0ux707gjx3kl" path="res://pixelated images/Sign.png" id="25_2h62g"]
+[ext_resource type="Texture2D" uid="uid://dx7mxqbns4isd" path="res://garbage can/GarbageCivIdle.png" id="26_o3ek2"]
 [ext_resource type="PackedScene" uid="uid://d2svtumcoa3e" path="res://prefabs/ca_nnon.tscn" id="28_bson8"]
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
 [ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
@@ -235,6 +236,77 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roau7"]
+size = Vector2(194, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xcx3"]
+atlas = ExtResource("25_2h62g")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbmwc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xcx3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cmgu"]
+size = Vector2(270, 228)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_roau7"]
+atlas = ExtResource("26_o3ek2")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuy65"]
+atlas = ExtResource("26_o3ek2")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05qt5"]
+atlas = ExtResource("26_o3ek2")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuxlq"]
+atlas = ExtResource("26_o3ek2")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flpv0"]
+atlas = ExtResource("26_o3ek2")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffc7i"]
+atlas = ExtResource("26_o3ek2")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5xcx3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_roau7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuy65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05qt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuxlq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flpv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffc7i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oecn5"]
@@ -1568,6 +1640,33 @@ sceneTextFile = "res://DialogueSystem/Dialogues/towerDialogue.json"
 
 [node name="DialogueAreas" type="Node2D" parent="."]
 
+[node name="DialogueArea2" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
+position = Vector2(-405, -52)
+dialogueKey = "tutorialSign 1"
+
+[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea2" index="0"]
+position = Vector2(-6, 0)
+shape = SubResource("RectangleShape2D_roau7")
+
+[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea2" index="1"]
+position = Vector2(-5, 31)
+sprite_frames = SubResource("SpriteFrames_nbmwc")
+animation = &"default"
+
+[node name="DialogueArea" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
+position = Vector2(13837, -2155)
+dialogueKey = "garbageNPC 1"
+
+[node name="CollisionShape2D" parent="DialogueAreas/DialogueArea" index="0"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_4cmgu")
+
+[node name="AnimatedSprite2D" parent="DialogueAreas/DialogueArea" index="1"]
+position = Vector2(1, 53)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_5xcx3")
+animation = &"default"
+
 [node name="DialogueArea4" parent="DialogueAreas" instance=ExtResource("3_ag1ip")]
 position = Vector2(10195, -6163)
 dialogueKey = "SignForDoor"
@@ -1770,7 +1869,7 @@ position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(5454, -6164)
+position = Vector2(-935, -243)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 6
 
@@ -2355,6 +2454,8 @@ position = Vector2(4845, -5904)
 [connection signal="pressed" from="Button8" to="CANnon14" method="death"]
 [connection signal="pressed" from="Button9" to="CANnon5" method="death"]
 
+[editable path="DialogueAreas/DialogueArea2"]
+[editable path="DialogueAreas/DialogueArea"]
 [editable path="DialogueAreas/DialogueArea4"]
 [editable path="DialogueAreas/DialogueArea3"]
 [editable path="GarbageBag2"]

@@ -1,7 +1,11 @@
 {
 	"tutorialSign 1":
 	[
-		"placeHolder"
+		"Use A and D to move, and left click to attack",
+        "Use W to charge your jump, then release to actually jump",
+        "If you have cheese on your stick and your cheese meter is less than full, you can eat the stick cheese using E",
+        "Some people in the tower can be talked to! just walk up to them nd press E",
+        "Well, that's all. I think that sus boi over there wants to talk to you"
 	],
 	"tutorialSign 2":
 	[
@@ -15,7 +19,7 @@
 	[
 		"Why hello there RGB Rat!",
 		"I don't suppose you'd be interested in helping me clean up the tower's garbage, would you?",
-		"Better yet, at the top of the tower, there's a really big block of cheese.",
+		"Better yet, at the top of the tower, there's a whole lotta cheese wheels.",
 		"We're going to the moon, not because it is easy, but because it is cheese.",
 		"Right, well, on you go."
 	],
