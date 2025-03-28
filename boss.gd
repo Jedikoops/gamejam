@@ -34,16 +34,18 @@ func _process(delta: float) -> void:
 		$MoveTimer.start()
 
 func _hurt(damage):
-	health -= damage
-	get_parent().setHealthbar(100*health/30.0)
-	if health <= 0:
-		deathProtocol()
-	elif(health < 10):
-		phase = 3
-	elif(health < 20):
-		phase = 2
+	if health > 0:
+		health -= damage
+		get_parent().setHealthbar(100*health/30.0)
+		if health <= 0:
+			deathProtocol()
+		elif(health < 10):
+			phase = 3
+		elif(health < 20):
+			phase = 2
 
 func deathProtocol():
+	$Dying.play()
 	$DeathTimer.start()
 	$BossHitBox/DeathExplosion.visible = true
 	$BossHitBox/DeathExplosion.play("default")

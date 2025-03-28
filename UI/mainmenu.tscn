@@ -689,7 +689,7 @@ tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(2),
+"times": PackedFloat32Array(1.96667),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -935,9 +935,9 @@ color = Color(0, 0, 0, 1)
 clip_children = 2
 layout_mode = 0
 offset_left = 56.0
-offset_top = 81.0
+offset_top = 83.2438
 offset_right = 1098.0
-offset_bottom = 81.0
+offset_bottom = 83.2438
 pivot_offset = Vector2(-376.972, 381.994)
 
 [node name="GrassFloor" type="Sprite2D" parent="Guy"]
@@ -1127,5 +1127,9 @@ stream = ExtResource("10_dt0da")
 stream = ExtResource("11_pqw7e")
 volume_db = -4.0
 
+[node name="StartGameTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="pressed" from="Ready" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="timeout" from="StartGameTimer" to="." method="_on_start_game_timer_timeout"]

@@ -1869,7 +1869,7 @@ position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(-935, -243)
+position = Vector2(7359, -6446)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 6
 
@@ -2381,6 +2381,7 @@ portal = ExtResource("44_hcge2")
 position = Vector2(-1, 100)
 dialogueKey = "susBoi bossFightStart"
 textFinishTriggerKey = "OpenPortal"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" parent="BossfightHandler/FirstDialogue" index="0"]
 shape = SubResource("RectangleShape2D_o1dmy")

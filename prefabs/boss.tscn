@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b8gke62ydhsvf"]
+[gd_scene load_steps=19 format=3 uid="uid://b8gke62ydhsvf"]
 
 [ext_resource type="Script" uid="uid://dc4g2svntt4da" path="res://boss.gd" id="1_s2rfe"]
 [ext_resource type="PackedScene" uid="uid://bqo8gq2r5spg2" path="res://prefabs/missile.tscn" id="2_ktg0e"]
 [ext_resource type="Script" uid="uid://cjy00slrdvflx" path="res://prefabs/boss_hit_box.gd" id="3_cfepy"]
 [ext_resource type="Texture2D" uid="uid://dgfev8jlmb0gf" path="res://garbage can/SusBoi/SusBoi Boss.png" id="3_jvehu"]
 [ext_resource type="Texture2D" uid="uid://b62akso3ovykj" path="res://pixelated images/Explosion.png" id="5_cyv5m"]
+[ext_resource type="AudioStream" uid="uid://b4wxipiuei0rc" path="res://Audio/SusboiDying.mp3" id="6_bfjcr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ktg0e"]
 radius = 68.0661
@@ -121,6 +122,9 @@ shape = SubResource("RectangleShape2D_cyv5m")
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="Dying" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_bfjcr")
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="MissileTimer" to="." method="_on_missile_timer_timeout"]

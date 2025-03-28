@@ -18,7 +18,13 @@ func _on_button_pressed() -> void:
 
 
 func _on_start_pressed() -> void:
+	#$StartGameTimer.start()
 	animation_player_2.play("play_oneshot")
 
 func _change_scene():
 	get_tree().change_scene_to_file("res://UI/tower_of_garbo.tscn")
+
+
+func _on_start_game_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://UI/tower_of_garbo.tscn")
+	pass # Replace with function body.

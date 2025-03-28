@@ -7,6 +7,7 @@ var exploding = false
 #@onready var lifeSpanTime: float = 
 
 func _ready() -> void:
+	$AudioStreamPlayer2D2.play(RandomNumberGenerator.new().randf() * 24.0)
 	$Timer.start()
 	$AnimatedSprite2D.play("Missile")
 
@@ -21,6 +22,8 @@ func _process(delta: float) -> void:
 			exploding = true
 			$AnimatedSprite2D.position = Vector2.ZERO
 			$AnimatedSprite2D.play("Kaboomboom")
+			$Kaboomboom.play()
+			$AudioStreamPlayer2D.stop()
 		
 
 func _on_timer_timeout() -> void:

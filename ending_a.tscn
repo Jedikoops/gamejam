@@ -3,24 +3,24 @@
 [ext_resource type="Script" uid="uid://b5psdmmvr5m25" path="res://ending_a.gd" id="1_vk37s"]
 [ext_resource type="Texture2D" uid="uid://cmh6ol452ucub" path="res://Non-pixelated images/smallerer.PNG" id="2_8hctd"]
 [ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="2_xcpfj"]
-[ext_resource type="Texture2D" uid="uid://bmw4cfhsm41xv" path="res://mousey/RatBoiTSCSadness.png" id="3_8hctd"]
+[ext_resource type="Texture2D" uid="uid://dijg65rajh4w6" path="res://mousey/ratsad.png" id="4_xcpfj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fi8hb"]
-atlas = ExtResource("3_8hctd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hctd"]
+atlas = ExtResource("4_xcpfj")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nwmm8"]
-atlas = ExtResource("3_8hctd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi8hb"]
+atlas = ExtResource("4_xcpfj")
 region = Rect2(0, 256, 256, 256)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1fwxg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_nwmm8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fi8hb")
+"texture": SubResource("AtlasTexture_8hctd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nwmm8")
+"texture": SubResource("AtlasTexture_fi8hb")
 }],
 "loop": true,
 "name": &"default",
@@ -70,6 +70,7 @@ horizontal_alignment = 1
 
 [node name="Start" type="Button" parent="."]
 clip_contents = true
+layout_mode = 0
 offset_left = 521.0
 offset_top = 539.0
 offset_right = 873.0
@@ -99,6 +100,6 @@ horizontal_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(581, 364)
-sprite_frames = SubResource("SpriteFrames_1fwxg")
+sprite_frames = SubResource("SpriteFrames_nwmm8")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
