@@ -6,6 +6,8 @@ var thePortal
 @onready var can: Area2D = $DialogueArea
 @onready var can_col: CollisionShape2D = $DialogueArea/CollisionShape2D
 
+var finalBoss = false
+
 func _ready() -> void:
 	SignalBus.connect("openDoor", Callable(self, "openSelf"))
 	$BossHealth/HealthBar.visible = false
@@ -36,4 +38,6 @@ func openSelf(interactableKey):
 		"MainEntrance":
 			$FirstEncounter.queue_free()
 		"FINAL_BOSS":
-			$SecondEncounter.queue_free()
+			if not finalBoss:
+				finalBoss = true
+				$SecondEncounter.queue_free()
