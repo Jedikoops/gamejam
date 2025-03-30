@@ -137,7 +137,10 @@ func _physics_process(delta: float) -> void:
 		hascheese = false
 				
 	if direction: #velocity and animations
-		velocity.x = direction * speed
+		if(is_on_floor()):
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, direction*FAST, FAST*2*delta)
 	else:
 		if(is_on_floor()):
 			velocity.x = move_toward(velocity.x, 0, FAST)

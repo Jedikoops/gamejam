@@ -8,13 +8,14 @@ var moveTime = 5.0
 var moveTimer = -1.0
 
 var targetMove = Vector2.ZERO
-var startMove = Vector2.ZERO
+var startMove = Vector2(0, -50)
 
-var moveOptions = [Vector2(-500, 0), Vector2(0, 0), Vector2(500, 0)]
+var moveOptions = [Vector2(-500, -250), Vector2(0, -50), Vector2(500, -250)]
 var missilesPerPhase = [2,4,6]
 
 var health = 30.0
 var phase = 1
+var movechoice = 1
 
 func _ready() -> void:
 	$BossHitBox/DeathExplosion.visible = false
@@ -69,7 +70,10 @@ func deathProtocol():
 func _on_move_timer_timeout() -> void:
 	moveTimer = moveTime
 	startMove = $BossHitBox.position
-	targetMove = moveOptions[RandomNumberGenerator.new().randi_range(0, 2)]
+	var tempchoice = RandomNumberGenerator.new().randi_range(0, 2)
+	if(tempchoice == movechoice):
+		movechoice = (tempchoice + 1) % moveOptions.size()
+	targetMove = moveOptions[movechoice]
 	$MoveTimer.stop()
 	pass # Replace with function body.
 
