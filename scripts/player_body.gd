@@ -140,7 +140,7 @@ func _physics_process(delta: float) -> void:
 		if(is_on_floor()):
 			velocity.x = direction * speed
 		else:
-			velocity.x = move_toward(velocity.x, direction*FAST, FAST*2*delta)
+			velocity.x = move_toward(velocity.x, direction*FAST, FAST*4*delta)
 	else:
 		if(is_on_floor()):
 			velocity.x = move_toward(velocity.x, 0, FAST)
