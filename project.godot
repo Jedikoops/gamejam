@@ -13,7 +13,7 @@ config_version=5
 config/name="GameJam"
 run/main_scene="uid://c4f31o40jg1k4"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://c5nwdt6ffoeca"
 
 [autoload]
 
