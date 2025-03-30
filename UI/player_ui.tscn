@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://blbl8le5y6s3u"]
+[gd_scene load_steps=8 format=3 uid="uid://blbl8le5y6s3u"]
 
 [ext_resource type="Texture2D" uid="uid://in0u0650kt4f" path="res://UI/CheeseBar.png" id="1_c8xti"]
 [ext_resource type="Script" uid="uid://bycqwwwxlkkuv" path="res://UI/player_ui.gd" id="1_nplvd"]
 [ext_resource type="Texture2D" uid="uid://bu32b3l07o83e" path="res://UI/CheeseBarBack.png" id="2_kwigr"]
+[ext_resource type="FontFile" uid="uid://udssk7f8epyx" path="res://UI/VCR_OSD_MONO_1.001.ttf" id="4_b8q8m"]
 
 [sub_resource type="Animation" id="Animation_b8q8m"]
 length = 0.001
@@ -75,6 +76,10 @@ offset_left = 1011.0
 offset_top = 23.0
 offset_right = 1119.0
 offset_bottom = 85.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_b8q8m")
+theme_override_font_sizes/font_size = 32
 text = "0.00"
 horizontal_alignment = 2
 vertical_alignment = 1

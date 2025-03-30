@@ -29,7 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c6tkpvfd8hc" path="res://pixelated images/hazards/Spikes.png" id="14_63vdt"]
 [ext_resource type="Texture2D" uid="uid://babgkp8fsq2ha" path="res://pixelated images/TreeA.png" id="14_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://cpbsqo6n8skku" path="res://prefabs/garbage_bag.tscn" id="15_kayiq"]
-[ext_resource type="PackedScene" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
+[ext_resource type="PackedScene" uid="uid://rrvorn304a4s" path="res://prefabs/cheese.tscn" id="19_4f3r1"]
 [ext_resource type="Texture2D" uid="uid://c1g70n6621xfp" path="res://pixelated images/StoneHallWallSegmentBigger.png" id="19_il2ep"]
 [ext_resource type="Texture2D" uid="uid://dqc8ni6r8r0e7" path="res://pixelated images/TreeB.png" id="19_pjt1x"]
 [ext_resource type="Texture2D" uid="uid://88kmh0nhllc7" path="res://garbage can/sodaCan/SodaCanIdle.png" id="24_3osep"]
@@ -39,7 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://bdddnsy6wg6ug" path="res://prefabs/saw_blade.tscn" id="30_g8y3r"]
 [ext_resource type="PackedScene" uid="uid://clvbephlar7gr" path="res://prefabs/button.tscn" id="31_bqw2d"]
 [ext_resource type="PackedScene" uid="uid://bgmu5tpileemf" path="res://prefabs/jump_pad.tscn" id="31_wpgxr"]
-[ext_resource type="PackedScene" path="res://prefabs/torch.tscn" id="33_erlid"]
+[ext_resource type="PackedScene" uid="uid://cpaqiermgi6wx" path="res://prefabs/torch.tscn" id="33_erlid"]
 [ext_resource type="PackedScene" uid="uid://bfxsax41ah70i" path="res://prefabs/garbage_bag_SpecOps.tscn" id="36_vjcc5"]
 [ext_resource type="PackedScene" uid="uid://bljsbypv2vq7c" path="res://wall_punch.tscn" id="38_m6x8b"]
 [ext_resource type="Script" uid="uid://3yculrljy8u" path="res://UI/bossfight_handler.gd" id="40_8javk"]
@@ -47,7 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://iy6txos2bb7b" path="res://prefabs/boss_health.tscn" id="42_mte5q"]
 [ext_resource type="PackedScene" uid="uid://340wgblxu1io" path="res://prefabs/portal.tscn" id="44_hcge2"]
 [ext_resource type="Texture2D" uid="uid://0axeowe6kdy0" path="res://garbage can/sodaCan/SodaCanFlying.png" id="45_ve7w2"]
-[ext_resource type="PackedScene" path="res://prefabs/evil.tscn" id="46_42g2a"]
+[ext_resource type="PackedScene" uid="uid://ll6yirwfkw6k" path="res://prefabs/evil.tscn" id="46_42g2a"]
 [ext_resource type="AudioStream" uid="uid://efjdd1bpk6ma" path="res://Audio/LaughGoblinReal.mp3" id="46_s2d64"]
 [ext_resource type="Texture2D" uid="uid://bpuq73amplxaw" path="res://pixelated images/flowers/TallFlowerBlue.png" id="50_oecn5"]
 [ext_resource type="Texture2D" uid="uid://dmlery2hsn7j0" path="res://pixelated images/flowers/FlowerRed.png" id="50_th4b2"]
@@ -2065,7 +2065,7 @@ position = Vector2(869, -235)
 openKey = "MainEntrance"
 
 [node name="PlayerBody" parent="." node_paths=PackedStringArray("spawnPointHolder") instance=ExtResource("3_aykru")]
-position = Vector2(-989, -160)
+position = Vector2(7332, -6448)
 spawnPointHolder = NodePath("../SpawnPointHolder")
 MAX_HEALTH = 6
 

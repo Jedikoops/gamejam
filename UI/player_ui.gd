@@ -11,10 +11,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	timer += delta
-	var minutes = int(timer / 60.0)
-	var seconds = snapped(timer - (minutes * 60.0), 0.01)
-	var newTime = "%d:" % minutes + "%05.2f" % seconds
-
+	var newTime = "%d:" % floor(timer/60.0) + "%05.2f" % snapped(fmod(timer,60), 0.01)
+	
+	Score._set_current_score(timer);
 	$SpeedRunTimer.text = newTime
 	
 
