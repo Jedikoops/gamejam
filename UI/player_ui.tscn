@@ -68,3 +68,13 @@ texture_progress = ExtResource("1_c8xti")
 libraries = {
 &"": SubResource("AnimationLibrary_b8q8m")
 }
+
+[node name="SpeedRunTimer" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1011.0
+offset_top = 23.0
+offset_right = 1119.0
+offset_bottom = 85.0
+text = "0.00"
+horizontal_alignment = 2
+vertical_alignment = 1
